@@ -1,0 +1,6 @@
+{
+  "name": "Speak French with Eva",
+  "description": "A warm, chic, and professional portfolio website for Eva, a French coach helping expat women integrate and speak confidently in France.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
