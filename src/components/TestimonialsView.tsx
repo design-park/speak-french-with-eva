@@ -8,6 +8,47 @@ interface TestimonialsViewProps {
   onCtaClick: () => void;
 }
 
+const ExpandableQuote: React.FC<{ quote: string; quoteEn?: string; limit?: number }> = ({ quote, quoteEn, limit = 160 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showEnglish, setShowEnglish] = useState(false);
+
+  const activeQuote = showEnglish && quoteEn ? quoteEn : quote;
+
+  // Handle truncation
+  const needsTruncation = activeQuote.length > limit;
+  const displayedText = needsTruncation && !isExpanded 
+    ? `${activeQuote.substring(0, limit)}...` 
+    : activeQuote;
+
+  return (
+    <div className="space-y-1.5 text-left">
+      <div>
+        <p className="text-sm text-[#2D2D2D]/80 font-sans leading-relaxed inline">
+          "{displayedText}"
+        </p>
+        {needsTruncation && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-xs font-bold text-[#659287] hover:text-[#527a70] cursor-pointer hover:underline focus:outline-none ml-1 inline"
+          >
+            {isExpanded ? "Collapse [-]" : "Read More [+]"}
+          </button>
+        )}
+      </div>
+
+      {quoteEn && (
+        <button
+          onClick={() => setShowEnglish(!showEnglish)}
+          className="text-[11px] font-bold text-[#AC595B] hover:text-[#8d4244] cursor-pointer hover:underline focus:outline-none flex items-center gap-1 mt-1 opacity-80"
+        >
+          <span>🌐</span>
+          <span>{showEnglish ? "Show original (Français)" : "Translate to English"}</span>
+        </button>
+      )}
+    </div>
+  );
+};
+
 export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }) => {
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
 
@@ -168,24 +209,20 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
                   </h3>
 
                   {/* Quote block */}
-                  <p className="text-sm text-[#2D2D2D]/80 font-sans leading-relaxed">
-                    "{proof.quote}"
-                  </p>
+                  <ExpandableQuote quote={proof.quote} quoteEn={proof.quoteEn} />
                 </div>
 
                 {/* Student layout footer */}
                 <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#F5EFE6]">
-                  <img
-                    src={proof.imageUrl}
-                    alt={proof.name}
-                    className="w-11 h-11 rounded-full object-cover border-2 border-[#E8B9BA]/20 shadow-sm"
-                  />
+                  <div className="w-11 h-11 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center border-2 border-[#E8B9BA]/20 shadow-sm text-[#AC595B] font-serif text-sm font-bold shrink-0">
+                    {proof.name.charAt(0).toUpperCase()}
+                  </div>
                   <div>
                     <h4 className="font-serif text-sm font-bold text-[#2D2D2D]">
                       {proof.name}
                     </h4>
                     <p className="text-[11px] font-sans text-[#2D2D2D]/65 uppercase tracking-wider font-semibold">
-                      {proof.location} • {proof.program}
+                      {proof.program}
                     </p>
                   </div>
                 </div>

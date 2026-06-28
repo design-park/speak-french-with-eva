@@ -14,6 +14,47 @@ interface HomeViewProps {
   onMessageClick: () => void;
 }
 
+const ExpandableQuote: React.FC<{ quote: string; quoteEn?: string; limit?: number }> = ({ quote, quoteEn, limit = 160 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showEnglish, setShowEnglish] = useState(false);
+
+  const activeQuote = showEnglish && quoteEn ? quoteEn : quote;
+
+  // Handle truncation
+  const needsTruncation = activeQuote.length > limit;
+  const displayedText = needsTruncation && !isExpanded 
+    ? `${activeQuote.substring(0, limit)}...` 
+    : activeQuote;
+
+  return (
+    <div className="space-y-1.5 text-left">
+      <div>
+        <p className="text-sm text-[#2D2D2D]/80 font-sans leading-relaxed inline">
+          "{displayedText}"
+        </p>
+        {needsTruncation && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-xs font-bold text-[#659287] hover:text-[#527a70] cursor-pointer hover:underline focus:outline-none ml-1 inline"
+          >
+            {isExpanded ? "Collapse [-]" : "Read More [+]"}
+          </button>
+        )}
+      </div>
+
+      {quoteEn && (
+        <button
+          onClick={() => setShowEnglish(!showEnglish)}
+          className="text-[11px] font-bold text-[#AC595B] hover:text-[#8d4244] cursor-pointer hover:underline focus:outline-none flex items-center gap-1 mt-1 opacity-80"
+        >
+          <span>🌐</span>
+          <span>{showEnglish ? "Show original (Français)" : "Translate to English"}</span>
+        </button>
+      )}
+    </div>
+  );
+};
+
 export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, onMessageClick }) => {
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
 
@@ -131,7 +172,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
         <div className="max-w-4xl mx-auto text-center">
 
-          <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block mb-2">RELATABLE ENCOUNTER</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block mb-2">SOUND FAMILIAR?</span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D] mb-12 italic relative inline-block">
             {homepageData.painPoints.title}
             <span className="absolute -bottom-2 left-1/4 right-1/4 h-[1px] bg-[#E8B9BA]" />
@@ -265,37 +306,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-          {/* Transformation Left: Narrative / Aesthetic Picture */}
-          <div className="lg:col-span-5 relative space-y-6">
-            <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#F5EFE6]">
-              <img
-                src={frenchLifestyle}
-                alt="Cozy French flatlay with flowers and books representing confidence"
-                className="w-full aspect-[4/3] lg:aspect-square object-cover"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-                <span className="text-white font-serif text-base italic leading-snug">
-                  "Finding your voice means finding your freedom to live exactly as you desire."
-                </span>
-              </div>
-            </div>
-            <div className="p-4 rounded-2xl bg-[#E8B9BA]/10 border border-[#E8B9BA]/20 flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-[#AC595B] shrink-0 mt-0.5" />
-              <p className="text-xs text-[#2D2D2D]/80 font-sans leading-normal">
-                All transformations are verified results from expat women who practiced with Eva's conversational framework over 3-6 months.
-              </p>
-            </div>
-          </div>
-
-          {/* Transformation Right: Verified list */}
+          {/* Transformation Left: Verified list */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">THE TRANSFORMS</span>
             <h2 className="font-serif text-3.5xl font-bold text-[#2D2D2D] leading-tight">
               The transformations I've seen
             </h2>
             <p className="text-sm text-[#2D2D2D]/85 max-w-xl">
-              Our community of expat women have progressed from feeling isolated and muted to blooming with confidence at work and within their French families:
+              Our community of expat women have progressed from feeling isolated and muted to blooming with confidence at work, within their French families, and in all aspects of daily life:
             </p>
 
             <div className="space-y-4">
@@ -323,6 +341,29 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                   </div>
                 );
               })}
+            </div>
+          </div>
+
+          {/* Transformation Right: Narrative / Aesthetic Picture */}
+          <div className="lg:col-span-5 relative space-y-6">
+            <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#F5EFE6]">
+              <img
+                src={frenchLifestyle}
+                alt="Cozy French flatlay with flowers and books representing confidence"
+                className="w-full aspect-[4/3] lg:aspect-square object-cover"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
+                <span className="text-white font-serif text-base italic leading-snug">
+                  "Feeling at home in France means finding your freedom to live exactly as you desire."
+                </span>
+              </div>
+            </div>
+            <div className="p-4 rounded-2xl bg-[#E8B9BA]/10 border border-[#E8B9BA]/20 flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-[#AC595B] shrink-0 mt-0.5" />
+              <p className="text-xs text-[#2D2D2D]/80 font-sans leading-normal">
+                All transformations are verified results from expat women who practiced with Eva's conversational framework over 3-6 months.
+              </p>
             </div>
           </div>
 
@@ -372,9 +413,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
             <div className="space-y-2 text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">KIND ENCOURAGEMENTS</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">KIND WORDS</span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
-                Don't take my word for it. <span className="block text-[#AC595B] italic font-light">Trust my beautiful clients.</span>
+                Don't take my word for it. <span className="block text-[#AC595B] italic font-light">Trust my clients.</span>
               </h2>
             </div>
 
@@ -435,23 +476,19 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                       "{item.highlight}"
                     </h4>
 
-                    <p className="text-sm text-[#2D2D2D]/80 font-sans leading-relaxed">
-                      "{item.quote}"
-                    </p>
+                    <ExpandableQuote quote={item.quote} quoteEn={item.quoteEn} />
                   </div>
 
                   <div className="flex items-center gap-4 border-t border-[#F5EFE6] pt-6 mt-6">
-                    <img
-                      src={item.imageUrl}
-                      alt={item.name}
-                      className="w-11 h-11 rounded-full object-cover border-2 border-[#E8B9BA]/20"
-                    />
+                    <div className="w-11 h-11 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center border-2 border-[#E8B9BA]/20 shadow-sm text-[#AC595B] font-serif text-sm font-bold shrink-0">
+                      {item.name.charAt(0).toUpperCase()}
+                    </div>
                     <div>
                       <h5 className="font-serif text-sm font-bold text-[#2D2D2D]">
                         {item.name}
                       </h5>
                       <p className="text-[11px] font-sans text-[#2D2D2D]/70">
-                        {item.location} • {item.program}
+                        {item.program}
                       </p>
                     </div>
                   </div>
