@@ -5,7 +5,7 @@ import { whoAmIData } from "../data";
 import { LilyOfTheValley, DelicateDottedDivider } from "./DecorativeAccents";
 
 // Assets
-import evaPortraitUrl from "../assets/images/eva_portrait_1781645570391.jpg";
+import evaPortraitUrl from "../assets/images/eva-black-white.jpg";
 import lifestyleUrl from "../assets/images/french_lifestyle_1781645587150.jpg";
 
 interface WhoAmIViewProps {

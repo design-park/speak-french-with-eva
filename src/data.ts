@@ -126,7 +126,7 @@ export const homepageData = {
 export const whoAmIData = {
   hero: {
     badge: "Hey, I am Eva!",
-    title: "My mission is to give you your confidence back.",
+    title: "My mission is to help you feel fully yourself in French.",
     description: "With a degree in French as a foreign language and several years of experience, I've had the pleasure to support women from different backgrounds in improving their conversational French and feeling more confident speaking.\n\nToday they feel confident speaking everyday French and they feel at home in their new life in France.",
   },
   whyFocus: {
