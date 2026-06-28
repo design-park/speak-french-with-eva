@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Column 1: Brand Info */}
           <div className="md:col-span-2 space-y-5">
             <div className="flex items-center gap-3">
@@ -37,9 +37,9 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
               </span>
             </div>
             <p className="text-[#2D2D2D]/85 font-sans text-sm max-w-sm leading-relaxed">
-              Helping expat women in France build supportive communities, master spoken communication, and truly feel at home.
+              Helping expat women in France master spoken communication, build supportive communities, and finally feel at home.
             </p>
-            
+
             {/* Stamp/Badge style design accent */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E8B9BA]/10 border border-[#AC595B]/30 text-[#AC595B] text-xs font-semibold">
               <Heart className="w-3.5 h-3.5 fill-[#AC595B] text-[#AC595B]" />
@@ -75,9 +75,9 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
             <p className="text-[#2D2D2D]/85 text-sm leading-snug">
               Ready to start speaking freely? Let's connect!
             </p>
-            
+
             {/* Email link */}
-            <button 
+            <button
               onClick={onMessageClick}
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#659287] hover:text-[#527a70] hover:underline transition-all cursor-pointer focus:outline-none"
             >
@@ -87,28 +87,28 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
 
             {/* Social icons */}
             <div className="flex gap-3 pt-2">
-              <a 
-                href="https://www.instagram.com/speakfrenchwitheva" 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href="https://www.instagram.com/speakfrenchwitheva"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-white border border-[#bbc4ae]/20 flex items-center justify-center text-[#2D2D2D]/75 hover:text-[#AC595B] hover:border-[#AC595B] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
                 aria-label="Instagram Profile"
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/eva-ngalouo-bocquet-191651373" 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href="https://www.linkedin.com/in/eva-ngalouo-bocquet-191651373"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-white border border-[#bbc4ae]/20 flex items-center justify-center text-[#2D2D2D]/75 hover:text-[#659287] hover:border-[#659287] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a 
-                href="https://share.google/lKcpWdTW7sssXnijN" 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href="https://share.google/lKcpWdTW7sssXnijN"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-white border border-[#bbc4ae]/20 flex items-center justify-center text-[#2D2D2D]/75 hover:text-[#2D2D2D] hover:border-[#2D2D2D] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
                 aria-label="Google Maps Location"
               >
@@ -123,7 +123,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
           <p className="text-xs text-[#2D2D2D]/75 text-center sm:text-left">
             © 2026 Speak French with Eva. All rights reserved. Registered French Coach.
           </p>
-          
+
           <div className="flex items-center gap-2">
             <span className="text-xs text-[#2D2D2D]/70 italic font-serif">Made with French amour</span>
             <Heart className="w-3 h-3 text-[#AC595B] fill-[#AC595B] animate-pulse" />
