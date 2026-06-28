@@ -1,13 +1,14 @@
 import React from "react";
 import { Mail, Instagram, Linkedin, Heart, MapPin, ArrowUp } from "lucide-react";
-import { LeafTwig, FrenchCoffeeIcon } from "./DecorativeAccents";
+import { FleurDeLisOrnament, FrenchCoffeeIcon } from "./DecorativeAccents";
 
 interface FooterProps {
   setCurrentTab: (tab: string) => void;
   onCtaClick: () => void;
+  onMessageClick: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => {
+export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMessageClick }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -21,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
     <footer className="bg-[#FBF8F3] border-t border-[#bbc4ae]/20 pt-16 pb-8 relative overflow-hidden">
       {/* Background flourish */}
       <div className="absolute right-0 bottom-0 pointer-events-none opacity-5 max-w-xs translate-x-20 translate-y-20">
-        <LeafTwig className="w-96 h-96" />
+        <FleurDeLisOrnament className="w-96 h-96" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -76,13 +77,13 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
             </p>
             
             {/* Email link */}
-            <a 
-              href="mailto:speakfrenchwitheva@gmail.com" 
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#659287] hover:text-[#527a70] hover:underline transition-all"
+            <button 
+              onClick={onMessageClick}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#659287] hover:text-[#527a70] hover:underline transition-all cursor-pointer focus:outline-none"
             >
               <Mail className="w-4 h-4" />
               <span>speakfrenchwitheva@gmail.com</span>
-            </a>
+            </button>
 
             {/* Social icons */}
             <div className="flex gap-3 pt-2">

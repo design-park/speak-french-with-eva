@@ -41,6 +41,13 @@ export default function App() {
   const handleMessageSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formName || !formEmail || !userMsg) return;
+
+    const subject = encodeURIComponent(`Message de ${formName} - Speak French with Eva`);
+    const body = encodeURIComponent(
+      `Nom: ${formName}\nE-mail: ${formEmail}\n\nMessage:\n${userMsg}`
+    );
+    window.location.href = `mailto:speakfrenchwitheva@gmail.com?subject=${subject}&body=${body}`;
+
     setIsMessageSubmitted(true);
     setTimeout(() => {
       // Clear forms
@@ -51,8 +58,7 @@ export default function App() {
   };
 
   const openCtaModal = () => {
-    setIsCtaSubmitted(false);
-    setIsCtaModalOpen(true);
+    window.open("https://calendly.com/eva-nb/free_discovery_videocall?back=1&month=2026-06", "_blank");
   };
 
   const openMessageModal = () => {
@@ -128,7 +134,7 @@ export default function App() {
       </main>
 
       {/* Beautiful High-contrast Footers with full columns and interactions */}
-      <Footer setCurrentTab={handleTabChange} onCtaClick={openCtaModal} />
+      <Footer setCurrentTab={handleTabChange} onCtaClick={openCtaModal} onMessageClick={openMessageModal} />
 
       {/* ================= MODALS & POPUPS ================= */}
       
@@ -348,15 +354,15 @@ export default function App() {
                   >
                     
                     <div className="flex items-center gap-3 border-b border-[#bbc4ae]/20 pb-4 mb-6">
-                      <div className="w-10 h-10 rounded-full bg-[#bbc4ae]/20 flex items-center justify-center border border-[#bbc4ae]/35">
-                        <MessageCircle className="w-5 h-5 text-[#bbc4ae]" />
+                      <div className="w-10 h-10 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center border border-[#E8B9BA]/35">
+                        <Mail className="w-5 h-5 text-[#AC595B]" />
                       </div>
                       <div>
                         <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2D2D2D]">
-                          Envoi de message
+                          Send an Email
                         </h2>
-                        <p className="text-xs text-[#bbc4ae] tracking-wider uppercase font-semibold font-sans">
-                          Send a Direct Note to Eva
+                        <p className="text-xs text-[#AC595B] tracking-wider uppercase font-semibold font-sans">
+                          Send a Direct Email to Eva
                         </p>
                       </div>
                     </div>
@@ -374,7 +380,7 @@ export default function App() {
                           value={formName}
                           onChange={(e) => setFormName(e.target.value)}
                           placeholder="e.g. Charlotte L."
-                          className="w-full px-4 py-3 rounded-xl border border-[#bbc4ae]/30 bg-white focus:outline-none focus:border-[#bbc4ae] font-sans text-sm text-[#2D2D2D] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#bbc4ae]/30 bg-white focus:outline-none focus:border-[#659287] font-sans text-sm text-[#2D2D2D] transition-colors"
                         />
                       </div>
 
@@ -389,13 +395,13 @@ export default function App() {
                           value={formEmail}
                           onChange={(e) => setFormEmail(e.target.value)}
                           placeholder="charlotte@example.com"
-                          className="w-full px-4 py-3 rounded-xl border border-[#bbc4ae]/30 bg-white focus:outline-none focus:border-[#bbc4ae] font-sans text-sm text-[#2D2D2D] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#bbc4ae]/30 bg-white focus:outline-none focus:border-[#659287] font-sans text-sm text-[#2D2D2D] transition-colors"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label htmlFor="msg-text" className="text-xs uppercase font-extrabold tracking-wider text-[#2E1D0B]/70 block font-sans">
-                          Message
+                        <label htmlFor="msg-text" className="text-xs uppercase font-extrabold tracking-wider text-[#2D2D2D]/70 block font-sans">
+                          Your Message
                         </label>
                         <textarea
                           id="msg-text"
@@ -404,17 +410,17 @@ export default function App() {
                           value={userMsg}
                           onChange={(e) => setUserMsg(e.target.value)}
                           placeholder="Coucou Eva! I'd love to ask if you offer weekend slots, or tell you a bit about my background in Strasbourg..."
-                          className="w-full px-4 py-3 rounded-xl border border-[#bbc4ae]/30 bg-white focus:outline-none focus:border-[#bbc4ae] font-sans text-sm text-[#2D2D2D] transition-colors resize-none"
+                          className="w-full px-4 py-3 rounded-xl border border-[#bbc4ae]/30 bg-white focus:outline-none focus:border-[#659287] font-sans text-sm text-[#2D2D2D] transition-colors resize-none"
                         />
                       </div>
 
                       <div className="pt-2">
                         <button
                           type="submit"
-                          className="w-full py-4 rounded-xl bg-[#bbc4ae] hover:bg-[#a9b39b] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer hover:shadow-md transition-all flex items-center justify-center gap-1.5"
+                          className="w-full py-4 rounded-xl bg-[#659287] hover:bg-[#527a70] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer hover:shadow-md transition-all flex items-center justify-center gap-1.5"
                         >
                           <Send className="w-3.5 h-3.5" />
-                          <span>Envoyer le message</span>
+                          <span>Send the Email</span>
                         </button>
                       </div>
 
@@ -430,22 +436,22 @@ export default function App() {
                     transition={{ duration: 0.3 }}
                     className="text-center py-10 space-y-6"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#bbc4ae]/20 flex items-center justify-center border-2 border-[#bbc4ae] mx-auto text-[#bbc4ae]">
+                    <div className="w-16 h-16 rounded-full bg-[#659287]/20 flex items-center justify-center border-2 border-[#659287] mx-auto text-[#659287]">
                       <Check className="w-8 h-8 stroke-[3]" />
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="font-serif text-2xl font-bold text-[#AC595B] italic">
-                        Message Envoyé !
+                      <h3 className="font-serif text-2xl font-bold text-[#AC595B]">
+                        Email Sent!
                       </h3>
                       <p className="text-sm font-sans text-[#2D2D2D]/80 max-w-sm mx-auto leading-relaxed">
-                        Charlotte, your heartfelt note has floated successfully into Eva's virtual mailbox. Expect a warm reply very soon!
+                        Your message has been prepared! Your email client will open to send the email directly to Eva. Speak to you soon!
                       </p>
                     </div>
 
                     <button
                       onClick={closeModals}
-                      className="px-6 py-2 rounded-full border border-[#bbc4ae]/30 hover:bg-white text-xs font-bold uppercase text-[#2D2D2D]/60 hover:text-[#bbc4ae] cursor-pointer transition-colors"
+                      className="px-6 py-2 rounded-full border border-[#bbc4ae]/30 hover:bg-white text-xs font-bold uppercase text-[#2D2D2D]/60 hover:text-[#659287] cursor-pointer transition-colors"
                     >
                       Close Window
                     </button>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Heart, Play, Pause, Compass, BookOpen, Shirt, Music, Sparkles } from "lucide-react";
 import { whoAmIData } from "../data";
-import { LeafTwig, DelicateDottedDivider } from "./DecorativeAccents";
+import { LilyOfTheValley, DelicateDottedDivider } from "./DecorativeAccents";
 
 // Assets
 import evaPortraitUrl from "../assets/images/eva_portrait_1781645570391.jpg";
@@ -139,7 +139,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
               <div className="relative max-w-[320px] sm:max-w-[340px] w-full">
                 {/* Botanical twig flourish */}
                 <div className="absolute -left-10 -bottom-10 pointer-events-none opacity-20 text-[#bbc4ae] transform rotate-180">
-                  <LeafTwig className="w-40 h-40" />
+                  <LilyOfTheValley className="w-40 h-40" />
                 </div>
 
                 {/* Framed card of eva */}

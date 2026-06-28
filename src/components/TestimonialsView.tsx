@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Play, Star, ChevronRight, Video, Target, Award, User, MessageCircle } from "lucide-react";
 import { testimonialsData } from "../data";
-import { LeafTwig, DelicateDottedDivider } from "./DecorativeAccents";
+import { FleurDeLisOrnament, DelicateDottedDivider } from "./DecorativeAccents";
 
 interface TestimonialsViewProps {
   onCtaClick: () => void;
@@ -273,7 +273,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
           
           {/* Background flourish */}
           <div className="absolute right-0 bottom-0 pointer-events-none opacity-8 text-[#AC595B] transform translate-x-12 translate-y-12">
-            <LeafTwig className="w-72 h-72 fill-none stroke-current" />
+            <FleurDeLisOrnament className="w-72 h-72 fill-none stroke-current" />
           </div>
 
           <div className="space-y-3 relative z-10">

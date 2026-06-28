@@ -28,6 +28,82 @@ export const LeafTwig: React.FC<AccentProps> = ({ className = "w-10 h-10", color
   );
 };
 
+export const LavenderBranch: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.5]`}
+      aria-hidden="true"
+    >
+      {/* Central stem */}
+      <path d="M50,90 Q48,50 50,10" strokeLinecap="round" />
+      {/* Level 1 (bottom cluster) */}
+      <path d="M50,65 C42,63 44,73 50,71 C56,73 58,63 50,65 Z" />
+      <path d="M50,60 C42,58 44,68 50,66 C56,68 58,58 50,60 Z" />
+      {/* Level 2 */}
+      <path d="M50,48 C42,46 44,56 50,54 C56,56 58,46 50,48 Z" />
+      <path d="M50,43 C43,41 45,51 50,49 C55,51 57,41 50,43 Z" />
+      {/* Level 3 */}
+      <path d="M50,31 C43,29 45,39 50,37 C55,39 57,29 50,31 Z" />
+      <path d="M50,26 C44,24 46,34 50,32 C54,34 56,24 50,26 Z" />
+      {/* Level 4 (Top cluster) */}
+      <path d="M50,18 C45,16 47,26 50,24 C53,26 55,16 50,18 Z" />
+      <path d="M50,13 C46,11 48,21 50,19 C52,21 54,11 50,13 Z" />
+      {/* Leaves at the bottom */}
+      <path d="M49,78 C35,74 38,62 48,68" strokeLinecap="round" />
+      <path d="M51,82 C65,78 62,66 52,72" strokeLinecap="round" />
+    </svg>
+  );
+};
+
+export const LilyOfTheValley: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.5]`}
+      aria-hidden="true"
+    >
+      {/* Main arching stem */}
+      <path d="M35,90 C40,65 42,40 65,22" strokeLinecap="round" />
+      {/* Broad leaf at base */}
+      <path d="M35,90 C22,65 30,42 45,30 C38,52 38,72 35,90 Z" />
+      
+      {/* Bell flower 1 */}
+      <path d="M48,50 Q56,53 58,60" strokeLinecap="round" />
+      <path d="M54,60 C52,65 64,65 62,60 C61,57 55,57 54,60 Z" />
+      
+      {/* Bell flower 2 */}
+      <path d="M54,38 Q62,41 64,48" strokeLinecap="round" />
+      <path d="M60,48 C58,53 70,53 68,48 C67,45 61,45 60,48 Z" />
+
+      {/* Bell flower 3 */}
+      <path d="M60,26 Q67,29 69,36" strokeLinecap="round" />
+      <path d="M65,36 C63,41 75,41 73,36 C72,33 66,33 65,36 Z" />
+    </svg>
+  );
+};
+
+export const FleurDeLisOrnament: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.5]`}
+      aria-hidden="true"
+    >
+      {/* Central petal */}
+      <path d="M50,15 C54,35 60,45 60,60 C60,72 50,75 50,75 C50,75 40,72 40,60 C40,45 46,35 50,15 Z" />
+      {/* Left petal */}
+      <path d="M50,60 C40,58 20,50 20,68 C20,78 30,80 38,76 C46,72 48,64 50,60 Z" />
+      {/* Right petal */}
+      <path d="M50,60 C60,58 80,50 80,68 C80,78 70,80 62,76 C54,72 52,64 50,60 Z" />
+      {/* Ribbon band */}
+      <path d="M32,62 C40,66 60,66 68,62" strokeWidth="2.5" />
+      {/* Stem base (bottom anchor) */}
+      <path d="M50,62 C50,75 42,90 35,90 M50,62 C50,75 58,90 65,90" strokeLinecap="round" />
+    </svg>
+  );
+};
+
 export const SubtleSparkle: React.FC<AccentProps> = ({ className = "w-4 h-4", color = "fill-[#E8B9BA]" }) => {
   return (
     <svg
@@ -136,6 +212,32 @@ export const FrenchCoffeeIcon: React.FC<AccentProps> = ({ className = "w-6 h-6",
           <path d="M5 9h12l-1.2 7.2c-.3 1.8-1.8 3.2-3.6 3.2H9.8c-1.8 0-3.3-1.4-3.6-3.2L5 9z" />
         </clipPath>
       </defs>
+    </svg>
+  );
+};
+
+export const FrenchRose: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.5]`}
+      aria-hidden="true"
+    >
+      {/* Rose Bud Center */}
+      <path d="M50,45 C45,45 42,38 48,34 C54,30 58,38 52,43 C50,45 48,46 47,44" strokeLinecap="round" strokeLinejoin="round" />
+      
+      {/* Middle Petals */}
+      <path d="M40,40 C35,28 65,28 60,40 C57,44 54,45 50,45" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M35,48 C30,35 45,30 50,30" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M65,48 C70,35 55,30 50,30" strokeLinecap="round" strokeLinejoin="round" />
+      
+      {/* Outer Petals */}
+      <path d="M32,55 C22,40 50,22 50,22 C50,22 78,40 68,55 C60,65 40,65 32,55 Z" />
+      <path d="M25,50 C15,62 35,75 50,75 C65,75 85,62 75,50" />
+      
+      {/* Stem & Leaves */}
+      <path d="M50,75 C50,85 50,90 50,90" strokeLinecap="round" />
+      <path d="M50,80 C40,78 30,70 36,64 M50,84 C60,82 70,74 64,68" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 };

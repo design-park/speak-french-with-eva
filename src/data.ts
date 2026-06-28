@@ -119,7 +119,7 @@ export const homepageData = {
   ctaSection: {
     title: "What do you want to work on? Let's discuss your goals!",
     ctaPrimary: "Get a free discovery call",
-    ctaSecondary: "Send me a message",
+    ctaSecondary: "Send me an email",
   },
 };
 

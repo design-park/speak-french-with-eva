@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             <div className="flex gap-6">
               {navItems.map((item) => {
                 const isActive = currentTab === item.id;
@@ -86,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
           </nav>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-3">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg text-[#2D2D2D]/85 hover:text-[#659287] hover:bg-[#F5EFE6] transition-colors"
@@ -106,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-[#bbc4ae]/10 bg-[#FBF8F3] overflow-hidden"
+            className="lg:hidden border-t border-[#bbc4ae]/10 bg-[#FBF8F3] overflow-hidden"
           >
             <div className="px-4 pt-4 pb-6 space-y-3">
               {navItems.map((item) => {
@@ -115,13 +115,18 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`block w-full text-left px-4 py-3 rounded-xl font-sans text-base font-semibold transition-all ${
+                    className={`flex items-center justify-between w-full text-left px-5 py-3.5 rounded-xl font-sans text-base font-semibold transition-all ${
                       isActive
-                        ? "bg-[#E8B9BA]/20 text-[#2D2D2D] border-l-4 border-[#AC595B]"
+                        ? "bg-[#E8B9BA]/20 text-[#2D2D2D]"
                         : "text-[#2D2D2D]/85 hover:bg-[#F5EFE6] hover:text-[#659287]"
                     }`}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    {isActive && (
+                      <span className="text-[#AC595B] opacity-80 animate-fade-up">
+                        {getMenuIcon(item.id)}
+                      </span>
+                    )}
                   </button>
                 );
               })}
@@ -143,4 +148,54 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
       </AnimatePresence>
     </header>
   );
+};
+
+// French themed active menu icons
+const EiffelTowerIcon: React.FC = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 21c1-3.5 2.5-9 4.5-14M18 21c-1-3.5-2.5-9-4.5-14" />
+    <path d="M6.8 16.5h10.4M8.8 11.5h6.4" />
+    <path d="M9 21c0-2 1.3-3.5 3-3.5s3 1.5 3 3.5" />
+    <path d="M10.5 7h3L12 2z" />
+    <path d="M12 2v-1" />
+  </svg>
+);
+
+const CroissantIcon: React.FC = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 14c.5-3 2.5-6.5 6-7.5 3.5-1 7 .5 9.5 3.5 2.5 3 2.5 5.5 1.5 6.5-.8.8-2 0-2.5-.8-1-1.5-2.5-2.5-4.5-2.7-2-.2-4 .5-5 2-.5.8-1.7 1.6-2.5.8C2.5 17 2.5 16 3 14z" />
+    <path d="M7.5 8c1 1.5 1.5 3 1 4.5M16.5 9.5c-1 1.5-1.5 3-1 4.5M12 6.5v5" />
+  </svg>
+);
+
+const BeretIcon: React.FC = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 14c0-4 4.5-6.5 8-6.5s8 2.5 8 6.5c0 1.5-1.5 2-4 2H8c-2.5 0-4-.5-4-2z" />
+    <path d="M6 15c0 1.2 2.5 2 6 2s6-.8 6-2" />
+    <path d="M12 7.5V6" />
+  </svg>
+);
+
+const FleurDeLisIcon: React.FC = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 4c1 3.5 2.5 5.5 2.5 8.5S13.5 16 12 17c-1.5-1-2.5-1.5-2.5-4.5S11 7.5 12 4z" />
+    <path d="M12 12c-2.5 0-5.5-1-5.5 2.5 0 2 1.5 2.5 3 2s2-3 2.5-4.5z" />
+    <path d="M12 12c2.5 0 5.5-1 5.5 2.5 0 2-1.5 2.5-3 2s-2-3-2.5-4.5z" />
+    <path d="M8.5 15.5h7" />
+  </svg>
+);
+
+const getMenuIcon = (id: string) => {
+  switch (id) {
+    case "home":
+      return <EiffelTowerIcon />;
+    case "services":
+      return <CroissantIcon />;
+    case "who-am-i":
+      return <BeretIcon />;
+    case "testimonials":
+      return <FleurDeLisIcon />;
+    default:
+      return null;
+  }
 };

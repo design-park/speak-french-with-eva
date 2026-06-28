@@ -1,7 +1,7 @@
 import React from "react";
 import { Check, Heart, Users, Sparkles } from "lucide-react";
 import { servicesData } from "../data";
-import { LeafTwig } from "./DecorativeAccents";
+import { FleurDeLisOrnament } from "./DecorativeAccents";
 
 interface ServicesViewProps {
   onCtaClick: () => void;
@@ -49,7 +49,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinCl
                 >
                   {/* Chic top stamp badge */}
                   <div className="absolute top-6 right-6 text-[#bbc4ae] opacity-20 pointer-events-none">
-                    <LeafTwig className="w-12 h-12" />
+                    <FleurDeLisOrnament className="w-12 h-12" />
                   </div>
 
                   <div className="space-y-8">

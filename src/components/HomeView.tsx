@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, CheckCircle2, MessageSquare, Sparkles, ChevronLeft, ChevronRight, HelpCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Sparkles, ChevronLeft, ChevronRight, HelpCircle } from "lucide-react";
 import { homepageData, testimonialsData } from "../data";
-import { LeafTwig, SubtleSparkle, DelicateDottedDivider } from "./DecorativeAccents";
+import { LeafTwig, SubtleSparkle, DelicateDottedDivider, LavenderBranch, LilyOfTheValley, FleurDeLisOrnament, FrenchRose } from "./DecorativeAccents";
 
 // Import generated portrait and lifestyle pics
 import evaPortrait from "../assets/images/eva-color.jpg";
@@ -90,10 +90,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
               {/* Botanical Leaf ornament behind the picture */}
               <div className="absolute -left-12 -top-12 opacity-30 text-[#bbc4ae] pointer-events-none transform -rotate-12">
-                <LeafTwig className="w-32 h-32" />
+                <FrenchRose className="w-32 h-32" />
               </div>
               <div className="absolute -right-6 -bottom-6 opacity-30 text-[#E8B9BA] pointer-events-none transform rotate-45">
-                <LeafTwig className="w-28 h-28" />
+                <LilyOfTheValley className="w-28 h-28" />
               </div>
 
               {/* Polaroid-Style Cottagecore Frame */}
@@ -179,7 +179,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
         <div className="max-w-3xl mx-auto text-center relative z-10 space-y-8">
           <div className="flex justify-center text-[#bbc4ae]">
-            <LeafTwig className="w-16 h-16" />
+            <FleurDeLisOrnament className="w-16 h-16" />
           </div>
 
           <h2 className="font-serif text-2xl sm:text-3.5xl font-bold text-[#2D2D2D] leading-snug">
@@ -251,7 +251,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                 setCurrentTab("services");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="px-8 py-3.5 rounded-full bg-[#bbc4ae] hover:bg-[#a9b39b] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all duration-300 shadow-md shadow-[#bbc4ae]/10 inline-flex items-center gap-1.5 group"
+              className="px-8 py-3.5 rounded-full bg-[#8B947E] hover:bg-[#747D68] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all duration-300 shadow-md shadow-[#8B947E]/10 inline-flex items-center gap-1.5 group"
             >
               <span>See my program</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -336,11 +336,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
             {/* Background vector rings */}
             <div className="absolute top-0 right-0 pointer-events-none opacity-8 text-[#AC595B]">
-              <LeafTwig className="w-80 h-80 fill-none stroke-current" />
+              <FrenchRose className="w-80 h-80 fill-none stroke-current" />
             </div>
 
             <div className="space-y-3 relative z-10">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">LET'S CHAT OVER CAFE</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">LET'S GET IN TOUCH</span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold max-w-lg mx-auto leading-tight text-[#2D2D2D]">
                 {homepageData.ctaSection.title}
               </h2>
@@ -357,7 +357,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                 onClick={onMessageClick}
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent hover:bg-[#2D2D2D]/5 text-[#2D2D2D] border border-[#2D2D2D]/20 font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all flex items-center justify-center gap-1.5"
               >
-                <MessageSquare className="w-4 h-4 text-[#659287]" />
+                <Mail className="w-4 h-4 text-[#659287]" />
                 <span>{homepageData.ctaSection.ctaSecondary}</span>
               </button>
             </div>
