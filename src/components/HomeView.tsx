@@ -5,7 +5,7 @@ import { homepageData, testimonialsData } from "../data";
 import { LeafTwig, SubtleSparkle, DelicateDottedDivider } from "./DecorativeAccents";
 
 // Import generated portrait and lifestyle pics
-import evaPortrait from "../assets/images/eva_portrait_1781645570391.jpg";
+import evaPortrait from "../assets/images/eva-color.jpg";
 import frenchLifestyle from "../assets/images/french_lifestyle_1781645587150.jpg";
 
 interface HomeViewProps {
@@ -18,25 +18,25 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
 
   const nextTestimonial = () => {
-    setActiveTestimonialIndex((prev) => 
+    setActiveTestimonialIndex((prev) =>
       prev === testimonialsData.proofs.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevTestimonial = () => {
-    setActiveTestimonialIndex((prev) => 
+    setActiveTestimonialIndex((prev) =>
       prev === 0 ? testimonialsData.proofs.length - 1 : prev - 1
     );
   };
 
   return (
     <div className="relative bg-[#FBF8F3] min-h-screen">
-      
+
       {/* 1. HERO SECTION */}
       <section className="relative pt-12 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Hero Left Content */}
             <div className="lg:col-span-7 space-y-8 z-10 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E8B9BA]/20 border border-[#E8B9BA]/30 text-[#2D2D2D] text-xs font-semibold uppercase tracking-wider">
@@ -45,7 +45,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
               </div>
 
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#2D2D2D] leading-[1.1] tracking-tight">
-                Speak without <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5E6C4D] to-[#434D37] italic font-normal">freezing</span> mid-sentence.
+                Speak without <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#659287] to-[#3f635a] font-normal">freezing</span> mid-sentence.
                 <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl text-[#AC595B] font-light">Make French a daily habit.</span>
               </h1>
 
@@ -56,7 +56,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
               <div className="pt-2 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
                 <button
                   onClick={onCtaClick}
-                  className="px-8 py-4 rounded-full bg-[#E8B9BA] hover:bg-[#dfa2a3] text-white font-sans text-sm uppercase font-extrabold tracking-widest cursor-pointer shadow-md shadow-[#E8B9BA]/20 transition-all duration-300 text-center transform hover:-translate-y-0.5 active:translate-y-0"
+                  className="px-8 py-4 rounded-full bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] font-sans text-sm uppercase font-extrabold tracking-widest cursor-pointer shadow-md shadow-[#E8B9BA]/20 transition-all duration-300 text-center transform hover:-translate-y-0.5 active:translate-y-0"
                 >
                   {homepageData.hero.cta}
                 </button>
@@ -65,7 +65,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                     setCurrentTab("services");
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="px-6 py-4 rounded-full border border-[#5E6C4D]/50 hover:bg-white/50 text-[#2D2D2D]/80 hover:text-[#5E6C4D] hover:border-[#5E6C4D] font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all duration-300 text-center flex items-center justify-center gap-1.5"
+                  className="px-6 py-4 rounded-full border border-[#659287] bg-white/50 text-[#659287] hover:bg-[#85ada3] hover:text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all duration-300 text-center flex items-center justify-center gap-1.5 transform hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <span>Explore Program</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -80,14 +80,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                   <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=80" alt="Student" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                 </div>
                 <div className="text-xs text-[#2D2D2D]/75 font-medium">
-                  Loved by over <span className="font-bold text-[#5E6C4D]">40+ expat women</span> in Paris, Lyon, and Montpellier.
+                  Loved by over <span className="font-bold text-[#659287]">40+ expat women</span> in Paris, Lyon, and Montpellier.
                 </div>
               </div>
             </div>
 
             {/* Hero Right: Styled Eva Image with frames */}
             <div className="lg:col-span-5 relative flex justify-center">
-              
+
               {/* Botanical Leaf ornament behind the picture */}
               <div className="absolute -left-12 -top-12 opacity-30 text-[#bbc4ae] pointer-events-none transform -rotate-12">
                 <LeafTwig className="w-32 h-32" />
@@ -98,7 +98,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
               {/* Polaroid-Style Cottagecore Frame */}
               <div className="relative group bg-white p-4 pb-12 rounded-3xl shadow-xl border border-[#bbc4ae]/15 max-w-[340px] sm:max-w-[360px] transform rotate-2 hover:rotate-0 transition-all duration-500">
-                
+
                 {/* Vintage tape overlay */}
                 <div className="absolute -top-4 left-1/3 w-32 h-8 bg-gradient-to-r from-[#E8B9BA]/20 to-[#bbc4ae]/20 border border-white/40 drop-shadow-sm rotate-3 backdrop-blur-[1px] pointer-events-none" />
 
@@ -110,13 +110,13 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                
+
                 {/* Hand-written styled caption */}
                 <div className="mt-5 text-center">
                   <span className="font-serif text-lg italic text-[#2D2D2D] font-medium block">
                     with love, Eva
                   </span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#5E6C4D] font-semibold mt-0.5 block">
+                  <span className="text-[10px] uppercase tracking-widest text-[#659287] font-semibold mt-0.5 block">
                     Your Personal Coach & Guide
                   </span>
                 </div>
@@ -130,8 +130,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       {/* 2. PAIN POINT QUOTES ("Does this sound like you?") */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
         <div className="max-w-4xl mx-auto text-center">
-          
-          <span className="text-xs font-bold uppercase tracking-widest text-[#5E6C4D] block mb-2">RELATABLE ENCOUNTER</span>
+
+          <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block mb-2">RELATABLE ENCOUNTER</span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D] mb-12 italic relative inline-block">
             {homepageData.painPoints.title}
             <span className="absolute -bottom-2 left-1/4 right-1/4 h-[1px] bg-[#E8B9BA]" />
@@ -145,23 +145,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
               return (
                 <div
                   key={idx}
-                  className={`bg-white p-6 rounded-2xl opacity-90 border transition-all duration-300 hover:shadow-md hover:border-[#bbc4ae]/30 relative ${
-                    isEven 
-                      ? "border-[#E8B9BA]/25 bg-gradient-to-br from-white to-[#E8B9BA]/5" 
-                      : "border-[#bbc4ae]/25 bg-gradient-to-br from-white to-[#bbc4ae]/5"
-                  }`}
+                  className={`bg-white p-6 rounded-2xl opacity-90 border transition-all duration-300 hover:shadow-md hover:border-[#bbc4ae]/30 relative ${isEven
+                    ? "border-[#E8B9BA]/25 bg-gradient-to-br from-white to-[#E8B9BA]/5"
+                    : "border-[#bbc4ae]/25 bg-gradient-to-br from-white to-[#bbc4ae]/5"
+                    }`}
                 >
                   <p className="font-serif text-base italic text-[#2D2D2D] leading-relaxed">
                     "{point}"
                   </p>
-                  
+
                   {/* Bubble Pointer Tail */}
-                  <div className={`absolute bottom-0 h-4 w-4 bg-white border-b border-r transform rotate-45 translate-y-2 ${
-                    isEven 
-                      ? "left-12 border-[#E8B9BA]/25" 
-                      : "right-12 border-[#bbc4ae]/25"
-                  }`} />
-                  
+                  <div className={`absolute bottom-0 h-4 w-4 bg-white border-b border-r transform rotate-45 translate-y-2 ${isEven
+                    ? "left-12 border-[#E8B9BA]/25"
+                    : "right-12 border-[#bbc4ae]/25"
+                    }`} />
+
                   {/* Mini flower icon in bubble */}
                   <div className="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full bg-white border border-[#F5EFE6] flex items-center justify-center shadow-sm">
                     <SubtleSparkle className="w-2.5 h-2.5" color={isEven ? "fill-[#E8B9BA]" : "fill-[#bbc4ae]"} />
@@ -175,7 +173,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
       {/* 3. THE PROBLEM STATEMENT */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-        
+
         {/* Subtle decorative ring behind */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#bbc4ae]/10 rounded-full pointer-events-none" />
 
@@ -197,9 +195,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
           {/* Heartwarming central callout */}
           <div className="bg-[#FBF8F3] border border-[#AC595B]/30 p-8 rounded-2xl shadow-sm max-w-xl mx-auto transform hover:scale-[1.01] transition-transform">
             <span className="font-serif text-lg sm:text-xl italic text-[#2D2D2D] font-medium leading-relaxed block">
-              "Fluency is built on daily, imperfect conversations, <span className="text-[#AC595B] not-italic font-bold underline decoration-[#5E6C4D] decoration-2 underline-offset-4">not perfect sentences</span>."
+              "Fluency is built on daily, imperfect conversations, <span className="text-[#AC595B] not-italic font-bold underline decoration-[#659287] decoration-2 underline-offset-4">not perfect sentences</span>."
             </span>
-            <span className="text-xs uppercase tracking-widest text-[#5E6C4D] font-bold mt-2.5 block">
+            <span className="text-xs uppercase tracking-widest text-[#659287] font-bold mt-2.5 block">
               — Eva's Golden philosophy
             </span>
           </div>
@@ -209,7 +207,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       {/* 4. MY APPROACH */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FBF8F3] relative">
         <div className="max-w-6xl mx-auto text-center space-y-12">
-          
+
           <div className="space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#AC595B] block">
               {homepageData.myApproach.title}
@@ -233,11 +231,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                 <div className="absolute top-0 left-0 w-1.5 h-full bg-[#bbc4ae] group-hover:bg-[#E8B9BA] transition-colors" />
 
                 {/* Styled Badge instead of "icon" text */}
-                <div className="w-10 h-10 rounded-xl bg-[#F5EFE6] flex items-center justify-center text-[#5E6C4D] font-serif text-base font-bold mb-4 group-hover:bg-[#AC595B]/10 group-hover:text-[#AC595B] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#F5EFE6] flex items-center justify-center text-[#659287] font-serif text-base font-bold mb-4 group-hover:bg-[#AC595B]/10 group-hover:text-[#AC595B] transition-colors">
                   0{idx + 1}
                 </div>
 
-                <h3 className="font-serif text-lg font-bold text-[#2D2D2D] mb-1.5 group-hover:text-[#5E6C4D] transition-colors">
+                <h3 className="font-serif text-lg font-bold text-[#2D2D2D] mb-1.5 group-hover:text-[#659287] transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-sm text-[#2D2D2D]/70 leading-relaxed font-sans">
@@ -249,7 +247,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
           <div className="pt-6">
             <button
-               onClick={() => {
+              onClick={() => {
                 setCurrentTab("services");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
@@ -266,7 +264,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       {/* 5. THE TRANSFORMATIONS SECTION */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Transformation Left: Narrative / Aesthetic Picture */}
           <div className="lg:col-span-5 relative space-y-6">
             <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#F5EFE6]">
@@ -292,9 +290,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
           {/* Transformation Right: Verified list */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#5E6C4D] block">THE TRANSFORMS</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">THE TRANSFORMS</span>
             <h2 className="font-serif text-3.5xl font-bold text-[#2D2D2D] leading-tight">
-              The <span className="font-normal italic text-[#5E6C4D]">transformations</span> I've seen
+              The transformations I've seen
             </h2>
             <p className="text-sm text-[#2D2D2D]/85 max-w-xl">
               Our community of expat women have progressed from feeling isolated and muted to blooming with confidence at work and within their French families:
@@ -317,7 +315,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                       ✓
                     </div>
                     <p className="text-sm text-[#2D2D2D]/80 leading-relaxed font-sans">
-                      <span className="font-bold text-[#2D2D2D] border-b border-[#5E6C4D]/30 pb-0.5">
+                      <span className="font-bold text-[#2D2D2D] border-b border-[#659287]/30 pb-0.5">
                         {boldText}
                       </span>{" "}
                       {normalText}
@@ -334,16 +332,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       {/* 6. BANNER CARD (What do you want to work on?) */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#2D2D2D] text-white p-10 sm:p-14 rounded-3xl relative overflow-hidden text-center space-y-8 shadow-xl">
-            
+          <div className="bg-[#F7E5E6] border border-[#E8B9BA]/35 text-[#2D2D2D] p-10 sm:p-14 rounded-3xl relative overflow-hidden text-center space-y-8 shadow-sm">
+
             {/* Background vector rings */}
-            <div className="absolute top-0 right-0 pointer-events-none opacity-5">
-              <LeafTwig className="w-80 h-80 text-white fill-none stroke-white" />
+            <div className="absolute top-0 right-0 pointer-events-none opacity-8 text-[#AC595B]">
+              <LeafTwig className="w-80 h-80 fill-none stroke-current" />
             </div>
 
             <div className="space-y-3 relative z-10">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#E8B9BA]">LET'S CHAT OVER CAFE</span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold max-w-lg mx-auto leading-tight">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">LET'S CHAT OVER CAFE</span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold max-w-lg mx-auto leading-tight text-[#2D2D2D]">
                 {homepageData.ctaSection.title}
               </h2>
             </div>
@@ -351,15 +349,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
               <button
                 onClick={onCtaClick}
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#E8B9BA] hover:bg-[#dfa2a3] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all"
               >
                 {homepageData.ctaSection.ctaPrimary}
               </button>
               <button
                 onClick={onMessageClick}
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent hover:bg-white/10 text-white border border-white/30 font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all flex items-center justify-center gap-1.5"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent hover:bg-[#2D2D2D]/5 text-[#2D2D2D] border border-[#2D2D2D]/20 font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all flex items-center justify-center gap-1.5"
               >
-                <MessageSquare className="w-4 h-4 text-[#bbc4ae]" />
+                <MessageSquare className="w-4 h-4 text-[#659287]" />
                 <span>{homepageData.ctaSection.ctaSecondary}</span>
               </button>
             </div>
@@ -371,10 +369,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       {/* 7. TESTIMONIAL TEASER CAROUSEL */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/45">
         <div className="max-w-5xl mx-auto space-y-12">
-          
+
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
             <div className="space-y-2 text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#5E6C4D] block">KIND ENCOURAGEMENTS</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">KIND ENCOURAGEMENTS</span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
                 Don't take my word for it. <span className="block text-[#AC595B] italic font-light">Trust my beautiful clients.</span>
               </h2>
@@ -382,26 +380,26 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
             {/* Nav arrows & See All trigger */}
             <div className="flex items-center gap-4">
-              <button 
+              <button
                 onClick={() => {
                   setCurrentTab("testimonials");
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="text-xs font-bold uppercase tracking-wide text-[#5E6C4D] hover:text-[#2D2D2D] transition-colors focus:outline-none hover:underline"
+                className="text-xs font-bold uppercase tracking-wide text-[#659287] hover:text-[#2D2D2D] transition-colors focus:outline-none hover:underline"
               >
                 View All Stories →
               </button>
               <div className="flex gap-2">
                 <button
                   onClick={prevTestimonial}
-                  className="w-10 h-10 rounded-full bg-white border border-[#5E6C4D]/20 flex items-center justify-center text-[#2D2D2D]/85 hover:text-[#5E6C4D] hover:bg-white shadow-sm transition-all focus:outline-none"
+                  className="w-10 h-10 rounded-full bg-white border border-[#659287]/20 flex items-center justify-center text-[#2D2D2D]/85 hover:text-[#659287] hover:bg-white shadow-sm transition-all focus:outline-none"
                   aria-label="Previous Testimonial Swipe"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={nextTestimonial}
-                  className="w-10 h-10 rounded-full bg-white border border-[#5E6C4D]/20 flex items-center justify-center text-[#2D2D2D]/85 hover:text-[#5E6C4D] hover:bg-white shadow-sm transition-all focus:outline-none"
+                  className="w-10 h-10 rounded-full bg-white border border-[#659287]/20 flex items-center justify-center text-[#2D2D2D]/85 hover:text-[#659287] hover:bg-white shadow-sm transition-all focus:outline-none"
                   aria-label="Next Testimonial Swipe"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -433,7 +431,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                       ))}
                     </div>
 
-                    <h4 className="font-serif text-lg font-bold text-[#5E6C4D] italic">
+                    <h4 className="font-serif text-lg font-bold text-[#659287] italic">
                       "{item.highlight}"
                     </h4>
 

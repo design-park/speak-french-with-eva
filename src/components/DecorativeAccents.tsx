@@ -83,3 +83,59 @@ export const LeafyBranchBorder: React.FC<AccentProps> = ({ className = "absolute
     </svg>
   );
 };
+
+export const FrenchCoffeeIcon: React.FC<AccentProps> = ({ className = "w-6 h-6", color = "text-[#2D2D2D]" }) => {
+  const clipId = React.useId();
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={`${className} ${color}`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      {/* Coffee steam */}
+      <path
+        d="M7 5c.3.8-.5 1.5 0 2.2M11 4c.3 1-.5 1.8 0 2.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      {/* Handle */}
+      <path
+        d="M16.5 11c1.5 0 2.5.6 2.5 1.6s-.8 1.6-2.5 1.6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      {/* Cup body with clipPath for tricolor stripes */}
+      <g clipPath={`url(#${clipId})`}>
+        {/* Cup background */}
+        <path
+          d="M5 9h12l-1.2 7.2c-.3 1.8-1.8 3.2-3.6 3.2H9.8c-1.8 0-3.3-1.4-3.6-3.2L5 9z"
+          fill="#FFFFFF"
+        />
+        {/* Stripes: Blue, White, Red */}
+        {/* Blue stripe (left 1/3) */}
+        <rect x="5" y="8" width="4" height="15" fill="#0050A1" />
+        {/* White stripe (middle 1/3) */}
+        <rect x="9" y="8" width="4" height="15" fill="#FFFFFF" />
+        {/* Red stripe (right 1/3) */}
+        <rect x="13" y="8" width="4" height="15" fill="#AC595B" />
+      </g>
+      {/* Cup outline to make it clean */}
+      <path
+        d="M5 9h12l-1.2 7.2c-.3 1.8-1.8 3.2-3.6 3.2H9.8c-1.8 0-3.3-1.4-3.6-3.2L5 9z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      
+      <defs>
+        <clipPath id={clipId}>
+          <path d="M5 9h12l-1.2 7.2c-.3 1.8-1.8 3.2-3.6 3.2H9.8c-1.8 0-3.3-1.4-3.6-3.2L5 9z" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};

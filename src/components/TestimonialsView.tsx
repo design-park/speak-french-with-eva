@@ -35,7 +35,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
           
           <div className="text-center">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2D2D2D] flex items-center justify-center gap-2">
-              <Video className="w-5 h-5 text-[#5E6C4D]" />
+              <Video className="w-5 h-5 text-[#659287]" />
               <span>Hear their stories</span>
             </h2>
           </div>
@@ -72,7 +72,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
                           whileHover={{ scale: 1.15 }}
                           whileTap={{ scale: 0.9 }}
                           onClick={() => setPlayingVideoId(isPlaying ? null : video.id)}
-                          className="w-12 h-12 rounded-full bg-white/95 text-[#2D2D2D] flex items-center justify-center shadow-lg hover:text-[#5E6C4D] transition-colors focus:outline-none cursor-pointer"
+                          className="w-12 h-12 rounded-full bg-white/95 text-[#2D2D2D] flex items-center justify-center shadow-lg hover:text-[#659287] transition-colors focus:outline-none cursor-pointer"
                           aria-label={`Play story video testimonial of student ${video.name}`}
                         >
                           {isPlaying ? (
@@ -117,7 +117,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
                         onClick={() => {
                           setPlayingVideoId(isPlaying ? null : video.id);
                         }}
-                        className="text-xs font-bold uppercase tracking-wider text-[#5E6C4D] hover:text-[#4E5B3E] hover:underline flex items-center gap-1 cursor-pointer focus:outline-none"
+                        className="text-xs font-bold uppercase tracking-wider text-[#659287] hover:text-[#527a70] hover:underline flex items-center gap-1 cursor-pointer focus:outline-none"
                       >
                         <span>{video.ctaText}</span>
                         <ChevronRight className="w-3.5 h-3.5" />
@@ -163,7 +163,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
                   </div>
 
                   {/* Highlight callout text */}
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#5E6C4D] italic leading-snug">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#659287] italic leading-snug">
                     "{proof.highlight}"
                   </h3>
 
@@ -202,7 +202,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#5E6C4D] block">CONCRETE WINS</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">CONCRETE WINS</span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
               Real expat situations mastered
             </h2>
@@ -228,8 +228,8 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
                     </h3>
                   </div>
 
-                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-[#5E6C4D]/20 text-[#5E6C4D] text-xs font-semibold">
-                    <Award className="w-3.5 h-3.5 text-[#5E6C4D]" />
+                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-[#659287]/20 text-[#659287] text-xs font-semibold">
+                    <Award className="w-3.5 h-3.5 text-[#659287]" />
                     <span>Expat Case Study</span>
                   </span>
                 </div>
@@ -269,19 +269,19 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
 
       {/* 5. FINAL BANNER CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F5EFE6]/50">
-        <div className="max-w-4xl mx-auto text-center space-y-8 bg-[#2D2D2D] p-10 sm:p-14 rounded-3xl text-white relative overflow-hidden shadow-lg">
+        <div className="max-w-4xl mx-auto text-center space-y-8 bg-[#F7E5E6] border border-[#E8B9BA]/35 text-[#2D2D2D] p-10 sm:p-14 rounded-3xl relative overflow-hidden shadow-sm">
           
           {/* Background flourish */}
-          <div className="absolute right-0 bottom-0 pointer-events-none opacity-5 transform translate-x-12 translate-y-12">
-            <LeafTwig className="w-72 h-72 text-white" />
+          <div className="absolute right-0 bottom-0 pointer-events-none opacity-8 text-[#AC595B] transform translate-x-12 translate-y-12">
+            <LeafTwig className="w-72 h-72 fill-none stroke-current" />
           </div>
 
           <div className="space-y-3 relative z-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#E8B9BA]">JOIN THE BLOOMING COMMUNITY</span>
-            <h2 className="font-serif text-3xl sm:text-4.5xl font-bold max-w-xl mx-auto leading-tight">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">JOIN THE BLOOMING COMMUNITY</span>
+            <h2 className="font-serif text-3xl sm:text-4.5xl font-bold max-w-xl mx-auto leading-tight text-[#2D2D2D]">
               Ready to make French your everyday reality?
             </h2>
-            <p className="text-white/70 max-w-md mx-auto text-sm">
+            <p className="text-[#2D2D2D]/80 max-w-md mx-auto text-sm">
               We begin with a gentle, friendly, zero-pressure 20-minute video conversation.
             </p>
           </div>
@@ -289,11 +289,11 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
           <div className="relative z-10">
             <button
               onClick={onCtaClick}
-              className="px-8 py-4 rounded-full bg-[#E8B9BA] hover:bg-[#dfa2a3] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all shadow-md shadow-[#E8B9BA]/20"
+              className="px-8 py-4 rounded-full bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all shadow-md shadow-[#E8B9BA]/20"
             >
               Book your Discovery Call
             </button>
-            <p className="text-[10px] text-white/60 mt-3 font-semibold uppercase tracking-wider">
+            <p className="text-[10px] text-[#2D2D2D]/60 mt-3 font-semibold uppercase tracking-wider">
               No stress, absolutely free.
             </p>
           </div>

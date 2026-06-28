@@ -62,11 +62,11 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinCl
                             <Heart className="w-4 h-4 fill-[#AC595B]" />
                           </div>
                         ) : (
-                          <div className="w-8 h-8 rounded-full bg-[#bbc4ae]/20 flex items-center justify-center text-[#5E6C4D]">
+                          <div className="w-8 h-8 rounded-full bg-[#bbc4ae]/20 flex items-center justify-center text-[#659287]">
                             <Users className="w-4 h-4" />
                           </div>
                         )}
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#5E6C4D]">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#659287]">
                           {isCoaching ? "1-on-1 Customized" : "Group Practice"}
                         </span>
                       </div>
@@ -88,7 +88,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinCl
                       <ul className="space-y-3">
                         {program.forWho.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-sm text-[#2D2D2D]/80 leading-relaxed font-sans">
-                            <Check className="w-4 h-4 text-[#5E6C4D] shrink-0 mt-0.5 stroke-[2.5]" />
+                            <Check className="w-4 h-4 text-[#659287] shrink-0 mt-0.5 stroke-[2.5]" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -98,13 +98,13 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinCl
                     {/* "What you get" list wrapped in stylish bordered frame */}
                     <div className="bg-[#FBF8F3] p-6 rounded-2xl border border-[#bbc4ae]/15 space-y-4">
                       <h3 className="text-xs uppercase tracking-wider font-extrabold text-[#2D2D2D] flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E6C4D]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#659287]" />
                         <span>What you get in the program:</span>
                       </h3>
                       <ul className="space-y-2.5">
                         {program.whatYouGet.map((item, idx) => (
                           <li key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed font-sans">
-                            <span className="w-1 h-1 rounded-full bg-[#5E6C4D]" />
+                            <span className="w-1 h-1 rounded-full bg-[#659287]" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -117,10 +117,10 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinCl
                   <div className="pt-8">
                     <button
                       onClick={isCoaching ? onCtaClick : onJoinClubClick}
-                      className={`w-full py-4 rounded-xl text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all ${
+                      className={`w-full py-4 rounded-xl font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all ${
                         isCoaching 
-                          ? "bg-[#E8B9BA] hover:bg-[#dfa2a3] shadow-md shadow-[#E8B9BA]/20" 
-                          : "bg-[#5E6C4D] hover:bg-[#4E5B3E] shadow-md shadow-[#5E6C4D]/20"
+                          ? "bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] shadow-md shadow-[#E8B9BA]/20" 
+                          : "bg-[#659287] hover:bg-[#527a70] text-white shadow-md shadow-[#659287]/20"
                       }`}
                     >
                       {program.ctaText}

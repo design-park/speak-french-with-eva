@@ -1,6 +1,6 @@
 import React from "react";
-import { Mail, Instagram, Linkedin, Heart, HelpCircle, ArrowUp } from "lucide-react";
-import { LeafTwig } from "./DecorativeAccents";
+import { Mail, Instagram, Linkedin, Heart, MapPin, ArrowUp } from "lucide-react";
+import { LeafTwig, FrenchCoffeeIcon } from "./DecorativeAccents";
 
 interface FooterProps {
   setCurrentTab: (tab: string) => void;
@@ -30,9 +30,9 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
           {/* Column 1: Brand Info */}
           <div className="md:col-span-2 space-y-5">
             <div className="flex items-center gap-3">
-              <span className="text-2xl" role="img" aria-label="French flag">🇫🇷</span>
+              <FrenchCoffeeIcon className="w-8 h-8" />
               <span className="font-serif text-2xl font-bold text-[#2D2D2D] tracking-tight">
-                Speak French with <span className="text-[#AC595B] italic font-normal">Eva</span>
+                Speak French with <span className="text-[#AC595B]">Eva</span>
               </span>
             </div>
             <p className="text-[#2D2D2D]/85 font-sans text-sm max-w-sm leading-relaxed">
@@ -59,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
                 <li key={link.id}>
                   <button
                     onClick={() => handleNav(link.id)}
-                    className="text-[#2D2D2D]/75 hover:text-[#5E6C4D] text-sm font-semibold transition-colors cursor-pointer text-left focus:outline-none"
+                    className="text-[#2D2D2D]/75 hover:text-[#659287] text-sm font-semibold transition-colors cursor-pointer text-left focus:outline-none"
                   >
                     {link.label}
                   </button>
@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
             {/* Email link */}
             <a 
               href="mailto:speakfrenchwitheva@gmail.com" 
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#5E6C4D] hover:text-[#4E5B3E] hover:underline transition-all"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#659287] hover:text-[#527a70] hover:underline transition-all"
             >
               <Mail className="w-4 h-4" />
               <span>speakfrenchwitheva@gmail.com</span>
@@ -87,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
             {/* Social icons */}
             <div className="flex gap-3 pt-2">
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/speakfrenchwitheva" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="w-10 h-10 rounded-full bg-white border border-[#bbc4ae]/20 flex items-center justify-center text-[#2D2D2D]/75 hover:text-[#AC595B] hover:border-[#AC595B] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
@@ -96,21 +96,23 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/eva-ngalouo-bocquet-191651373" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="w-10 h-10 rounded-full bg-white border border-[#bbc4ae]/20 flex items-center justify-center text-[#2D2D2D]/75 hover:text-[#5E6C4D] hover:border-[#5E6C4D] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-white border border-[#bbc4ae]/20 flex items-center justify-center text-[#2D2D2D]/75 hover:text-[#659287] hover:border-[#659287] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <button 
-                onClick={onCtaClick} 
-                className="w-10 h-10 rounded-full bg-[#bbc4ae]/10 border border-[#5E6C4D]/30 flex items-center justify-center text-[#5E6C4D] hover:text-white hover:bg-[#5E6C4D] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
-                aria-label="Contact Eva Support Link"
+              <a 
+                href="https://share.google/lKcpWdTW7sssXnijN" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="w-10 h-10 rounded-full bg-white border border-[#bbc4ae]/20 flex items-center justify-center text-[#2D2D2D]/75 hover:text-[#2D2D2D] hover:border-[#2D2D2D] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
+                aria-label="Google Maps Location"
               >
-                <HelpCircle className="w-4 h-4" />
-              </button>
+                <MapPin className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
@@ -128,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick }) => 
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#bbc4ae]/20 text-[#2D2D2D]/75 hover:text-[#5E6C4D] hover:border-[#5E6C4D] transition-colors text-xs font-semibold uppercase tracking-wider cursor-pointer group"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#bbc4ae]/20 text-[#2D2D2D]/75 hover:text-[#659287] hover:border-[#659287] transition-colors text-xs font-semibold uppercase tracking-wider cursor-pointer group"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />

@@ -255,7 +255,7 @@ export default function App() {
                       <div className="pt-2">
                         <button
                           type="submit"
-                          className="w-full py-4 rounded-xl bg-[#E8B9BA] hover:bg-[#dfa2a3] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer hover:shadow-md transition-all flex items-center justify-center gap-1.5"
+                          className="w-full py-4 rounded-xl bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer hover:shadow-md transition-all flex items-center justify-center gap-1.5"
                         >
                           <Mail className="w-4 h-4" />
                           <span>Envoyer ma demande</span>
@@ -274,12 +274,12 @@ export default function App() {
                     transition={{ duration: 0.3 }}
                     className="text-center py-10 space-y-6"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center border-2 border-[#E8B9BA] mx-auto text-[#E8B9BA]">
-                      <Heart className="w-8 h-8 fill-[#E8B9BA] text-[#E8B9BA]" />
+                    <div className="w-16 h-16 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center border-2 border-[#AC595B] mx-auto text-[#AC595B]">
+                      <Heart className="w-8 h-8 fill-[#AC595B] text-[#AC595B]" />
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="font-serif text-2xl font-bold text-[#bbc4ae] italic">
+                      <h3 className="font-serif text-2xl font-bold text-[#659287] italic">
                         Merci beaucoup !
                       </h3>
                       <p className="text-sm font-sans text-[#2D2D2D]/80 max-w-sm mx-auto leading-relaxed">
@@ -435,7 +435,7 @@ export default function App() {
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="font-serif text-2xl font-bold text-[#E8B9BA] italic">
+                      <h3 className="font-serif text-2xl font-bold text-[#AC595B] italic">
                         Message Envoyé !
                       </h3>
                       <p className="text-sm font-sans text-[#2D2D2D]/80 max-w-sm mx-auto leading-relaxed">

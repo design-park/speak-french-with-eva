@@ -19,15 +19,15 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
   const getInterestIcon = (id: string) => {
     switch (id) {
       case "1":
-        return <Compass className="w-5 h-5 text-[#5E6C4D]" />;
+        return <Compass className="w-5 h-5 text-[#659287]" />;
       case "2":
         return <BookOpen className="w-5 h-5 text-[#AC595B]" />;
       case "3":
-        return <Shirt className="w-5 h-5 text-[#5E6C4D]" />;
+        return <Shirt className="w-5 h-5 text-[#659287]" />;
       case "4":
         return <Music className="w-5 h-5 text-[#AC595B]" />;
       default:
-        return <Sparkles className="w-5 h-5 text-[#5E6C4D]" />;
+        return <Sparkles className="w-5 h-5 text-[#659287]" />;
     }
   };
 
@@ -41,7 +41,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
             {/* Left intro copy */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#bbc4ae]/15 text-[#2D2D2D] font-serif italic text-sm border border-[#5E6C4D]/30">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#bbc4ae]/15 text-[#2D2D2D] font-serif italic text-sm border border-[#659287]/30">
                 {whoAmIData.hero.badge}
               </span>
 
@@ -59,7 +59,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
               <div className="pt-4">
                 <button
                   onClick={onCtaClick}
-                  className="px-6 py-3 rounded-full bg-[#5E6C4D] hover:bg-[#4E5B3E] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-colors"
+                  className="px-6 py-3 rounded-full bg-[#659287] hover:bg-[#527a70] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-colors"
                 >
                   Book a free call
                 </button>
@@ -96,7 +96,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
                       whileHover={{ scale: 1.15 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setIsVideoPlaying(!isVideoPlaying)}
-                      className="w-14 h-14 rounded-full bg-white text-[#2D2D2D] flex items-center justify-center shadow-lg hover:text-[#5E6C4D] transition-colors focus:outline-none cursor-pointer"
+                      className="w-14 h-14 rounded-full bg-white text-[#2D2D2D] flex items-center justify-center shadow-lg hover:text-[#659287] transition-colors focus:outline-none cursor-pointer"
                       aria-label="Play welcome coaching video introduction"
                     >
                       {isVideoPlaying ? (
@@ -154,8 +154,8 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
                   </div>
                   
                   {/* Overlay Sticker Badge (Pinterest Inspired pink-sage look) */}
-                  <div className="bg-[#E8B9BA] text-white p-4 rounded-2xl border-2 border-white shadow-md text-center transform -rotate-1 relative z-10">
-                    <Heart className="w-5 h-5 text-white fill-white mx-auto mb-1.5" />
+                  <div className="bg-[#E8B9BA] text-[#2D2D2D] p-4 rounded-2xl border-2 border-white shadow-md text-center transform -rotate-1 relative z-10">
+                    <Heart className="w-5 h-5 text-[#2D2D2D] fill-[#2D2D2D] mx-auto mb-1.5" />
                     <p className="font-serif text-sm italic leading-snug">
                       "{whoAmIData.whyFocus.quoteBadge}"
                     </p>
@@ -167,7 +167,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
 
             {/* Right block: High-end copy */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#5E6C4D] block">THE HEART OF IT</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">THE HEART OF IT</span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
                 {whoAmIData.whyFocus.title}
               </h2>
@@ -183,8 +183,8 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
 
               {/* Heart signature layout */}
               <div className="flex items-center gap-3 pt-4">
-                <span className="w-8 h-[1px] bg-[#5E6C4D]" />
-                <span className="font-serif italic text-[#5E6C4D] text-base font-bold">Eva, your coach</span>
+                <span className="w-8 h-[1px] bg-[#659287]" />
+                <span className="font-serif italic text-[#659287] text-base font-bold">Eva, your coach</span>
               </div>
             </div>
 
@@ -208,7 +208,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
             {whoAmIData.pillars.items.map((item, index) => (
               <div
                 key={index}
-                className="bg-[#FBF8F3] p-6 rounded-2xl border border-[#5E6C4D]/15 hover:border-[#AC595B]/30 hover:shadow-sm transition-all flex items-start gap-4"
+                className="bg-[#FBF8F3] p-6 rounded-2xl border border-[#659287]/15 hover:border-[#AC595B]/30 hover:shadow-sm transition-all flex items-start gap-4"
               >
                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#AC595B] shrink-0 border border-[#AC595B]/20">
                   <Heart className="w-4 h-4 fill-current text-[#AC595B]" />
@@ -280,7 +280,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
                 {/* Visual tiny spacer badge */}
                 <div className="mt-4 pt-4 border-t border-[#F5EFE6] flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#AC595B]/60" />
-                  <span className="text-[10px] uppercase tracking-wider font-semibold text-[#5E6C4D] font-sans">Eva Personal</span>
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-[#659287] font-sans">Eva Personal</span>
                 </div>
               </div>
             ))}
