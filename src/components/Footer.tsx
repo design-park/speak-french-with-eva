@@ -37,13 +37,13 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
               </span>
             </div>
             <p className="text-[#2D2D2D]/85 font-sans text-sm max-w-sm leading-relaxed">
-              Helping expat women in France find their confidence, build supportive communities, master spoken communication, and truly feel at home.
+              Helping expat women in France build supportive communities, master spoken communication, and truly feel at home.
             </p>
             
             {/* Stamp/Badge style design accent */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E8B9BA]/10 border border-[#AC595B]/30 text-[#AC595B] text-xs font-semibold">
               <Heart className="w-3.5 h-3.5 fill-[#AC595B] text-[#AC595B]" />
-              <span>Chic & Empathetic French Coaching</span>
+              <span>Personalized French Coaching</span>
             </div>
           </div>
 
