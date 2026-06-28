@@ -17,11 +17,11 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
 
   return (
     <div className="bg-[#FBF8F3] min-h-screen text-left">
-      
+
       {/* 1. HERO - BIOGRAPHY BANNER */}
       <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50">
         <div className="max-w-6xl mx-auto space-y-12">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
             {/* Left intro copy */}
             <div className="lg:col-span-6 space-y-6">
@@ -56,14 +56,13 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
             {/* Right: Beautiful Video Mockup */}
             <div className="lg:col-span-6">
               <div className="relative group rounded-3xl overflow-hidden shadow-lg border border-[#bbc4ae]/10 aspect-video bg-stone-900">
-                
+
                 {/* Simulated webcam video capture feed */}
                 <img
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
                   alt="Eva welcoming you on video"
-                  className={`w-full h-full object-cover transition-all duration-700 ${
-                    isVideoPlaying ? "scale-105 filter brightness-105" : "filter brightness-90 saturate-75"
-                  }`}
+                  className={`w-full h-full object-cover transition-all duration-700 ${isVideoPlaying ? "scale-105 filter brightness-105" : "filter brightness-90 saturate-75"
+                    }`}
                   referrerPolicy="no-referrer"
                 />
 
@@ -96,8 +95,8 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
 
                   {/* Video Bottom subtitles or quote */}
                   <p className="text-white font-serif text-sm italic text-center drop-shadow-md">
-                    {isVideoPlaying 
-                      ? '"Bonjour ! I am so excited to welcome you into this program..."' 
+                    {isVideoPlaying
+                      ? '"Bonjour ! I am so excited to welcome you into this program..."'
                       : '"Hear my accent and see how we focus on real active spoken French."'}
                   </p>
                 </div>
@@ -119,10 +118,10 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left block: Graphic containing Eva's message */}
             <div className="lg:col-span-5 relative flex justify-center">
-              
+
               <div className="relative max-w-[320px] sm:max-w-[340px] w-full">
                 {/* Botanical twig flourish */}
                 <div className="absolute -left-10 -bottom-10 pointer-events-none opacity-20 text-[#bbc4ae] transform rotate-180">
@@ -139,7 +138,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  
+
                   {/* Overlay Sticker Badge */}
                   <div className="bg-[#E8B9BA] text-[#2D2D2D] p-4 rounded-2xl border-2 border-white shadow-md text-center transform -rotate-1 relative z-10">
                     <Heart className="w-5 h-5 text-[#2D2D2D] fill-[#2D2D2D] mx-auto mb-1.5" />
@@ -158,7 +157,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
                 Why I focus on expat women
               </h2>
-              
+
               <div className="space-y-5 text-sm sm:text-base text-[#2D2D2D]/85 font-sans leading-relaxed">
                 <p>
                   I naturally started working with a lot of expatriate women, and I realized I really enjoy supporting them. As a woman in France, I completely relate to your daily life, goals, and needs, which allows me to create a highly tailored, strategic coaching experience that directly aligns with your personal and professional ambitions.
@@ -182,7 +181,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
       {/* 3. FOUR PILLARS ("How I support you") */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative">
         <div className="max-w-5xl mx-auto text-center space-y-12">
-          
+
           <div className="space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#AC595B] block">COACHING PRINCIPLES</span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
@@ -194,22 +193,22 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
             <PillarCard
               number="01"
-              title="A safe space"
+              title="A Room to Breathe"
               description="A safe space where mistakes are welcome"
             />
             <PillarCard
               number="02"
-              title="No judgement"
+              title="Zero Judgment, Pure Support"
               description="No judgement, no pressure, no stress"
             />
             <PillarCard
               number="03"
-              title="Conversations"
+              title="Real-World Talk"
               description="Conversations designed around your real life"
             />
             <PillarCard
               number="04"
-              title="Progress"
+              title="Tangible Growth"
               description="Progress you can feel, not just measure"
             />
           </div>
@@ -228,14 +227,14 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
 
       {/* 4. OFF DUTY (Interests) */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FBF8F3] relative overflow-hidden">
-        
+
         {/* Background lifestyle decorative illustration */}
         <div className="absolute left-0 bottom-0 pointer-events-none opacity-5">
           <img src={lifestyleUrl} alt="Background illustration" className="w-[300px] h-[300px] object-cover rounded-full" />
         </div>
 
         <div className="max-w-5xl mx-auto text-center space-y-12">
-          
+
           <div className="space-y-3">
             {/* Elegant Serif script label */}
             <span className="font-serif italic text-2xl sm:text-3.5xl text-[#AC595B] block font-light">
