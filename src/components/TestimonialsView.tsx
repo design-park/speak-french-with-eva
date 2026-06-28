@@ -1,53 +1,186 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
-import { Play, Star, ChevronRight, Video, Target, Award, User, MessageCircle } from "lucide-react";
-import { testimonialsData } from "../data";
-import { FleurDeLisOrnament, DelicateDottedDivider } from "./DecorativeAccents";
+import { VideoTestimonialCard, ReviewCard, CaseStudyCard } from "./CardComponents";
+import { Video } from "lucide-react";
 
 interface TestimonialsViewProps {
   onCtaClick: () => void;
 }
 
-const ExpandableQuote: React.FC<{ quote: string; quoteEn?: string; limit?: number }> = ({ quote, quoteEn, limit = 160 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [showEnglish, setShowEnglish] = useState(false);
+export const VIDEO_REVIEWS = [
+  {
+    id: "v-1",
+    name: "Clara M.",
+    location: "Lyon",
+    program: "1-on-1 Coaching Program",
+    summary: "Before Eva, I was terrified to speak, and felt an awkwardness in any cozy apartment. This program completely shifted my confidence.",
+    ctaText: "Watch Clara's Story",
+    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
+  },
+  {
+    id: "v-2",
+    name: "Chloé S.",
+    location: "Paris",
+    program: "1-on-1 Coaching Program",
+    summary: "Before Eva, I was terrified to speak... she gave me total confidence in navigating daily Parisian life with warmth and patience.",
+    ctaText: "Watch Chloé's Story",
+    imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=400",
+  },
+  {
+    id: "v-3",
+    name: "Camille L.",
+    location: "Lyon",
+    program: "1-on-1 Coaching Program",
+    summary: "Learn at ease in an optimal environment. I stopped overthinking and finally found my confidence talking with native French speakers.",
+    ctaText: "Watch Camille's Story",
+    imageUrl: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=400",
+  },
+];
 
-  const activeQuote = showEnglish && quoteEn ? quoteEn : quote;
+export const TESTIMONIALS_PROOFS = [
+  {
+    id: "p-1",
+    name: "Sarah",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Loved the worksheets and playful touch.",
+    quote: "Eva is a very friendly and calm teacher. She asked me, what i wanted to learn and prepared worksheets for those topics. I liked that there was a playful touch to it sometimes because studying for a long time can be tiring and that helped me regain my energy! Her explanations were very good and if i didnt understand she was always patient and tried again. After the course i had better understanding of grammar and lewrnee a lot of new words!! it still sticks to me to this day, she definitely helped me a lot and i actually enjoyed the lessons 🫶",
+    imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-2",
+    name: "Laura Paz",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Patient, kind, and adapts the lessons.",
+    quote: "Eva is a great teacher. She's patient and kind and adapts the lessons to my objectives. I recommend her 100%.",
+    imageUrl: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-3",
+    name: "Erica Blotto",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Good balance of theory and practice.",
+    quote: "Great teacher for learning French and practicing conversation. Always great exercises and a good balance of theory / practice, plus Eva is a very caring person.",
+    imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-4",
+    name: "Oksana Volostnykh",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Happy that Eva accommodates my requests.",
+    quote: "I learn french for immigration and i hate doing homework, so i am really happy that Eva accomodates my requests including this no-homework situation. She is very patient teatcher, plans lessons according to priorities, requests and weaknesses (so you dont have skills that are much weaker than others, like you speak well but barely can read and vise versa). It has been a bit more than a year that i am learning french with Eva, i had 0 french knowledge before, right now it is like A2-ish, taking into account that i don't do a single thing for improving my french outside of our lessons - i consider my progress as a really good one.",
+    imageUrl: "https://images.unsplash.com/photo-1534751516642-a131fed10495?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-5",
+    name: "Rachel Bilouson",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Inspires confidence and excellent support.",
+    quote: "Eva est une enseignante très pédagogue, très douce et très pro qui met beaucoup de soin dans ses cours. Elle met en confiance et on bénéficie d'un réel suivi. Je recommande totalement ses services :)",
+    quoteEn: "Eva is a very patient, kind, and professional teacher who puts a lot of care into her lessons. She inspires confidence and provides excellent support. I highly recommend her services :)",
+    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-6",
+    name: "Jh",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Attentive, calm, and puts you at ease.",
+    quote: "J’ai déjà appris le français auparavant, mais j’avais du mal à parler et je manquais de confiance. Avec ses cours, je me sens progressivement plus à l’aise à l’oral, sans pression. Elle est très calme et à l’écoute, ce qui met vraiment en confiance. Les cours sont agréables et motivants, je recommande sans hésiter.",
+    quoteEn: "I had learned French before, but I struggled to speak and lacked confidence. With her lessons, I'm gradually feeling more comfortable speaking, without any pressure. She is very calm and attentive, which really puts you at ease. The lessons are enjoyable and motivating, I recommend her without hesitation.",
+    imageUrl: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-7",
+    name: "Coumba",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "A very effective and pleasant experience.",
+    quote: "C'est une enseignante très efficace. J'ai beaucoup aimé apprendre le français avec elle. Je la recommande vivement ! C'était une expérience très agréable.",
+    quoteEn: "She's a very effective teacher. I really enjoyed learning French with her. I highly recommend her! It was a very pleasant experience.",
+    imageUrl: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-8",
+    name: "Asia Rizzi",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Trustworthy and genuinely caring.",
+    quote: "Very patient teacher. Trustworthy and genuinely caring! She takes time to get to know you so nothing feels impersonal. She's got you ;)",
+    imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-9",
+    name: "Robert Bradshaw",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Superb French Tutor.",
+    quote: "Eva is a superb French Tutor. Able to identify and target the key areas slowing progression to build confidence and understanding. Knowledgeable, patient and fun, it's exactly what l needed to make the lessons both effective and enjoyable.",
+    imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-10",
+    name: "Y BenKadour",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Gained confidence!",
+    quote: "De très bons cours avec une personne très professionnelle :) J’ai beaucoup appris et j’ai gagné en confiance !!",
+    quoteEn: "Very good lessons with a very professional person :) I learned a lot and gained confidence!!",
+    imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150",
+  },
+  {
+    id: "p-11",
+    name: "Annabelle Guellil",
+    program: "1-on-1 Coaching",
+    rating: 5,
+    highlight: "Excellent French teacher!",
+    quote: "Très bonne professeur de français ! Très pédagogue, je recommande à tous !",
+    quoteEn: "Excellent French teacher! Very skilled at teaching, I recommend her to everyone!",
+    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150",
+  },
+];
 
-  // Handle truncation
-  const needsTruncation = activeQuote.length > limit;
-  const displayedText = needsTruncation && !isExpanded 
-    ? `${activeQuote.substring(0, limit)}...` 
-    : activeQuote;
-
-  return (
-    <div className="space-y-1.5 text-left">
-      <div>
-        <p className="text-sm text-[#2D2D2D]/80 font-sans leading-relaxed inline">
-          "{displayedText}"
-        </p>
-        {needsTruncation && (
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="text-xs font-bold text-[#659287] hover:text-[#527a70] cursor-pointer hover:underline focus:outline-none ml-1 inline"
-          >
-            {isExpanded ? "Collapse [-]" : "Read More [+]"}
-          </button>
-        )}
-      </div>
-
-      {quoteEn && (
-        <button
-          onClick={() => setShowEnglish(!showEnglish)}
-          className="text-[11px] font-bold text-[#AC595B] hover:text-[#8d4244] cursor-pointer hover:underline focus:outline-none flex items-center gap-1 mt-1 opacity-80"
-        >
-          <span>🌐</span>
-          <span>{showEnglish ? "Show original (Français)" : "Translate to English"}</span>
-        </button>
-      )}
-    </div>
-  );
-};
+export const CASE_STUDIES = [
+  {
+    id: "cs-1",
+    title: "Led a business presentation",
+    intro: "Led a business presentation and gained mental clarity and native flow. Key specific wins:",
+    wins: [
+      "Led a business presentation at her marketing agency using nuanced business vocabulary.",
+      "Navigated business debates with colleagues without reverting to English.",
+      "Gained absolute composure during professional Q&As.",
+    ],
+    student: "Clara M., Lyon, Conversation Club",
+    rating: 5,
+  },
+  {
+    id: "cs-2",
+    title: "Navigated government forms",
+    intro: "Navigated complex French administration forms and applications. Key specific wins:",
+    wins: [
+      "Completed her carte de séjour paperwork and inquiry entirely in spoken French.",
+      "Navigated government portal calls confidently with proper administrative terms.",
+      "Represented herself clearly without needing an interpreter or help.",
+    ],
+    student: "Eliza S., Montpellier, Conversation Club",
+    rating: 5,
+  },
+  {
+    id: "cs-3",
+    title: "Made local friends",
+    intro: "Eva helped connect on a deeper human level with locals and in-laws. Key specific wins:",
+    wins: [
+      "Made real French friends in local associations and yoga groups.",
+      "Exchanged natural jokes and family stories over long Sunday dinners.",
+      "Expressed her true, vibrant personality rather than simplified survival phrases.",
+    ],
+    student: "Chloé S., Paris, 1-on-1 Coaching",
+    rating: 5,
+  },
+];
 
 export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }) => {
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
@@ -62,10 +195,10 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
             Real Proof
           </span>
           <h1 className="font-serif text-3.5xl sm:text-5xl font-bold text-[#2D2D2D] tracking-tight">
-            {testimonialsData.hero.title}
+            What My Students Say
           </h1>
           <p className="text-base sm:text-lg text-[#2D2D2D]/85 font-sans max-w-xl mx-auto leading-relaxed">
-            {testimonialsData.hero.subtitle}
+            Real stories from expat women who've found their French voice.
           </p>
         </div>
       </section>
@@ -83,90 +216,22 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
 
           {/* 3 Grid Video Capture Blocks */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonialsData.videoReviews.map((video) => {
+            {VIDEO_REVIEWS.map((video) => {
               const isPlaying = playingVideoId === video.id;
               return (
-                <div
+                <VideoTestimonialCard
                   key={video.id}
-                  className="bg-white rounded-3xl overflow-hidden border border-[#bbc4ae]/15 hover:border-[#bbc4ae]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
-                >
-                  {/* Virtual Video Frame */}
-                  <div className="aspect-[4/3] bg-stone-900 relative">
-                    <img
-                      src={video.imageUrl}
-                      alt={video.name}
-                      className="w-full h-full object-cover opacity-80 filter saturate-[0.85] brightness-95"
-                      referrerPolicy="no-referrer"
-                    />
-
-                    {/* Dark/Warm overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-black/10 flex flex-col justify-between p-4">
-                      
-                      {/* Top banner tag */}
-                      <span className="self-start px-2 py-0.5 rounded bg-white/20 backdrop-blur-md text-white text-[10px] uppercase font-bold tracking-wider font-sans">
-                        {video.location} • {video.program.split(" Coaching")[0]}
-                      </span>
-
-                      {/* Central Interactive Play Trigger */}
-                      <div className="self-center">
-                        <motion.button
-                          whileHover={{ scale: 1.15 }}
-                          whileTap={{ scale: 0.9 }}
-                          onClick={() => setPlayingVideoId(isPlaying ? null : video.id)}
-                          className="w-12 h-12 rounded-full bg-white/95 text-[#2D2D2D] flex items-center justify-center shadow-lg hover:text-[#659287] transition-colors focus:outline-none cursor-pointer"
-                          aria-label={`Play story video testimonial of student ${video.name}`}
-                        >
-                          {isPlaying ? (
-                            <span className="text-xs font-bold font-sans">Stop</span>
-                          ) : (
-                            <Play className="w-5 h-5 fill-current ml-0.5" />
-                          )}
-                        </motion.button>
-                      </div>
-
-                      {/* Display name tag in video */}
-                      <span className="text-white font-serif text-sm italic font-bold">
-                        {video.name}, {video.location}
-                      </span>
-                    </div>
-
-                    {/* Overlay playing notice */}
-                    {isPlaying && (
-                      <div className="absolute inset-0 bg-stone-900 flex flex-col items-center justify-center p-6 text-center space-y-4 text-white z-25">
-                        <MessageCircle className="w-8 h-8 text-[#E8B9BA] animate-bounce" />
-                        <p className="font-serif italic text-sm">
-                          "Eva changed my whole outlook! Connecting over tea let me practice natural street-level sentences cleanly."
-                        </p>
-                        <button
-                          onClick={() => setPlayingVideoId(null)}
-                          className="text-xs font-bold uppercase underline tracking-wider text-[#bbc4ae] hover:text-white transition-colors"
-                        >
-                          Close Player
-                        </button>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Summary copy */}
-                  <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                    <p className="text-sm text-[#2D2D2D]/80 font-sans leading-relaxed">
-                      "{video.summary}"
-                    </p>
-
-                    <div className="pt-4 border-t border-[#F5EFE6]">
-                      <button
-                        onClick={() => {
-                          setPlayingVideoId(isPlaying ? null : video.id);
-                        }}
-                        className="text-xs font-bold uppercase tracking-wider text-[#659287] hover:text-[#527a70] hover:underline flex items-center gap-1 cursor-pointer focus:outline-none"
-                      >
-                        <span>{video.ctaText}</span>
-                        <ChevronRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-
-                </div>
+                  id={video.id}
+                  name={video.name}
+                  location={video.location}
+                  program={video.program}
+                  summary={video.summary}
+                  ctaText={video.ctaText}
+                  imageUrl={video.imageUrl}
+                  isPlaying={isPlaying}
+                  onPlayToggle={() => setPlayingVideoId(isPlaying ? null : video.id)}
+                  onClosePlayer={() => setPlayingVideoId(null)}
+                />
               );
             })}
           </div>
@@ -190,44 +255,17 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
 
           {/* 4 Cards Written reviews Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {testimonialsData.proofs.map((proof) => (
-              <div
+            {TESTIMONIALS_PROOFS.map((proof) => (
+              <ReviewCard
                 key={proof.id}
-                className="bg-white p-8 rounded-3xl border border-[#bbc4ae]/15 hover:border-[#bbc4ae]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
-              >
-                <div className="space-y-4">
-                  {/* Rating Stars */}
-                  <div className="flex gap-1 text-[#bbc4ae]">
-                    {[...Array(proof.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current text-[#bbc4ae]" />
-                    ))}
-                  </div>
-
-                  {/* Highlight callout text */}
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#659287] italic leading-snug">
-                    "{proof.highlight}"
-                  </h3>
-
-                  {/* Quote block */}
-                  <ExpandableQuote quote={proof.quote} quoteEn={proof.quoteEn} />
-                </div>
-
-                {/* Student layout footer */}
-                <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#F5EFE6]">
-                  <div className="w-11 h-11 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center border-2 border-[#E8B9BA]/20 shadow-sm text-[#AC595B] font-serif text-sm font-bold shrink-0">
-                    {proof.name.charAt(0).toUpperCase()}
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-sm font-bold text-[#2D2D2D]">
-                      {proof.name}
-                    </h4>
-                    <p className="text-[11px] font-sans text-[#2D2D2D]/65 uppercase tracking-wider font-semibold">
-                      {proof.program}
-                    </p>
-                  </div>
-                </div>
-
-              </div>
+                name={proof.name}
+                program={proof.program}
+                rating={proof.rating}
+                highlight={proof.highlight}
+                quote={proof.quote}
+                quoteEn={proof.quoteEn}
+                showQuoteDecorator={false}
+              />
             ))}
           </div>
 
@@ -245,59 +283,17 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
             </h2>
           </div>
 
-          {"/* List of Case Studies wins */"}
+          {/* List of Case Studies wins */}
           <div className="space-y-8 max-w-4xl mx-auto">
-            {testimonialsData.caseStudies.map((caseStudy) => (
-              <div
+            {CASE_STUDIES.map((caseStudy) => (
+              <CaseStudyCard
                 key={caseStudy.id}
-                className="bg-[#FBF8F3] p-8 sm:p-10 rounded-3xl border border-[#bbc4ae]/15 hover:border-[#bbc4ae]/45 hover:shadow-sm transition-all"
-              >
-                
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b border-[#bbc4ae]/15 pb-6">
-                  <div className="space-y-1">
-                    <div className="flex gap-1 text-[#bbc4ae]">
-                      {[...Array(caseStudy.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current text-[#bbc4ae]" />
-                      ))}
-                    </div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2D2D2D]">
-                      {caseStudy.title}
-                    </h3>
-                  </div>
-
-                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-[#659287]/20 text-[#659287] text-xs font-semibold">
-                    <Award className="w-3.5 h-3.5 text-[#659287]" />
-                    <span>Expat Case Study</span>
-                  </span>
-                </div>
-
-                <div className="space-y-4">
-                  <p className="text-sm font-sans text-[#2D2D2D]/75 italic">
-                    {caseStudy.intro}
-                  </p>
-
-                  <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {caseStudy.wins.map((win, idx) => (
-                      <li
-                        key={idx}
-                        className="bg-white p-4 rounded-xl border border-[#F5EFE6] text-xs sm:text-sm text-[#2D2D2D]/85 leading-relaxed font-sans relative"
-                      >
-                        {/* Dot indicator */}
-                        <div className="w-4 h-4 rounded-full bg-[#AC595B]/20 text-[#AC595B] text-[10px] font-bold flex items-center justify-center mb-2">
-                          ✓
-                        </div>
-                        {win}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex items-center gap-2 pt-4 justify-end text-xs text-[#2D2D2D]/65 font-semibold font-sans uppercase">
-                    <User className="w-3.5 h-3.5 text-[#AC595B]" />
-                    <span>Accomplished by: {caseStudy.student}</span>
-                  </div>
-                </div>
-
-              </div>
+                title={caseStudy.title}
+                intro={caseStudy.intro}
+                wins={caseStudy.wins}
+                student={caseStudy.student}
+                rating={caseStudy.rating}
+              />
             ))}
           </div>
 
@@ -308,11 +304,6 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F5EFE6]/50">
         <div className="max-w-4xl mx-auto text-center space-y-8 bg-[#F7E5E6] border border-[#E8B9BA]/35 text-[#2D2D2D] p-10 sm:p-14 rounded-3xl relative overflow-hidden shadow-sm">
           
-          {/* Background flourish */}
-          <div className="absolute right-0 bottom-0 pointer-events-none opacity-8 text-[#AC595B] transform translate-x-12 translate-y-12">
-            <FleurDeLisOrnament className="w-72 h-72 fill-none stroke-current" />
-          </div>
-
           <div className="space-y-3 relative z-10">
             <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">JOIN THE BLOOMING COMMUNITY</span>
             <h2 className="font-serif text-3xl sm:text-4.5xl font-bold max-w-xl mx-auto leading-tight text-[#2D2D2D]">
@@ -341,3 +332,4 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
     </div>
   );
 };
+

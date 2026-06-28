@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Heart, Play, Pause, Compass, BookOpen, Shirt, Music, Sparkles } from "lucide-react";
-import { whoAmIData } from "../data";
+import { PillarCard, InterestCard } from "./CardComponents";
 import { LilyOfTheValley, DelicateDottedDivider } from "./DecorativeAccents";
 
 // Assets
@@ -15,24 +15,8 @@ interface WhoAmIViewProps {
 export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
-  // Mapped icons for Off-duty interests
-  const getInterestIcon = (id: string) => {
-    switch (id) {
-      case "1":
-        return <Compass className="w-5 h-5 text-[#659287]" />;
-      case "2":
-        return <BookOpen className="w-5 h-5 text-[#AC595B]" />;
-      case "3":
-        return <Shirt className="w-5 h-5 text-[#659287]" />;
-      case "4":
-        return <Music className="w-5 h-5 text-[#AC595B]" />;
-      default:
-        return <Sparkles className="w-5 h-5 text-[#659287]" />;
-    }
-  };
-
   return (
-    <div className="bg-[#FBF8F3] min-h-screen">
+    <div className="bg-[#FBF8F3] min-h-screen text-left">
       
       {/* 1. HERO - BIOGRAPHY BANNER */}
       <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50">
@@ -42,18 +26,21 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
             {/* Left intro copy */}
             <div className="lg:col-span-6 space-y-6">
               <span className="inline-block px-3 py-1 rounded-full bg-[#bbc4ae]/15 text-[#2D2D2D] font-serif italic text-sm border border-[#659287]/30">
-                {whoAmIData.hero.badge}
+                Hey, I am Eva!
               </span>
 
               <h1 className="font-serif text-3.5xl sm:text-5xl font-bold text-[#2D2D2D] leading-tight">
-                {whoAmIData.hero.title}
+                My mission is to help you feel fully yourself in French.
               </h1>
 
               {/* Multiline description */}
               <div className="text-sm sm:text-base text-[#2D2D2D]/85 font-sans leading-relaxed space-y-4">
-                {whoAmIData.hero.description.split("\n\n").map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
+                <p>
+                  With a degree in French as a foreign language and several years of experience, I've had the pleasure to support women from different backgrounds in improving their conversational French and feeling more confident speaking.
+                </p>
+                <p>
+                  Today they feel confident speaking everyday French and they feel at home in their new life in France.
+                </p>
               </div>
 
               <div className="pt-4">
@@ -153,11 +140,11 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
                     />
                   </div>
                   
-                  {/* Overlay Sticker Badge (Pinterest Inspired pink-sage look) */}
+                  {/* Overlay Sticker Badge */}
                   <div className="bg-[#E8B9BA] text-[#2D2D2D] p-4 rounded-2xl border-2 border-white shadow-md text-center transform -rotate-1 relative z-10">
                     <Heart className="w-5 h-5 text-[#2D2D2D] fill-[#2D2D2D] mx-auto mb-1.5" />
                     <p className="font-serif text-sm italic leading-snug">
-                      "{whoAmIData.whyFocus.quoteBadge}"
+                      "I refuse to let the language barrier make you feel smaller than you are!"
                     </p>
                   </div>
                 </div>
@@ -169,15 +156,15 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
             <div className="lg:col-span-7 space-y-6 text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">THE HEART OF IT</span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
-                {whoAmIData.whyFocus.title}
+                Why I focus on expat women
               </h2>
               
               <div className="space-y-5 text-sm sm:text-base text-[#2D2D2D]/85 font-sans leading-relaxed">
                 <p>
-                  {whoAmIData.whyFocus.content1}
+                  I naturally started working with a lot of expatriate women, and I realized I really enjoy supporting them. As a woman in France, I completely relate to your daily life, goals, and needs, which allows me to create a highly tailored, strategic coaching experience that directly aligns with your personal and professional ambitions.
                 </p>
                 <p>
-                  {whoAmIData.whyFocus.content2}
+                  To bring these ambitions to life, our sessions blend professional guidance with natural, real-life practice rather than rigid academic drills. We get along seamlessly and laugh often, preparing you to navigate any everyday situation and speak with genuine ease wherever you go.
                 </p>
               </div>
 
@@ -199,30 +186,32 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
           <div className="space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#AC595B] block">COACHING PRINCIPLES</span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
-              {whoAmIData.pillars.title}
+              How I support you
             </h2>
           </div>
 
           {/* 4 Items container */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
-            {whoAmIData.pillars.items.map((item, index) => (
-              <div
-                key={index}
-                className="bg-[#FBF8F3] p-6 rounded-2xl border border-[#659287]/15 hover:border-[#AC595B]/30 hover:shadow-sm transition-all flex items-start gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#AC595B] shrink-0 border border-[#AC595B]/20">
-                  <Heart className="w-4 h-4 fill-current text-[#AC595B]" />
-                </div>
-                <div>
-                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#2D2D2D] mb-1">
-                    0{index + 1}. {item.split(" where ")[0].split(" designed ")[0].split(" you can ")[0]}
-                  </h3>
-                  <p className="text-sm text-[#2D2D2D]/75 font-sans leading-relaxed">
-                    {item}
-                  </p>
-                </div>
-              </div>
-            ))}
+            <PillarCard
+              number="01"
+              title="A safe space"
+              description="A safe space where mistakes are welcome"
+            />
+            <PillarCard
+              number="02"
+              title="No judgement"
+              description="No judgement, no pressure, no stress"
+            />
+            <PillarCard
+              number="03"
+              title="Conversations"
+              description="Conversations designed around your real life"
+            />
+            <PillarCard
+              number="04"
+              title="Progress"
+              description="Progress you can feel, not just measure"
+            />
           </div>
 
           <DelicateDottedDivider />
@@ -230,7 +219,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
           {/* Highlight signature quote styling */}
           <div className="max-w-2xl mx-auto pt-2">
             <p className="font-serif text-xl sm:text-2xl italic text-[#2D2D2D] leading-relaxed">
-              "{whoAmIData.pillars.highlight}"
+              "You're not broken. You don't need fixing. You just need someone who gets it—and a method that actually works."
             </p>
           </div>
 
@@ -250,40 +239,35 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
           <div className="space-y-3">
             {/* Elegant Serif script label */}
             <span className="font-serif italic text-2xl sm:text-3.5xl text-[#AC595B] block font-light">
-              {whoAmIData.offDuty.title}
+              Off Duty
             </span>
             <p className="text-sm sm:text-base text-[#2D2D2D]/85 max-w-lg mx-auto">
-              {whoAmIData.offDuty.subtitle}
+              When I'm not teaching, I'm probably just like you—following my curiosity and enjoying the little things in life.
             </p>
           </div>
 
           {/* Grid of Interests */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left max-w-5xl mx-auto relative z-10">
-            {whoAmIData.offDuty.items.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white p-6 rounded-2xl border border-[#bbc4ae]/15 hover:border-[#bbc4ae]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  {/* Icon badge */}
-                  <div className="w-10 h-10 rounded-xl bg-[#F5EFE6] flex items-center justify-center">
-                    {getInterestIcon(item.id)}
-                  </div>
-                  <h4 className="font-serif text-base sm:text-lg font-bold text-[#2D2D2D]">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#2D2D2D]/85 leading-relaxed font-sans">
-                    {item.description}
-                  </p>
-                </div>
-                
-                {/* Visual tiny spacer badge */}
-                <div className="mt-4 pt-4 border-t border-[#F5EFE6] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AC595B]/60" />
-                  <span className="text-[10px] uppercase tracking-wider font-semibold text-[#659287] font-sans">Eva Personal</span>
-                </div>
-              </div>
-            ))}
+            <InterestCard
+              icon={<Compass className="w-5 h-5 text-[#659287]" />}
+              title="Learning foreign languages"
+              description="Embracing the beautiful mess of being a student myself."
+            />
+            <InterestCard
+              icon={<BookOpen className="w-5 h-5 text-[#AC595B]" />}
+              title="Reading"
+              description="Usually paired with a warm cup of tea and a slow afternoon."
+            />
+            <InterestCard
+              icon={<Shirt className="w-5 h-5 text-[#659287]" />}
+              title="Exploring fashion"
+              description="Style is just another beautiful form of self-expression."
+            />
+            <InterestCard
+              icon={<Music className="w-5 h-5 text-[#AC595B]" />}
+              title="Listening to music"
+              description="From weekly favorites to new underground finds."
+            />
           </div>
 
         </div>
@@ -292,3 +276,4 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
     </div>
   );
 };
+
