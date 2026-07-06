@@ -182,78 +182,50 @@ export const CASE_STUDIES = [
   },
 ];
 
-export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }) => {
-  const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
+import { EiffelTower, Croissant } from "./DecorativeAccents";
 
+export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }) => {
   return (
     <div className="bg-white min-h-screen text-left">
-      
+
       {/* 1. HERO - WHAT MY STUDENTS SAY */}
-      <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50 text-center">
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/30 text-center">
         <div className="max-w-4xl mx-auto space-y-4">
           <span className="inline-block px-3 py-1 rounded-full bg-[#E8B9BA]/15 text-[#2D2D2D] font-serif italic text-sm border border-[#E8B9BA]/35">
             Real Proof
           </span>
-          <h1 className="font-serif text-3.5xl sm:text-5xl font-bold text-[#2D2D2D] tracking-tight">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[#2D2D2D] tracking-tight">
             What My Students Say
           </h1>
           <p className="text-base sm:text-lg text-[#2D2D2D]/85 font-sans max-w-xl mx-auto leading-relaxed">
-            Real stories from expat women who've found their French voice.
+            Verified written reviews from my clients who built confidence and progression in French.
           </p>
+          <div className="pt-2">
+            <a
+              href="https://www.google.com/search?hl=fr-FR&gl=fr&q=Speak+French+with+Eva&ludocid=3354417093084286652&lsig=AB86z5VEo1077elxhUo4r-pE3a7t&hl=fr&gl=FR&sa=X&ved=2ahUKEwjA1fOYpr6VAxVSUaQEHcKhIJMQ3PALegQIGxAO#lrd=0x5a0dca4ca2f206d:0x2e8d4892ddc98ebc,1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#659287]/30 bg-white/50 text-[#659287] hover:bg-[#85ada3] hover:text-white font-sans text-xs uppercase font-extrabold tracking-widest transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
+            >
+              <span>View on Google Reviews</span>
+              <span className="text-xs">↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* 2. HEAR THEIR STORIES (VIDEO TESTIMONIALS) */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#FBF8F3]">
-        <div className="max-w-6xl mx-auto space-y-10">
-          
-          <div className="text-center">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2D2D2D] flex items-center justify-center gap-2">
-              <Video className="w-5 h-5 text-[#659287]" />
-              <span>Hear their stories</span>
-            </h2>
-          </div>
-
-          {/* 3 Grid Video Capture Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {VIDEO_REVIEWS.map((video) => {
-              const isPlaying = playingVideoId === video.id;
-              return (
-                <VideoTestimonialCard
-                  key={video.id}
-                  id={video.id}
-                  name={video.name}
-                  location={video.location}
-                  program={video.program}
-                  summary={video.summary}
-                  ctaText={video.ctaText}
-                  imageUrl={video.imageUrl}
-                  isPlaying={isPlaying}
-                  onPlayToggle={() => setPlayingVideoId(isPlaying ? null : video.id)}
-                  onClosePlayer={() => setPlayingVideoId(null)}
-                />
-              );
-            })}
-          </div>
-
+      {/* 2. WRITTEN REVIEWS GRID */}
+      <section className="py-16 pb-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        {/* Background French ornaments */}
+        <div className="absolute right-8 top-12 opacity-10 text-[#659287] pointer-events-none transform rotate-12 hidden md:block">
+          <EiffelTower className="w-56 h-56" />
         </div>
-      </section>
+        <div className="absolute left-8 bottom-12 opacity-10 text-[#E8B9BA] pointer-events-none transform -rotate-12 hidden md:block">
+          <Croissant className="w-48 h-48" />
+        </div>
 
-      {/* 3. WRITTEN REVIEWS ("The proof is in the progress") */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
-        <div className="max-w-6xl mx-auto space-y-12">
-          
-          <div className="text-center space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#AC595B] block">TESTIMONY VERSED</span>
-            <h2 className="font-serif text-2xl sm:text-3.5xl font-bold text-[#2D2D2D]">
-              The proof is in the progress
-            </h2>
-            <p className="text-xs text-[#2D2D2D]/75 font-sans max-w-sm mx-auto">
-              Extracts of verified written reviews from long-distance coaching students.
-            </p>
-          </div>
-
-          {/* 4 Cards Written reviews Grid */}
+        <div className="max-w-5xl mx-auto relative z-10">
+          {/* 11 Cards Written reviews Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {TESTIMONIALS_PROOFS.map((proof) => (
               <ReviewCard
@@ -268,49 +240,27 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
               />
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* 4. SPECIFIC CASE STUDIES (Key Wins list) */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative">
-        <div className="max-w-5xl mx-auto space-y-12">
-          
-          <div className="text-center space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">CONCRETE WINS</span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
-              Real expat situations mastered
-            </h2>
-          </div>
-
-          {/* List of Case Studies wins */}
-          <div className="space-y-8 max-w-4xl mx-auto">
-            {CASE_STUDIES.map((caseStudy) => (
-              <CaseStudyCard
-                key={caseStudy.id}
-                title={caseStudy.title}
-                intro={caseStudy.intro}
-                wins={caseStudy.wins}
-                student={caseStudy.student}
-                rating={caseStudy.rating}
-              />
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. FINAL BANNER CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F5EFE6]/50">
+      {/* 3. FINAL BANNER CTA */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/30">
         <div className="max-w-4xl mx-auto text-center space-y-8 bg-[#F7E5E6] border border-[#E8B9BA]/35 text-[#2D2D2D] p-10 sm:p-14 rounded-3xl relative overflow-hidden shadow-sm">
-          
+          {/* Background French ornaments inside the banner card */}
+          <div className="absolute right-[-30px] bottom-[-35px] opacity-20 pointer-events-none transform rotate-12">
+            <EiffelTower className="w-48 h-48" color="stroke-[#659287]" />
+          </div>
+          <div className="absolute left-[-15px] top-[-15px] opacity-20 pointer-events-none transform -rotate-12">
+            <Croissant className="w-36 h-36" color="stroke-[#AC595B]" />
+          </div>
+
           <div className="space-y-3 relative z-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">JOIN THE BLOOMING COMMUNITY</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">JOIN THE COMMUNITY</span>
             <h2 className="font-serif text-3xl sm:text-4.5xl font-bold max-w-xl mx-auto leading-tight text-[#2D2D2D]">
               Ready to make French your everyday reality?
             </h2>
             <p className="text-[#2D2D2D]/80 max-w-md mx-auto text-sm">
-              We begin with a gentle, friendly, zero-pressure 20-minute video conversation.
+              We begin with a gentle, friendly, zero-pressure 30-minute video conversation.
             </p>
           </div>
 

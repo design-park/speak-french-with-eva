@@ -285,9 +285,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#F7E5E6] border border-[#E8B9BA]/35 text-[#2D2D2D] p-10 sm:p-14 rounded-3xl relative overflow-hidden text-center space-y-8 shadow-sm">
 
-            {/* Background vector rings */}
-            <div className="absolute top-0 right-0 pointer-events-none opacity-8 text-[#AC595B]">
-              <FrenchRose className="w-80 h-80 fill-none stroke-current" />
+            {/* Background French ornaments inside the banner card */}
+            <div className="absolute right-[-30px] bottom-[-35px] opacity-20 pointer-events-none transform rotate-12">
+              <EiffelTower className="w-48 h-48" color="stroke-[#659287]" />
+            </div>
+            <div className="absolute left-[-15px] top-[-15px] opacity-20 pointer-events-none transform -rotate-12">
+              <Croissant className="w-36 h-36" color="stroke-[#AC595B]" />
             </div>
 
             <div className="space-y-3 relative z-10">
