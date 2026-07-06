@@ -164,52 +164,34 @@ export const FrenchCoffeeIcon: React.FC<AccentProps> = ({ className = "w-6 h-6",
   const clipId = React.useId();
   return (
     <svg
-      viewBox="0 0 24 24"
-      className={`${className} ${color}`}
+      viewBox="0 0 100 100"
+      className={`${className}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Coffee steam */}
-      <path
-        d="M7 5c.3.8-.5 1.5 0 2.2M11 4c.3 1-.5 1.8 0 2.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      {/* Handle */}
-      <path
-        d="M16.5 11c1.5 0 2.5.6 2.5 1.6s-.8 1.6-2.5 1.6"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-      {/* Cup body with clipPath for tricolor stripes */}
+      {/* 1. Outer Speech Bubble Shape filled with French flag stripes */}
       <g clipPath={`url(#${clipId})`}>
-        {/* Cup background */}
-        <path
-          d="M5 9h12l-1.2 7.2c-.3 1.8-1.8 3.2-3.6 3.2H9.8c-1.8 0-3.3-1.4-3.6-3.2L5 9z"
-          fill="#FFFFFF"
-        />
-        {/* Stripes: Blue, White, Red */}
-        {/* Blue stripe (left 1/3) */}
-        <rect x="5" y="8" width="4" height="15" fill="#0050A1" />
-        {/* White stripe (middle 1/3) */}
-        <rect x="9" y="8" width="4" height="15" fill="#FFFFFF" />
-        {/* Red stripe (right 1/3) */}
-        <rect x="13" y="8" width="4" height="15" fill="#AC595B" />
+        {/* Blue stripe (left) */}
+        <rect x="0" y="0" width="37.5" height="100" fill="#4A76A8" />
+        {/* White stripe (middle) */}
+        <rect x="37.5" y="0" width="25" height="100" fill="#FFFFFF" />
+        {/* Red/Rose stripe (right) */}
+        <rect x="62.5" y="0" width="37.5" height="100" fill="#E18E88" />
       </g>
-      {/* Cup outline to make it clean */}
-      <path
-        d="M5 9h12l-1.2 7.2c-.3 1.8-1.8 3.2-3.6 3.2H9.8c-1.8 0-3.3-1.4-3.6-3.2L5 9z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
       
+      {/* Speech Bubble Outline (thick, premium dark gray line) - Flipped to point to bottom-right */}
+      <path
+        d="M 50 15 c -22 0 -40 13.4 -40 30 s 18 30 40 30 c 4 0 7.8 -.4 11.4 -1.2 L 80 79 l -5 -15.5 C 80.2 58.7 83 52.6 83 45 c 0 -16.6 -18 -30 -40 -30 z"
+        stroke="#2D2D2D"
+        strokeWidth="3.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+
       <defs>
         <clipPath id={clipId}>
-          <path d="M5 9h12l-1.2 7.2c-.3 1.8-1.8 3.2-3.6 3.2H9.8c-1.8 0-3.3-1.4-3.6-3.2L5 9z" />
+          <path d="M 50 15 c -22 0 -40 13.4 -40 30 s 18 30 40 30 c 4 0 7.8 -.4 11.4 -1.2 L 80 79 l -5 -15.5 C 80.2 58.7 83 52.6 83 45 c 0 -16.6 -18 -30 -40 -30 z" />
         </clipPath>
       </defs>
     </svg>
@@ -238,6 +220,91 @@ export const FrenchRose: React.FC<AccentProps> = ({ className = "w-10 h-10", col
       {/* Stem & Leaves */}
       <path d="M50,75 C50,85 50,90 50,90" strokeLinecap="round" />
       <path d="M50,80 C40,78 30,70 36,64 M50,84 C60,82 70,74 64,68" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+};
+
+export const EiffelTower: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 120"
+      className={`${className} fill-none ${color} stroke-[1.2]`}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <line x1="50" y1="2" x2="50" y2="15" />
+      <path d="M50 15 C47 40 43 75 35 110" />
+      <path d="M50 15 C53 40 57 75 65 110" />
+      <path d="M50 15 C49 45 47 75 42 110" />
+      <path d="M50 15 C51 45 53 75 58 110" />
+      <rect x="36" y="85" width="28" height="3" rx="1" fill="currentColor" stroke="none" className="opacity-20" />
+      <line x1="37" y1="85" x2="63" y2="85" />
+      <line x1="35" y1="88" x2="65" y2="88" />
+      <rect x="43" y="60" width="14" height="2" rx="0.5" fill="currentColor" stroke="none" className="opacity-20" />
+      <line x1="44" y1="60" x2="56" y2="60" />
+      <line x1="43" y1="62" x2="57" y2="62" />
+      <path d="M38 110 C42 93 58 93 62 110" />
+      <line x1="48" y1="30" x2="52" y2="40" strokeWidth="0.8" />
+      <line x1="52" y1="30" x2="48" y2="40" strokeWidth="0.8" />
+      <line x1="46" y1="45" x2="54" y2="55" strokeWidth="0.8" />
+      <line x1="54" y1="45" x2="46" y2="55" strokeWidth="0.8" />
+      <line x1="41" y1="68" x2="59" y2="80" strokeWidth="0.8" />
+      <line x1="59" y1="68" x2="41" y2="80" strokeWidth="0.8" />
+    </svg>
+  );
+};
+
+export const Croissant: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.2]`}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15,50 C12,42 20,30 35,22 C50,14 70,16 85,28 C90,32 92,38 85,42 M15,50 C10,55 18,65 30,72 C45,80 65,80 80,70 C88,64 88,58 85,42" />
+      <path d="M32,24 C38,32 38,55 26,68" />
+      <path d="M48,18 C56,28 56,58 43,76" />
+      <path d="M66,20 C72,30 71,56 61,72" />
+      <path d="M78,25 C82,34 81,50 75,60" />
+      <path d="M35,22 C45,35 45,55 30,72" />
+      <path d="M65,22 C55,35 55,55 70,72" />
+    </svg>
+  );
+};
+
+export const CafeCup: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.2]`}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M25,38 L75,38 C75,38 75,68 50,68 C25,68 25,38 25,38 Z" />
+      <path d="M75,45 C82,45 85,49 85,53 C85,57 82,61 75,61" />
+      <path d="M20,75 L80,75" />
+      <path d="M42,20 Q45,26 42,32 M50,17 Q53,23 50,29 M58,20 Q61,26 58,32" />
+    </svg>
+  );
+};
+
+export const Baguette: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.2]`}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15,80 C12,83 18,88 22,85 L85,22 C88,18 83,12 80,15 Z" />
+      <line x1="30" y1="65" x2="40" y2="70" />
+      <line x1="45" y1="50" x2="55" y2="55" />
+      <line x1="60" y1="35" x2="70" y2="40" />
     </svg>
   );
 };

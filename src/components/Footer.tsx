@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
   };
 
   return (
-    <footer className="bg-[#FBF8F3] border-t border-[#bbc4ae]/20 pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-[#FBF8F3] border-t border-[#bbc4ae]/15 pt-16 pb-8 relative overflow-hidden">
       {/* Background flourish */}
       <div className="absolute right-0 bottom-0 pointer-events-none opacity-5 max-w-xs translate-x-20 translate-y-20">
         <FleurDeLisOrnament className="w-96 h-96" />
@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
           {/* Column 1: Brand Info */}
           <div className="md:col-span-2 space-y-5">
             <div className="flex items-center gap-3">
-              <FrenchCoffeeIcon className="w-8 h-8" />
+              <FrenchCoffeeIcon className="w-10 h-10" />
               <span className="font-serif text-2xl font-bold text-[#2D2D2D] tracking-tight">
                 Speak French with <span className="text-[#AC595B]">Eva</span>
               </span>
@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
               {[
                 { label: "Home", id: "home" },
                 { label: "Services", id: "services" },
-                { label: "Who am I?", id: "who-am-i" },
+                { label: "About", id: "who-am-i" },
                 { label: "Testimonials", id: "testimonials" },
               ].map((link) => (
                 <li key={link.id}>

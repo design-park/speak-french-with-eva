@@ -91,11 +91,6 @@ export const InterestCard: React.FC<InterestCardProps> = ({ icon, title, descrip
           {description}
         </p>
       </div>
-
-      <div className="mt-4 pt-4 border-t border-[#F5EFE6] flex items-center gap-1">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#AC595B]/60" />
-        <span className="text-[10px] uppercase tracking-wider font-semibold text-[#659287] font-sans">Eva Personal</span>
-      </div>
     </div>
   );
 };
@@ -128,8 +123,8 @@ export const PainPointCard: React.FC<PainPointCardProps> = ({ quote, variant }) 
       />
 
       {/* Mini flower icon in bubble */}
-      <div className="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full bg-white border border-[#F5EFE6] flex items-center justify-center shadow-sm">
-        <SubtleSparkle className="w-2.5 h-2.5" color={isPink ? "fill-[#E8B9BA]" : "fill-[#bbc4ae]"} />
+      <div className={`absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full border border-white flex items-center justify-center shadow-sm ${isPink ? "bg-[#E8B9BA]" : "bg-[#659287]"}`}>
+        <SubtleSparkle className="w-2.5 h-2.5" color="fill-white" />
       </div>
     </div>
   );
@@ -144,9 +139,9 @@ interface PriorityCardProps {
 
 export const PriorityCard: React.FC<PriorityCardProps> = ({ number, title, description }) => {
   return (
-    <div className="group bg-white p-6 rounded-2xl border border-[#bbc4ae]/15 hover:border-[#bbc4ae]/60 hover:shadow-md transition-all duration-300 relative overflow-hidden">
+    <div className="group bg-white p-6 rounded-2xl border border-[#659287]/15 hover:border-[#659287]/60 hover:shadow-md transition-all duration-300 relative overflow-hidden">
       {/* Decorative side block */}
-      <div className="absolute top-0 left-0 w-1.5 h-full bg-[#bbc4ae] group-hover:bg-[#E8B9BA] transition-colors" />
+      <div className="absolute top-0 left-0 w-1.5 h-full bg-[#659287] group-hover:bg-[#E8B9BA] transition-colors" />
 
       {/* Styled Badge instead of "icon" text */}
       <div className="w-10 h-10 rounded-xl bg-[#F5EFE6] flex items-center justify-center text-[#659287] font-serif text-base font-bold mb-4 group-hover:bg-[#AC595B]/10 group-hover:text-[#AC595B] transition-colors">
@@ -172,10 +167,10 @@ interface TransformationItemProps {
 export const TransformationItem: React.FC<TransformationItemProps> = ({ boldText, normalText }) => {
   return (
     <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-[#FBF8F3] border border-transparent hover:border-[#bbc4ae]/10 transition-colors">
-      <div className="w-5 h-5 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center text-[#AC595B] text-xs font-bold shrink-0 mt-0.5">
+      <div className="w-6 h-6 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center text-[#AC595B] text-sm font-bold shrink-0 mt-0.5">
         ✓
       </div>
-      <p className="text-sm text-[#2D2D2D]/80 leading-relaxed font-sans">
+      <p className="text-base text-[#2D2D2D]/80 leading-relaxed font-sans">
         <span className="font-bold text-[#2D2D2D] border-b border-[#659287]/30 pb-0.5">
           {boldText}
         </span>{" "}
@@ -353,11 +348,6 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
         >
           {ctaText}
         </button>
-        {isCoaching && (
-          <p className="text-[10px] text-center text-[#2D2D2D]/70 font-semibold mt-2">
-            ★ Spots are strictly limited to 6 clients at a time.
-          </p>
-        )}
       </div>
     </div>
   );

@@ -109,7 +109,7 @@ export default function App() {
   };
 
   return (
-    <div className="font-sans text-[#2D2D2D] bg-[#FBF8F3] min-h-screen flex flex-col justify-between selection:bg-[#E8B9BA]/30 selection:text-[#2D2D2D] antialiased">
+    <div className="font-sans text-[#2D2D2D] bg-white min-h-screen flex flex-col justify-between selection:bg-[#E8B9BA]/30 selection:text-[#2D2D2D] antialiased">
       
       {/* Dynamic Navigation Header */}
       <Header

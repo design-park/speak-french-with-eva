@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ArrowRight, CheckCircle2, Mail, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { PainPointCard, PriorityCard, TransformationItem, ReviewCard } from "./CardComponents";
 import { TESTIMONIALS_PROOFS } from "./TestimonialsView";
-import { LilyOfTheValley, DelicateDottedDivider, FleurDeLisOrnament, FrenchRose } from "./DecorativeAccents";
+import { LilyOfTheValley, DelicateDottedDivider, FleurDeLisOrnament, FrenchRose, EiffelTower, Croissant, CafeCup, Baguette } from "./DecorativeAccents";
 
 // Import generated portrait and lifestyle pics
 import evaPortrait from "../assets/images/eva-color.jpg";
@@ -30,30 +30,36 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
   };
 
   return (
-    <div className="relative bg-[#FBF8F3] min-h-screen text-left">
+    <div className="relative bg-white min-h-screen text-left">
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-12 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50">
+      <section className="relative pt-20 sm:pt-28 pb-28 sm:pb-36 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-white to-[#FBF8F3]/30">
+        {/* Background French ornaments */}
+        <div className="absolute left-6 top-12 opacity-15 pointer-events-none transform -rotate-12 hidden lg:block">
+          <CafeCup className="w-36 h-36" color="stroke-[#659287]" />
+        </div>
+        <div className="absolute left-16 bottom-16 opacity-10 pointer-events-none transform rotate-12 hidden lg:block">
+          <Baguette className="w-28 h-28" color="stroke-[#AC595B]" />
+        </div>
+
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 xl:gap-24 items-center">
 
             {/* Hero Left Content */}
-            <div className="lg:col-span-7 space-y-8 z-10 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E8B9BA]/20 border border-[#E8B9BA]/30 text-[#2D2D2D] text-xs font-semibold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-[#AC595B]" />
-                <span>Expat Support Specialist</span>
-              </div>
+            <div className="lg:col-span-7 space-y-10 z-10 text-left">
 
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#2D2D2D] leading-[1.1] tracking-tight">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[54px] xl:text-6xl font-bold text-[#2D2D2D] leading-[1.15] tracking-tight">
                 Speak without <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#659287] to-[#3f635a] font-normal">freezing</span> mid-sentence.
-                <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl text-[#AC595B] font-light">Make French a daily habit.</span>
+                <span className="block mt-4 text-3xl sm:text-4xl lg:text-[42px] xl:text-5xl text-[#2D2D2D] font-light">
+                  Make French <span className="text-[#AC595B] font-medium">a daily habit.</span>
+                </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-[#2D2D2D]/80 font-sans max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-[#2D2D2D]/80 font-sans max-w-2xl leading-relaxed">
                 I help expat women master everyday French so they can feel confident, independent, and finally at home in France.
               </p>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+              <div className="pt-4 flex flex-col sm:flex-row gap-5 items-stretch sm:items-center">
                 <button
                   onClick={onCtaClick}
                   className="px-8 py-4 rounded-full bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] font-sans text-sm uppercase font-extrabold tracking-widest cursor-pointer shadow-md shadow-[#E8B9BA]/20 transition-all duration-300 text-center transform hover:-translate-y-0.5 active:translate-y-0"
@@ -71,33 +77,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-
-              {/* Trust Stamp */}
-              <div className="pt-6 border-t border-[#bbc4ae]/10 flex items-center gap-4">
-                <div className="flex -space-x-2">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=80" alt="Student" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=80" alt="Student" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=80" alt="Student" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                </div>
-                <div className="text-xs text-[#2D2D2D]/75 font-medium">
-                  Loved by over <span className="font-bold text-[#659287]">40+ expat women</span> in Paris, Lyon, and Montpellier.
-                </div>
-              </div>
             </div>
 
             {/* Hero Right: Styled Eva Image with frames */}
-            <div className="lg:col-span-5 relative flex justify-center">
+            <div className="lg:col-span-5 relative flex justify-center w-full">
 
               {/* Botanical Leaf ornament behind the picture */}
               <div className="absolute -left-12 -top-12 opacity-30 text-[#bbc4ae] pointer-events-none transform -rotate-12">
-                <FrenchRose className="w-32 h-32" />
+                <EiffelTower className="w-32 h-32" />
               </div>
               <div className="absolute -right-6 -bottom-6 opacity-30 text-[#E8B9BA] pointer-events-none transform rotate-45">
-                <LilyOfTheValley className="w-28 h-28" />
+                <Croissant className="w-28 h-28" />
               </div>
 
               {/* Polaroid-Style Cottagecore Frame */}
-              <div className="relative group bg-white p-4 pb-12 rounded-3xl shadow-xl border border-[#bbc4ae]/15 max-w-[340px] sm:max-w-[360px] transform rotate-2 hover:rotate-0 transition-all duration-500">
+              <div className="relative group bg-white p-5 pb-16 rounded-[32px] shadow-xl border border-[#bbc4ae]/15 w-full max-w-[380px] sm:max-w-[400px] lg:max-w-[440px] transform rotate-2 hover:rotate-0 transition-all duration-500">
 
                 {/* Vintage tape overlay */}
                 <div className="absolute -top-4 left-1/3 w-32 h-8 bg-gradient-to-r from-[#E8B9BA]/20 to-[#bbc4ae]/20 border border-white/40 drop-shadow-sm rotate-3 backdrop-blur-[1px] pointer-events-none" />
@@ -112,12 +106,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                 </div>
 
                 {/* Hand-written styled caption */}
-                <div className="mt-5 text-center">
-                  <span className="font-serif text-lg italic text-[#2D2D2D] font-medium block">
-                    with love, Eva
+                <div className="mt-6 text-center">
+                  <span className="font-serif text-xl italic text-[#2D2D2D] font-medium block">
+                    Eva
                   </span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#659287] font-semibold mt-0.5 block">
-                    Your Personal Coach & Guide
+                  <span className="text-xs uppercase tracking-widest text-[#659287] font-semibold mt-1 block">
+                    Your Personal Coach
                   </span>
                 </div>
               </div>
@@ -128,13 +122,13 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       </section>
 
       {/* 2. PAIN POINT QUOTES ("Does this sound like you?") */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#FAF0ED] relative">
         <div className="max-w-4xl mx-auto text-center">
 
-          <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block mb-2">SOUND FAMILIAR?</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#AC595B] block mb-2">SOUND FAMILIAR?</span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D] mb-12 italic relative inline-block">
             Does this sound like you?
-            <span className="absolute -bottom-2 left-1/4 right-1/4 h-[1px] bg-[#E8B9BA]" />
+            <span className="absolute -bottom-2 left-1/4 right-1/4 h-[1.5px] bg-[#AC595B]/40" />
           </h2>
 
           {/* 4 Speech Bubbles Grid */}
@@ -183,17 +177,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
           {/* Heartwarming central callout */}
           <div className="bg-[#FBF8F3] border border-[#AC595B]/30 p-8 rounded-2xl shadow-sm max-w-xl mx-auto transform hover:scale-[1.01] transition-transform">
             <span className="font-serif text-lg sm:text-xl italic text-[#2D2D2D] font-medium leading-relaxed block">
-              "Fluency is built on daily, imperfect conversations, <span className="text-[#AC595B] not-italic font-bold underline decoration-[#659287] decoration-2 underline-offset-4">not perfect sentences</span>."
+              "Fluency is built on daily, imperfect conversations, <span className="text-[#AC595B] not-italic font-bold">not perfect sentences</span>."
             </span>
             <span className="text-xs uppercase tracking-widest text-[#659287] font-bold mt-2.5 block">
-              — Eva's Golden philosophy
+              — Eva's philosophy
             </span>
           </div>
         </div>
       </section>
 
       {/* 4. MY APPROACH */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FBF8F3] relative">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
         <div className="max-w-6xl mx-auto text-center space-y-12">
 
           <div className="space-y-3">
@@ -201,18 +195,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
               MY APPROACH
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
-              As your personal coach, here are my main priorities:
+              Here are my main priorities:
             </h2>
-            <p className="text-sm text-[#2D2D2D]/80 max-w-md mx-auto">
-              We skip the rigid grammar books and practice language where it actually comes alive—in the wild.
-            </p>
           </div>
 
           {/* 4 Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
             <PriorityCard
               number="01"
-              title="Real-world Contexts"
+              title="Real-life situations"
               description="for natural social interactions"
             />
             <PriorityCard
@@ -238,7 +229,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                 setCurrentTab("services");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="px-8 py-3.5 rounded-full bg-[#8B947E] hover:bg-[#747D68] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all duration-300 shadow-md shadow-[#8B947E]/10 inline-flex items-center gap-1.5 group"
+              className="px-8 py-3.5 rounded-full bg-[#659287] hover:bg-[#527a70] text-white font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all duration-300 shadow-md shadow-[#659287]/20 inline-flex items-center gap-1.5 group"
             >
               <span>See my program</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -249,23 +240,27 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       </section>
 
       {/* 5. THE TRANSFORMATIONS SECTION */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        {/* Background botanical decorations */}
+        <div className="absolute right-12 bottom-12 opacity-15 text-[#bbc4ae] pointer-events-none transform rotate-12 hidden md:block">
+          <EiffelTower className="w-48 h-48" />
+        </div>
+        <div className="absolute left-6 top-16 opacity-15 text-[#E8B9BA] pointer-events-none transform -rotate-12 hidden md:block">
+          <Croissant className="w-40 h-40" />
+        </div>
 
-          {/* Transformation Left: Verified list */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+        <div className="max-w-3xl mx-auto space-y-8 relative z-10 text-left">
+
+          <div className="space-y-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">THE TRANSFORMS</span>
-            <h2 className="font-serif text-3.5xl font-bold text-[#2D2D2D] leading-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-tight">
               The transformations I've seen
             </h2>
-            <p className="text-sm text-[#2D2D2D]/85 max-w-xl">
-              Our community of expat women have progressed from feeling isolated and muted to blooming with confidence at work, within their French families, and in all aspects of daily life:
-            </p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 pt-4">
               <TransformationItem
                 boldText="nailed job interviews"
-                normalText="they thought they'd bomb"
+                normalText="for their dream roles in France"
               />
               <TransformationItem
                 boldText="made small talk"
@@ -290,29 +285,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
             </div>
           </div>
 
-          {/* Transformation Right: Narrative / Aesthetic Picture */}
-          <div className="lg:col-span-5 relative space-y-6">
-            <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#F5EFE6]">
-              <img
-                src={frenchLifestyle}
-                alt="Cozy French flatlay with flowers and books representing confidence"
-                className="w-full aspect-[4/3] lg:aspect-square object-cover"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-                <span className="text-white font-serif text-base italic leading-snug">
-                  "Feeling at home in France means finding your freedom to live exactly as you desire."
-                </span>
-              </div>
-            </div>
-            <div className="p-4 rounded-2xl bg-[#E8B9BA]/10 border border-[#E8B9BA]/20 flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-[#AC595B] shrink-0 mt-0.5" />
-              <p className="text-xs text-[#2D2D2D]/80 font-sans leading-normal">
-                All transformations are verified results from expat women who practiced with Eva's conversational framework over 3-6 months.
-              </p>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -321,9 +293,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#F7E5E6] border border-[#E8B9BA]/35 text-[#2D2D2D] p-10 sm:p-14 rounded-3xl relative overflow-hidden text-center space-y-8 shadow-sm">
 
-            {/* Background vector rings */}
-            <div className="absolute top-0 right-0 pointer-events-none opacity-8 text-[#AC595B]">
-              <FrenchRose className="w-80 h-80 fill-none stroke-current" />
+            {/* Background French ornaments inside the banner card */}
+            <div className="absolute right-[-30px] bottom-[-35px] opacity-20 pointer-events-none transform rotate-12">
+              <EiffelTower className="w-48 h-48" color="stroke-[#659287]" />
+            </div>
+            <div className="absolute left-[-15px] top-[-15px] opacity-20 pointer-events-none transform -rotate-12">
+              <Croissant className="w-36 h-36" color="stroke-[#AC595B]" />
             </div>
 
             <div className="space-y-3 relative z-10">
@@ -354,7 +329,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
       </section>
 
       {/* 7. TESTIMONIAL TEASER CAROUSEL */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/45">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#EEF4F1]">
         <div className="max-w-5xl mx-auto space-y-12">
 
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">

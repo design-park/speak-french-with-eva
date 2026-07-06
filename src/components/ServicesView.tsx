@@ -10,14 +10,14 @@ interface ServicesViewProps {
 export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinClubClick }) => {
 
   return (
-    <div className="bg-[#FBF8F3] min-h-screen text-left">
+    <div className="bg-white min-h-screen text-left">
       
       {/* 1. APP HERO SECTION */}
-      <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50 text-center">
+      <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/30 text-center">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8B9BA]/20 border border-[#E8B9BA]/35 text-[#2D2D2D] text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-[#AC595B]" />
-            <span>Coaching Services</span>
+            <span>Services with Eva</span>
           </div>
 
           <h1 className="font-serif text-3.5xl sm:text-5xl font-bold text-[#2D2D2D] tracking-tight">

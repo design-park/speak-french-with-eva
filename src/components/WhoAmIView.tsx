@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Heart, Play, Pause, Compass, BookOpen, Shirt, Music, Sparkles } from "lucide-react";
 import { PillarCard, InterestCard } from "./CardComponents";
-import { LilyOfTheValley, DelicateDottedDivider } from "./DecorativeAccents";
+import { LilyOfTheValley, DelicateDottedDivider, Croissant } from "./DecorativeAccents";
 
 // Assets
 import evaPortraitUrl from "../assets/images/eva-black-white.jpg";
@@ -16,10 +16,10 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   return (
-    <div className="bg-[#FBF8F3] min-h-screen text-left">
+    <div className="bg-white min-h-screen text-left">
 
       {/* 1. HERO - BIOGRAPHY BANNER */}
-      <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50">
+      <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/30">
         <div className="max-w-6xl mx-auto space-y-12">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
@@ -30,7 +30,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
               </span>
 
               <h1 className="font-serif text-3.5xl sm:text-5xl font-bold text-[#2D2D2D] leading-tight">
-                My mission is to help you feel fully yourself in French.
+                My mission is to help you dare to speak French.
               </h1>
 
               {/* Multiline description */}
@@ -115,36 +115,34 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
       </section>
 
       {/* 2. WHY I FOCUS ON EXPAT WOMEN */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FAF0ED] relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             {/* Left block: Graphic containing Eva's message */}
             <div className="lg:col-span-5 relative flex justify-center">
 
-              <div className="relative max-w-[320px] sm:max-w-[340px] w-full">
-                {/* Botanical twig flourish */}
-                <div className="absolute -left-10 -bottom-10 pointer-events-none opacity-20 text-[#bbc4ae] transform rotate-180">
-                  <LilyOfTheValley className="w-40 h-40" />
+              <div className="relative max-w-[320px] sm:max-w-[340px] w-full group">
+                {/* Offset decorative background box */}
+                <div className="absolute inset-0 bg-[#E8B9BA]/20 rounded-3xl transform translate-x-3.5 translate-y-3.5 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 z-0" />
+
+                {/* Croissant ornament flourish */}
+                <div className="absolute -left-10 -bottom-10 pointer-events-none opacity-20 text-[#bbc4ae] transform rotate-12 z-0">
+                  <Croissant className="w-40 h-40" />
                 </div>
 
                 {/* Framed card of eva */}
-                <div className="bg-white p-4 pb-4 rounded-3xl shadow-md border border-[#bbc4ae]/15 overflow-hidden">
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100 mb-4">
+                <div className="relative bg-white p-4 pb-5 rounded-3xl shadow-md border border-[#bbc4ae]/15 overflow-hidden z-10">
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100 mb-3.5">
                     <img
                       src={evaPortraitUrl}
                       alt="Eva sharing French advice"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
                   </div>
-
-                  {/* Overlay Sticker Badge */}
-                  <div className="bg-[#E8B9BA] text-[#2D2D2D] p-4 rounded-2xl border-2 border-white shadow-md text-center transform -rotate-1 relative z-10">
-                    <Heart className="w-5 h-5 text-[#2D2D2D] fill-[#2D2D2D] mx-auto mb-1.5" />
-                    <p className="font-serif text-sm italic leading-snug">
-                      "I refuse to let the language barrier make you feel smaller than you are!"
-                    </p>
+                  <div className="text-center">
+                    <span className="font-serif text-sm italic text-[#2D2D2D]/75 block">"With you every step."</span>
                   </div>
                 </div>
               </div>
@@ -193,7 +191,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
             <PillarCard
               number="01"
-              title="A Room to Breathe"
+              title="A Safe Space to Speak"
               description="A safe space where mistakes are welcome"
             />
             <PillarCard
@@ -203,7 +201,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
             />
             <PillarCard
               number="03"
-              title="Real-World Talk"
+              title="Real-Life Talk"
               description="Conversations designed around your real life"
             />
             <PillarCard
@@ -218,7 +216,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
           {/* Highlight signature quote styling */}
           <div className="max-w-2xl mx-auto pt-2">
             <p className="font-serif text-xl sm:text-2xl italic text-[#2D2D2D] leading-relaxed">
-              "You're not broken. You don't need fixing. You just need someone who gets it—and a method that actually works."
+              "You just need someone who gets it—and a method that actually works."
             </p>
           </div>
 
@@ -226,11 +224,30 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
       </section>
 
       {/* 4. OFF DUTY (Interests) */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FBF8F3] relative overflow-hidden">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#EEF4F1] relative overflow-hidden">
 
-        {/* Background lifestyle decorative illustration */}
-        <div className="absolute left-0 bottom-0 pointer-events-none opacity-5">
-          <img src={lifestyleUrl} alt="Background illustration" className="w-[300px] h-[300px] object-cover rounded-full" />
+        {/* Background Eiffel Tower decorative line art */}
+        <div className="absolute left-4 bottom-0 w-[240px] h-[288px] opacity-10 text-[#659287] pointer-events-none transform -rotate-6 translate-y-6">
+          <svg viewBox="0 0 100 120" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+            <line x1="50" y1="2" x2="50" y2="15" />
+            <path d="M50 15 C47 40 43 75 35 110" />
+            <path d="M50 15 C53 40 57 75 65 110" />
+            <path d="M50 15 C49 45 47 75 42 110" />
+            <path d="M50 15 C51 45 53 75 58 110" />
+            <rect x="36" y="85" width="28" height="3" rx="1" fill="currentColor" stroke="none" />
+            <line x1="37" y1="85" x2="63" y2="85" />
+            <line x1="35" y1="88" x2="65" y2="88" />
+            <rect x="43" y="60" width="14" height="2" rx="0.5" fill="currentColor" stroke="none" />
+            <line x1="44" y1="60" x2="56" y2="60" />
+            <line x1="43" y1="62" x2="57" y2="62" />
+            <path d="M38 110 C42 93 58 93 62 110" />
+            <line x1="48" y1="30" x2="52" y2="40" strokeWidth="0.8" />
+            <line x1="52" y1="30" x2="48" y2="40" strokeWidth="0.8" />
+            <line x1="46" y1="45" x2="54" y2="55" strokeWidth="0.8" />
+            <line x1="54" y1="45" x2="46" y2="55" strokeWidth="0.8" />
+            <line x1="41" y1="68" x2="59" y2="80" strokeWidth="0.8" />
+            <line x1="59" y1="68" x2="41" y2="80" strokeWidth="0.8" />
+          </svg>
         </div>
 
         <div className="max-w-5xl mx-auto text-center space-y-12">
@@ -255,7 +272,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
             <InterestCard
               icon={<BookOpen className="w-5 h-5 text-[#AC595B]" />}
               title="Reading"
-              description="Usually paired with a warm cup of tea and a slow afternoon."
+              description="Usually paired with a warm cup of tea."
             />
             <InterestCard
               icon={<Shirt className="w-5 h-5 text-[#659287]" />}
