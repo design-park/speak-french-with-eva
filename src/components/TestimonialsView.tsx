@@ -186,7 +186,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
 
   return (
-    <div className="bg-[#FBF8F3] min-h-screen text-left">
+    <div className="bg-white min-h-screen text-left">
       
       {/* 1. HERO - WHAT MY STUDENTS SAY */}
       <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FBF8F3] to-[#F5EFE6]/50 text-center">
@@ -240,7 +240,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
       </section>
 
       {/* 3. WRITTEN REVIEWS ("The proof is in the progress") */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/40 relative">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6]/60 relative">
         <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="text-center space-y-2">

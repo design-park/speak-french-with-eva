@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
   const navItems = [
     { id: "home", label: "Home" },
     { id: "services", label: "Services" },
-    { id: "who-am-i", label: "Who am I?" },
+    { id: "who-am-i", label: "About" },
     { id: "testimonials", label: "Testimonials" },
   ];
 
@@ -34,9 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
             onClick={() => handleNavClick("home")}
             className="flex items-center gap-3 cursor-pointer group text-left"
           >
-            <div className="w-10 h-10 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center border border-[#E8B9BA]/30 overflow-hidden transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-inner">
-              <FrenchCoffeeIcon className="w-6 h-6" />
-            </div>
+            <FrenchCoffeeIcon className="w-11 h-11 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
             <div className="transform group-hover:translate-x-0.5 transition-transform duration-300">
               <span className="font-serif text-xl sm:text-2xl font-bold text-[#2D2D2D] tracking-tight">
                 Speak French with <span className="text-[#AC595B]">Eva</span>
