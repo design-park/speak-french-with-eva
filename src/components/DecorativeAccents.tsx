@@ -274,3 +274,37 @@ export const Croissant: React.FC<AccentProps> = ({ className = "w-10 h-10", colo
     </svg>
   );
 };
+
+export const CafeCup: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.2]`}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M25,38 L75,38 C75,38 75,68 50,68 C25,68 25,38 25,38 Z" />
+      <path d="M75,45 C82,45 85,49 85,53 C85,57 82,61 75,61" />
+      <path d="M20,75 L80,75" />
+      <path d="M42,20 Q45,26 42,32 M50,17 Q53,23 50,29 M58,20 Q61,26 58,32" />
+    </svg>
+  );
+};
+
+export const Baguette: React.FC<AccentProps> = ({ className = "w-10 h-10", color = "stroke-[#bbc4ae]" }) => {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={`${className} fill-none ${color} stroke-[1.2]`}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15,80 C12,83 18,88 22,85 L85,22 C88,18 83,12 80,15 Z" />
+      <line x1="30" y1="65" x2="40" y2="70" />
+      <line x1="45" y1="50" x2="55" y2="55" />
+      <line x1="60" y1="35" x2="70" y2="40" />
+    </svg>
+  );
+};

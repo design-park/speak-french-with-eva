@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ArrowRight, CheckCircle2, Mail, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { PainPointCard, PriorityCard, TransformationItem, ReviewCard } from "./CardComponents";
 import { TESTIMONIALS_PROOFS } from "./TestimonialsView";
-import { LilyOfTheValley, DelicateDottedDivider, FleurDeLisOrnament, FrenchRose, EiffelTower, Croissant } from "./DecorativeAccents";
+import { LilyOfTheValley, DelicateDottedDivider, FleurDeLisOrnament, FrenchRose, EiffelTower, Croissant, CafeCup, Baguette } from "./DecorativeAccents";
 
 // Import generated portrait and lifestyle pics
 import evaPortrait from "../assets/images/eva-color.jpg";
@@ -34,6 +34,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
       {/* 1. HERO SECTION */}
       <section className="relative pt-20 sm:pt-28 pb-28 sm:pb-36 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-white to-[#FBF8F3]/30">
+        {/* Background French ornaments */}
+        <div className="absolute left-6 top-12 opacity-15 pointer-events-none transform -rotate-12 hidden lg:block">
+          <CafeCup className="w-36 h-36" color="stroke-[#659287]" />
+        </div>
+        <div className="absolute left-16 bottom-16 opacity-10 pointer-events-none transform rotate-12 hidden lg:block">
+          <Baguette className="w-28 h-28" color="stroke-[#AC595B]" />
+        </div>
+
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 xl:gap-24 items-center">
 

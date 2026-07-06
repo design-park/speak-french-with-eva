@@ -255,7 +255,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
           </div>
 
           <div className="space-y-3 relative z-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">JOIN THE COMMUNITY</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">TAKE THE FIRST STEP</span>
             <h2 className="font-serif text-3xl sm:text-4.5xl font-bold max-w-xl mx-auto leading-tight text-[#2D2D2D]">
               Ready to make French your everyday reality?
             </h2>
