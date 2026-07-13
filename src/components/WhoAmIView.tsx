@@ -5,7 +5,7 @@ import { PillarCard, InterestCard } from "./CardComponents";
 import { LilyOfTheValley, DelicateDottedDivider, Croissant } from "./DecorativeAccents";
 
 // Assets
-import evaPortraitUrl from "../assets/images/eva-black-white.jpg";
+import evaPortraitUrl from "../assets/images/eva-serious.jpg";
 import lifestyleUrl from "../assets/images/french_lifestyle_1781645587150.jpg";
 
 interface WhoAmIViewProps {
