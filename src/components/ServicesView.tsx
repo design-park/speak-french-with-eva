@@ -4,10 +4,10 @@ import { ProgramCard } from "./CardComponents";
 
 interface ServicesViewProps {
   onCtaClick: () => void;
-  onJoinClubClick: () => void;
+  onB1ProgramClick: () => void;
 }
 
-export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinClubClick }) => {
+export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onB1ProgramClick }) => {
 
   return (
     <div className="bg-white min-h-screen text-left">
@@ -57,23 +57,23 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onJoinCl
             />
 
             <ProgramCard
-              id="club"
-              title="The Conversation Club"
-              subtitle="Community, consistency, and real practice."
+              id="b1-program"
+              title='"B1: Breakthrough" Program'
+              subtitle="Small group, clear goal, and real practice."
               forWho={[
-                "You want regular speaking practice in a supportive & small group (max 4 learners)",
-                "You love the idea of connecting with people while you practice.",
-                "You want to use Everyday French (the one natives really use) and talk about French culture.",
-                "You already have a solid French routine and only need speaking practice."
+                "You want to work towards B1 level in a supportive & small group (max 4 learners)",
+                "You keep missing job opportunities in France because of your current level.",
+                "You want to use Everyday French (the one natives really use) and learn about French culture.",
+                "You already have A2 level."
               ]}
               whatYouGet={[
-                "Weekly small group conversations with other expat women",
+                "A structured curriculum (A2→B1) in a small group with other expat women",
                 "A relaxed, friendly and supportive environment to practice",
-                "Topic-based conversations that matter to your real life",
+                "Topic-based lessons that matter to your real life",
                 "A built-in community of women who gets you"
               ]}
-              ctaText="Join the conversation club"
-              onCtaClick={onJoinClubClick}
+              ctaText="Join the B1 Breakthrough Program"
+              onCtaClick={onB1ProgramClick}
             />
 
           </div>

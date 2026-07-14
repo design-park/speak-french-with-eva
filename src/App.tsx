@@ -92,7 +92,7 @@ export default function App() {
         return (
           <ServicesView
             onCtaClick={openCtaModal}
-            onJoinClubClick={openCtaModal}
+            onB1ProgramClick={openCtaModal}
           />
         );
       case "testimonials":
