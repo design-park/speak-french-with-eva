@@ -127,7 +127,7 @@ export function MessageModal({ isOpen, onClose }: MessageModalProps) {
                         Send an Email
                       </h2>
                       <p className="text-xs text-[#AC595B] tracking-wider uppercase font-semibold font-sans">
-                        Send a Direct Email to Eva
+                        Send a Direct Email to Me
                       </p>
                     </div>
                   </div>
@@ -219,7 +219,7 @@ export function MessageModal({ isOpen, onClose }: MessageModalProps) {
                       Email Sent!
                     </h3>
                     <p className="text-sm font-sans text-[#2D2D2D]/80 max-w-sm mx-auto leading-relaxed">
-                      Your message has been prepared! Your email client will open to send the email directly to Eva. Speak to you soon!
+                      Your message has been sent! I'll get back to you soon!
                     </p>
                   </div>
 
