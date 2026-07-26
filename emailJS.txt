@@ -1,0 +1,5 @@
+emailJS account:
+speak.french.with.eva.website@gmail.com
+
+Sending to:
+speakfrenchwitheva@gmail.com
