@@ -76,13 +76,13 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
               Ready to start speaking freely? Let's connect!
             </p>
 
-            {/* Email link */}
+            {/* Send me an email button */}
             <button
               onClick={onMessageClick}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#659287] hover:text-[#527a70] hover:underline transition-all cursor-pointer focus:outline-none"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#659287] hover:bg-[#527a70] text-white font-sans text-xs uppercase font-bold tracking-widest cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md"
             >
               <Mail className="w-4 h-4" />
-              <span>speakfrenchwitheva@gmail.com</span>
+              <span>Send me an email</span>
             </button>
 
             {/* Social icons */}
