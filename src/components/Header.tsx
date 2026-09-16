@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <button 
+          <button
             onClick={() => handleNavClick("home")}
             className="flex items-center gap-3 cursor-pointer group text-left"
           >
@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
                 Speak French with <span className="text-[#AC595B]">Eva</span>
               </span>
               <p className="text-[10px] uppercase tracking-widest text-[#659287] font-sans font-medium mt-1 hidden sm:block">
-                Expat French Coaching
+                Expat French Support
               </p>
             </div>
           </button>
@@ -54,9 +54,8 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`relative px-1 py-2 font-sans text-sm font-semibold tracking-wide cursor-pointer transition-colors duration-300 ${
-                      isActive ? "text-[#2D2D2D]" : "text-[#2D2D2D]/75 hover:text-[#659287]"
-                    }`}
+                    className={`relative px-1 py-2 font-sans text-sm font-semibold tracking-wide cursor-pointer transition-colors duration-300 ${isActive ? "text-[#2D2D2D]" : "text-[#2D2D2D]/75 hover:text-[#659287]"
+                      }`}
                   >
                     {item.label}
                     {isActive && (
@@ -113,11 +112,10 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`flex items-center justify-between w-full text-left px-5 py-3.5 rounded-xl font-sans text-base font-semibold transition-all ${
-                      isActive
+                    className={`flex items-center justify-between w-full text-left px-5 py-3.5 rounded-xl font-sans text-base font-semibold transition-all ${isActive
                         ? "bg-[#E8B9BA]/20 text-[#2D2D2D]"
                         : "text-[#2D2D2D]/85 hover:bg-[#F5EFE6] hover:text-[#659287]"
-                    }`}
+                      }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (

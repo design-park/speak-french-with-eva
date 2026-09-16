@@ -56,7 +56,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-[#2D2D2D]/80 font-sans max-w-2xl leading-relaxed">
-                I help expat women master everyday French so they can feel confident, independent, and finally at home in France.
+                I help expat women master everyday French so they can feel confident when using it and thrive in their new lives.
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row gap-5 items-stretch sm:items-center">

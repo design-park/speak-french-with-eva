@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
               </span>
             </div>
             <p className="text-[#2D2D2D]/85 font-sans text-sm max-w-sm leading-relaxed">
-              Helping expat women in France master spoken communication, build supportive communities, and finally feel at home.
+              I help expat women master everyday French so they can feel confident when using it and thrive in their new lives.
             </p>
 
             {/* Stamp/Badge style design accent */}

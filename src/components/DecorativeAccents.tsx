@@ -160,8 +160,15 @@ export const LeafyBranchBorder: React.FC<AccentProps> = ({ className = "absolute
   );
 };
 
-export const FrenchCoffeeIcon: React.FC<AccentProps> = ({ className = "w-6 h-6", color = "text-[#2D2D2D]" }) => {
-  const clipId = React.useId();
+export const FrenchCoffeeIcon: React.FC<AccentProps> = ({ className = "w-6 h-6" }) => {
+  const id = React.useId();
+  const flagClipId = `french-flag-clip-${id}`;
+  const bodyGradId = `cup-body-grad-${id}`;
+  const innerWallGradId = `cup-inner-wall-${id}`;
+  const handleGradId = `cup-handle-grad-${id}`;
+  const baseGradId = `cup-base-grad-${id}`;
+  const steamGradId = `steam-grad-${id}`;
+
   return (
     <svg
       viewBox="0 0 100 100"
@@ -170,30 +177,130 @@ export const FrenchCoffeeIcon: React.FC<AccentProps> = ({ className = "w-6 h-6",
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* 1. Outer Speech Bubble Shape filled with French flag stripes */}
-      <g clipPath={`url(#${clipId})`}>
-        {/* Blue stripe (left) */}
-        <rect x="0" y="0" width="37.5" height="100" fill="#4A76A8" />
-        {/* White stripe (middle) */}
-        <rect x="37.5" y="0" width="25" height="100" fill="#FFFFFF" />
-        {/* Red/Rose stripe (right) */}
-        <rect x="62.5" y="0" width="37.5" height="100" fill="#E18E88" />
-      </g>
-      
-      {/* Speech Bubble Outline (thick, premium dark gray line) - Flipped to point to bottom-right */}
-      <path
-        d="M 50 15 c -22 0 -40 13.4 -40 30 s 18 30 40 30 c 4 0 7.8 -.4 11.4 -1.2 L 80 79 l -5 -15.5 C 80.2 58.7 83 52.6 83 45 c 0 -16.6 -18 -30 -40 -30 z"
-        stroke="#2D2D2D"
-        strokeWidth="3.5"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-
       <defs>
-        <clipPath id={clipId}>
-          <path d="M 50 15 c -22 0 -40 13.4 -40 30 s 18 30 40 30 c 4 0 7.8 -.4 11.4 -1.2 L 80 79 l -5 -15.5 C 80.2 58.7 83 52.6 83 45 c 0 -16.6 -18 -30 -40 -30 z" />
+        {/* Cup Body Porcelain Gradient */}
+        <linearGradient id={bodyGradId} x1="15%" y1="15%" x2="85%" y2="90%">
+          <stop offset="0%" stopColor="#FFF0F3" />
+          <stop offset="25%" stopColor="#FDC2CE" />
+          <stop offset="65%" stopColor="#F39FB0" />
+          <stop offset="100%" stopColor="#D97287" />
+        </linearGradient>
+
+        {/* Cup Inner Back-Wall Gradient (adds realistic ceramic depth) */}
+        <linearGradient id={innerWallGradId} x1="50%" y1="0%" x2="50%" y2="100%">
+          <stop offset="0%" stopColor="#C86278" />
+          <stop offset="55%" stopColor="#DF8395" />
+          <stop offset="100%" stopColor="#F5B2C0" />
+        </linearGradient>
+
+        {/* Handle Gradient */}
+        <linearGradient id={handleGradId} x1="20%" y1="0%" x2="80%" y2="100%">
+          <stop offset="0%" stopColor="#FFF0F3" />
+          <stop offset="35%" stopColor="#FABCC8" />
+          <stop offset="100%" stopColor="#D97287" />
+        </linearGradient>
+
+        {/* Base Pedestal Gradient */}
+        <linearGradient id={baseGradId} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#E27F93" />
+          <stop offset="35%" stopColor="#FCC4D0" />
+          <stop offset="70%" stopColor="#F3A3B4" />
+          <stop offset="100%" stopColor="#CF687C" />
+        </linearGradient>
+
+        {/* Fluid Steam Ribbon Gradient with Soft Airy Fade (Deep Rose Pink) */}
+        <linearGradient id={steamGradId} x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stopColor="#AC595B" stopOpacity="0.9" />
+          <stop offset="60%" stopColor="#C45E75" stopOpacity="0.75" />
+          <stop offset="100%" stopColor="#EAA0AF" stopOpacity="0.25" />
+        </linearGradient>
+
+        {/* Liquid Surface Clip Ellipse */}
+        <clipPath id={flagClipId}>
+          <ellipse cx="45.5" cy="43" rx="27" ry="8.8" />
         </clipPath>
       </defs>
+
+      {/* 1. Natural, Clean Steam Wisps (Floating smoothly above the cup rim) */}
+      <g fill="none" stroke={`url(#${steamGradId})`} strokeWidth="2.6" strokeLinecap="round">
+        {/* Left smooth S-curve steam wisp */}
+        <path d="M 37 25 C 31 18, 43 11, 35 3" />
+        {/* Right complementary S-curve steam wisp */}
+        <path d="M 47 23 C 53 17, 41 9, 49 2" />
+      </g>
+
+      {/* 2. Cup Handle (Right side - smooth, rounded ceramic loop) */}
+      <path
+        d="M 74 44 C 88 41, 98 50, 98 63 C 98 75, 87 83, 72 79 C 67 77.5, 64 73.5, 62 70.5 C 65 70, 69 73, 74 74 C 82 75.5, 89 71, 89 63 C 89 55, 82 49, 73 50 Z"
+        fill={`url(#${handleGradId})`}
+        stroke="#C45E75"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+
+      {/* 3. Base Pedestal Foot */}
+      <path
+        d="M 31 87 L 29 92 C 29 94.5, 60 94.5, 60 92 L 58 87 Z"
+        fill={`url(#${baseGradId})`}
+        stroke="#BF586F"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+
+      {/* 4. Cup Outer Body (Chubby, friendly porcelain bowl) */}
+      <path
+        d="M 13 42 C 13 65, 25 84, 33 87 C 39 89.5, 51 89.5, 56 87 C 64 84, 76 65, 76 42 C 76 55, 13 55, 13 42 Z"
+        fill={`url(#${bodyGradId})`}
+        stroke="#BF586F"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+
+      {/* 5. Inner Back Wall (Creates realistic porcelain cup depth) */}
+      <ellipse
+        cx="45.5"
+        cy="41.5"
+        rx="31.5"
+        ry="11.5"
+        fill={`url(#${innerWallGradId})`}
+        stroke="#BF586F"
+        strokeWidth="1.2"
+      />
+
+      {/* 6. Coffee Liquid - French Flag (Blue, White, Red) */}
+      <g clipPath={`url(#${flagClipId})`}>
+        {/* French Blue (Left 1/3) */}
+        <rect x="14" y="32" width="21.5" height="24" fill="#10448A" />
+        {/* French Creamy White (Middle 1/3) */}
+        <rect x="35.5" y="32" width="20" height="24" fill="#FFFFFF" />
+        {/* French Vibrant Red (Right 1/3) */}
+        <rect x="55.5" y="32" width="21.5" height="24" fill="#D91D2D" />
+
+        {/* Ambient liquid depth */}
+        <ellipse cx="45.5" cy="43" rx="27" ry="8.8" fill="#1C0006" opacity="0.08" />
+      </g>
+
+      {/* 7. Inner Lip Seam */}
+      <ellipse
+        cx="45.5"
+        cy="43"
+        rx="27"
+        ry="8.8"
+        stroke="#AC495E"
+        strokeWidth="0.8"
+        fill="none"
+        opacity="0.45"
+      />
+
+      {/* 8. Cup Body Curvature Glaze Highlight (Left vertical highlight) */}
+      <path
+        d="M 20 49 C 17 62, 24 76, 30 81"
+        stroke="#FFFFFF"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.55"
+      />
     </svg>
   );
 };
