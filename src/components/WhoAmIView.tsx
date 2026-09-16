@@ -75,14 +75,9 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between px-2">
-                    <div>
-                      <span className="font-serif font-bold text-base text-[#2D2D2D] block">Eva</span>
-                      <span className="text-xs text-[#659287] font-sans font-medium">Native French Coach</span>
-                    </div>
-                    <span className="font-serif text-xs italic text-[#2D2D2D]/60 bg-[#FAF0ED] px-3 py-1.5 rounded-full border border-[#E8B9BA]/30">
-                      "With you every step"
-                    </span>
+                  <div className="px-2">
+                    <span className="font-serif font-bold text-base text-[#2D2D2D] block">Eva</span>
+                    <span className="text-xs text-[#659287] font-sans font-medium">Native French Coach</span>
                   </div>
                 </div>
               </div>
