@@ -36,10 +36,10 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab, onCta
           >
             <FrenchCoffeeIcon className="w-11 h-11 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
             <div className="transform group-hover:translate-x-0.5 transition-transform duration-300">
-              <span className="font-serif text-xl sm:text-2xl font-bold text-[#2D2D2D] tracking-tight">
+              <span className="block font-serif text-xl sm:text-2xl font-bold text-[#2D2D2D] tracking-tight leading-tight">
                 Speak French with <span className="text-[#AC595B]">Eva</span>
               </span>
-              <p className="text-[10px] uppercase tracking-widest text-[#659287] font-sans font-medium mt-1 hidden sm:block">
+              <p className="text-[10px] uppercase tracking-widest text-[#659287] font-sans font-medium mt-0.5 pl-1 hidden sm:block">
                 Expat French Support
               </p>
             </div>
