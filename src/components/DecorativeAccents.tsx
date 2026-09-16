@@ -229,9 +229,9 @@ export const FrenchCoffeeIcon: React.FC<AccentProps> = ({ className = "w-6 h-6" 
         <path d="M 47 23 C 53 17, 41 9, 49 2" />
       </g>
 
-      {/* 2. Cup Handle (Right side - smooth, rounded ceramic loop) */}
+      {/* 2. Cup Handle (Right side - petite, rounded ceramic loop) */}
       <path
-        d="M 74 44 C 88 41, 98 50, 98 63 C 98 75, 87 83, 72 79 C 67 77.5, 64 73.5, 62 70.5 C 65 70, 69 73, 74 74 C 82 75.5, 89 71, 89 63 C 89 55, 82 49, 73 50 Z"
+        d="M 73 45 C 84 43, 91 49, 91 59 C 91 69, 83 75, 71 73 C 67 72, 64 69, 63 67 C 65 67, 68 69, 72 70 C 78 71, 84 67, 84 60 C 84 53, 78 49, 72 49 Z"
         fill={`url(#${handleGradId})`}
         stroke="#C45E75"
         strokeWidth="1.2"
