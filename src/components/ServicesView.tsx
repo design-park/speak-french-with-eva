@@ -11,7 +11,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onB1Prog
 
   return (
     <div className="bg-white min-h-screen text-left">
-      
+
       {/* 1. APP HERO SECTION */}
       <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/30 text-center">
         <div className="max-w-4xl mx-auto text-center space-y-4">
@@ -34,7 +34,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onB1Prog
       <section className="pb-24 px-4 sm:px-6 lg:px-8 relative z-10 -mt-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            
+
             <ProgramCard
               id="coaching"
               title="1-on-1 Coaching Program"
@@ -52,13 +52,13 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onB1Prog
                 "Flexible scheduling",
                 "New resilient mindset & routine"
               ]}
-              ctaText="Apply to a discovery call"
+              ctaText="Book your free discovery call"
               onCtaClick={onCtaClick}
             />
 
             <ProgramCard
               id="b1-program"
-              title='"B1: Breakthrough" Program'
+              title='B1: Breakthrough Program'
               subtitle="Small group, clear goal, and real practice."
               forWho={[
                 "You want to work towards B1 level in a supportive & small group (max 4 learners)",

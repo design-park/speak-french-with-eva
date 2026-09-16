@@ -30,7 +30,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
               </span>
 
               <h1 className="font-serif text-3.5xl sm:text-5xl font-bold text-[#2D2D2D] leading-tight">
-                My mission is to help you dare to speak French.
+                Let's work on your transformation together.
               </h1>
 
               {/* Multiline description */}

@@ -113,15 +113,6 @@ export const TESTIMONIALS_PROOFS = [
     imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150",
   },
   {
-    id: "p-9",
-    name: "Robert Bradshaw",
-    program: "1-on-1 Coaching",
-    rating: 5,
-    highlight: "Superb French Tutor.",
-    quote: "Eva is a superb French Tutor. Able to identify and target the key areas slowing progression to build confidence and understanding. Knowledgeable, patient and fun, it's exactly what l needed to make the lessons both effective and enjoyable.",
-    imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150",
-  },
-  {
     id: "p-10",
     name: "Y BenKadour",
     program: "1-on-1 Coaching",
