@@ -57,22 +57,22 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onB1Prog
             />
 
             <ProgramCard
-              id="b1-program"
-              title='B1: Breakthrough Program'
-              subtitle="Small group, clear goal, and real practice."
+              id="small-group"
+              title="Small-group French classes"
+              subtitle="Small group, community and real practice."
               forWho={[
-                "You want to work towards B1 level in a supportive & small group (max 4 learners)",
-                "You keep missing job opportunities in France because of your current level.",
-                "You want to use Everyday French (the one natives really use) and learn about French culture.",
-                "You already have A2 level."
+                "You want regular speaking practice in a supportive & small group (max 4 learners)",
+                "You love the idea of connecting with people while you practice",
+                "You want to use everyday French (the one natives really use) and learn about French culture.",
+                "You are more interested by conversation practice than in-depth grammar explanations"
               ]}
               whatYouGet={[
-                "A structured curriculum (A2→B1) in a small group with other expat women",
+                "Weekly discussions and speaking exercises in a small group with other French learners",
                 "A relaxed, friendly and supportive environment to practice",
                 "Topic-based lessons that matter to your real life",
                 "A built-in community of women who gets you"
               ]}
-              ctaText="Join the B1 Breakthrough Program"
+              ctaText="Join small-group French classes"
               onCtaClick={onB1ProgramClick}
             />
 

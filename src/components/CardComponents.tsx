@@ -327,8 +327,8 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
           </h3>
           <ul className="space-y-2.5">
             {whatYouGet.map((item, idx) => (
-              <li key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed font-sans">
-                <span className="w-1 h-1 rounded-full bg-[#659287]" />
+              <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed font-sans">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#659287] shrink-0 mt-1.5" />
                 <span>{item}</span>
               </li>
             ))}
