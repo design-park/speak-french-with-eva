@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ArrowRight, CheckCircle2, Mail, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
-import { PainPointCard, PriorityCard, TransformationItem, ReviewCard } from "./CardComponents";
-import { TESTIMONIALS_PROOFS } from "./TestimonialsView";
+import { PainPointCard, PriorityCard, TransformationItem, ReviewCard, VideoTestimonialCard } from "./CardComponents";
+import { TESTIMONIALS_PROOFS, FEATURED_VIDEO_INTERVIEWS } from "./TestimonialsView";
 import { LilyOfTheValley, DelicateDottedDivider, FleurDeLisOrnament, FrenchRose, EiffelTower, Croissant, CafeCup, Baguette } from "./DecorativeAccents";
 import { VideoModal } from "./VideoModal";
 
@@ -15,20 +15,52 @@ interface HomeViewProps {
   onMessageClick: () => void;
 }
 
+type CarouselItem =
+  | {
+      type: "video";
+      data: (typeof FEATURED_VIDEO_INTERVIEWS)[number];
+    }
+  | {
+      type: "review";
+      data: (typeof TESTIMONIALS_PROOFS)[number];
+    };
+
+// Slide 0 starts with the two video interviews (Erica & Oksana), followed by written reviews in pairs
+const HOME_CAROUSEL_SLIDES: CarouselItem[][] = [
+  // 1st Slide: The two featured video interviews
+  FEATURED_VIDEO_INTERVIEWS.map((v) => ({ type: "video" as const, data: v })),
+  // 2nd Slide: Sarah & Laura Paz
+  [
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[0] },
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[1] },
+  ],
+  // 3rd Slide: Rachel & Jh
+  [
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[4] },
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[5] },
+  ],
+  // 4th Slide: Coumba & Asia Rizzi
+  [
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[6] },
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[7] },
+  ],
+  // 5th Slide: Y BenKadour & Annabelle Guellil
+  [
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[8] },
+    { type: "review" as const, data: TESTIMONIALS_PROOFS[9] },
+  ],
+];
+
 export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, onMessageClick }) => {
-  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [activeVideo, setActiveVideo] = useState<{ youtubeId: string; title?: string; studentName?: string } | null>(null);
 
-  const nextTestimonial = () => {
-    setActiveTestimonialIndex((prev) =>
-      prev === TESTIMONIALS_PROOFS.length - 1 ? 0 : prev + 1
-    );
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === HOME_CAROUSEL_SLIDES.length - 1 ? 0 : prev + 1));
   };
 
-  const prevTestimonial = () => {
-    setActiveTestimonialIndex((prev) =>
-      prev === 0 ? TESTIMONIALS_PROOFS.length - 1 : prev - 1
-    );
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? HOME_CAROUSEL_SLIDES.length - 1 : prev - 1));
   };
 
   return (
@@ -355,16 +387,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
               </button>
               <div className="flex gap-2">
                 <button
-                  onClick={prevTestimonial}
+                  onClick={prevSlide}
                   className="w-10 h-10 rounded-full bg-white border border-[#659287]/20 flex items-center justify-center text-[#2D2D2D]/85 hover:text-[#659287] hover:bg-white shadow-sm transition-all focus:outline-none cursor-pointer"
-                  aria-label="Previous Testimonial Swipe"
+                  aria-label="Previous Testimonials Slide"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
-                  onClick={nextTestimonial}
+                  onClick={nextSlide}
                   className="w-10 h-10 rounded-full bg-white border border-[#659287]/20 flex items-center justify-center text-[#2D2D2D]/85 hover:text-[#659287] hover:bg-white shadow-sm transition-all focus:outline-none cursor-pointer"
-                  aria-label="Next Testimonial Swipe"
+                  aria-label="Next Testimonials Slide"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -372,34 +404,74 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
             </div>
           </div>
 
-          {/* Testimonial Active Slider Display */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-            {[0, 1].map((offset) => {
-              const itemIndex = (activeTestimonialIndex + offset) % TESTIMONIALS_PROOFS.length;
-              const item = TESTIMONIALS_PROOFS[itemIndex];
+          {/* Testimonials Slide Display */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-stretch">
+            {HOME_CAROUSEL_SLIDES[currentSlide].map((item, idx) => {
+              if (item.type === "video") {
+                const v = item.data;
+                return (
+                  <VideoTestimonialCard
+                    key={`video-${v.id}-${idx}`}
+                    id={v.id}
+                    name={v.name}
+                    role={v.role}
+                    location={v.location}
+                    program={v.program}
+                    title={v.title}
+                    summary={v.summary}
+                    youtubeId={v.youtubeId}
+                    tag={v.tag}
+                    onPlay={() =>
+                      setActiveVideo({
+                        youtubeId: v.youtubeId,
+                        title: v.title,
+                        studentName: v.name,
+                      })
+                    }
+                  />
+                );
+              }
+
+              const proof = item.data;
               return (
                 <ReviewCard
-                  key={item.id}
-                  name={item.name}
-                  program={item.program}
-                  rating={item.rating}
-                  highlight={item.highlight}
-                  quote={item.quote}
-                  quoteEn={item.quoteEn}
+                  key={`review-${proof.id}-${idx}`}
+                  name={proof.name}
+                  program={proof.program}
+                  rating={proof.rating}
+                  highlight={proof.highlight}
+                  quote={proof.quote}
+                  quoteEn={proof.quoteEn}
                   showQuoteDecorator={true}
                   onWatchVideo={
-                    item.youtubeId
+                    proof.youtubeId
                       ? () =>
                           setActiveVideo({
-                            youtubeId: item.youtubeId!,
-                            title: item.highlight,
-                            studentName: item.name,
+                            youtubeId: proof.youtubeId!,
+                            title: proof.highlight,
+                            studentName: proof.name,
                           })
                       : undefined
                   }
                 />
               );
             })}
+          </div>
+
+          {/* Slide Indicator Dots */}
+          <div className="flex items-center justify-center gap-2 pt-2">
+            {HOME_CAROUSEL_SLIDES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  currentSlide === idx
+                    ? "w-8 bg-[#659287]"
+                    : "w-2 bg-[#659287]/25 hover:bg-[#659287]/50"
+                }`}
+                aria-label={`Go to testimonial slide ${idx + 1}`}
+              />
+            ))}
           </div>
 
         </div>
