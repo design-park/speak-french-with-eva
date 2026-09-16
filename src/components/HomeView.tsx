@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, Mail, Sparkles, ChevronLeft, ChevronRight } f
 import { PainPointCard, PriorityCard, TransformationItem, ReviewCard } from "./CardComponents";
 import { TESTIMONIALS_PROOFS } from "./TestimonialsView";
 import { LilyOfTheValley, DelicateDottedDivider, FleurDeLisOrnament, FrenchRose, EiffelTower, Croissant, CafeCup, Baguette } from "./DecorativeAccents";
+import { VideoModal } from "./VideoModal";
 
 // Import generated portrait and lifestyle pics
 import evaPortrait from "../assets/images/eva-color.jpg";
@@ -16,6 +17,7 @@ interface HomeViewProps {
 
 export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, onMessageClick }) => {
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
+  const [activeVideo, setActiveVideo] = useState<{ youtubeId: string; title?: string; studentName?: string } | null>(null);
 
   const nextTestimonial = () => {
     setActiveTestimonialIndex((prev) =>
@@ -385,6 +387,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                   quote={item.quote}
                   quoteEn={item.quoteEn}
                   showQuoteDecorator={true}
+                  onWatchVideo={
+                    item.youtubeId
+                      ? () =>
+                          setActiveVideo({
+                            youtubeId: item.youtubeId!,
+                            title: item.highlight,
+                            studentName: item.name,
+                          })
+                      : undefined
+                  }
                 />
               );
             })}
@@ -392,6 +404,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
 
         </div>
       </section>
+
+      {/* Video Modal Player */}
+      <VideoModal
+        isOpen={!!activeVideo}
+        onClose={() => setActiveVideo(null)}
+        youtubeId={activeVideo?.youtubeId || ""}
+        title={activeVideo?.title}
+        studentName={activeVideo?.studentName}
+      />
 
     </div>
   );

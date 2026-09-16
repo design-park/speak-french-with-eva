@@ -1,42 +1,66 @@
 import React, { useState } from "react";
 import { VideoTestimonialCard, ReviewCard, CaseStudyCard } from "./CardComponents";
 import { Video } from "lucide-react";
+import { VideoModal } from "./VideoModal";
 
 interface TestimonialsViewProps {
   onCtaClick: () => void;
 }
 
-export const VIDEO_REVIEWS = [
+export interface VideoInterview {
+  id: string;
+  name: string;
+  role?: string;
+  location?: string;
+  program: string;
+  title: string;
+  summary: string;
+  youtubeId: string;
+  tag?: string;
+}
+
+export const FEATURED_VIDEO_INTERVIEWS: VideoInterview[] = [
   {
-    id: "v-1",
-    name: "Clara M.",
-    location: "Lyon",
-    program: "1-on-1 Coaching Program",
-    summary: "Before Eva, I was terrified to speak, and felt an awkwardness in any cozy apartment. This program completely shifted my confidence.",
-    ctaText: "Watch Clara's Story",
-    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
+    id: "v-erica",
+    name: "Erica Blotto",
+    role: "Expat Student",
+    location: "France",
+    program: "1-on-1 Coaching",
+    title: "From Stuck to Confident in French",
+    summary:
+      "Erica opens up about finding the right balance of conversation practice and grammar theory, and how working with Eva helped her shed hesitation and feel truly at ease speaking French.",
+    youtubeId: "qxD1C3Td19A",
+    tag: "Student Interview",
   },
   {
-    id: "v-2",
-    name: "Chloé S.",
-    location: "Paris",
-    program: "1-on-1 Coaching Program",
-    summary: "Before Eva, I was terrified to speak... she gave me total confidence in navigating daily Parisian life with warmth and patience.",
-    ctaText: "Watch Chloé's Story",
-    imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=400",
-  },
-  {
-    id: "v-3",
-    name: "Camille L.",
-    location: "Lyon",
-    program: "1-on-1 Coaching Program",
-    summary: "Learn at ease in an optimal environment. I stopped overthinking and finally found my confidence talking with native French speakers.",
-    ctaText: "Watch Camille's Story",
-    imageUrl: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=400",
+    id: "v-oksana",
+    name: "Oksana Volostnykh",
+    role: "Programmer in Canada",
+    location: "Canada",
+    program: "1-on-1 Coaching",
+    title: "From Zero to Understanding French",
+    summary:
+      "Working full-time in tech and learning French for immigration without time for homework, Oksana shares how Eva adapted completely to her schedule, taking her from zero to A2.",
+    youtubeId: "Qz3LWLurHME",
+    tag: "Student Interview",
   },
 ];
 
-export const TESTIMONIALS_PROOFS = [
+export const VIDEO_REVIEWS = FEATURED_VIDEO_INTERVIEWS;
+
+export interface TestimonialProof {
+  id: string;
+  name: string;
+  program: string;
+  rating: number;
+  highlight: string;
+  quote: string;
+  quoteEn?: string;
+  imageUrl?: string;
+  youtubeId?: string;
+}
+
+export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-1",
     name: "Sarah",
@@ -63,6 +87,7 @@ export const TESTIMONIALS_PROOFS = [
     highlight: "Good balance of theory and practice.",
     quote: "Great teacher for learning French and practicing conversation. Always great exercises and a good balance of theory / practice, plus Eva is a very caring person.",
     imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150",
+    youtubeId: "qxD1C3Td19A",
   },
   {
     id: "p-4",
@@ -72,6 +97,7 @@ export const TESTIMONIALS_PROOFS = [
     highlight: "Happy that Eva accommodates my requests.",
     quote: "I learn french for immigration and i hate doing homework, so i am really happy that Eva accomodates my requests including this no-homework situation. She is very patient teatcher, plans lessons according to priorities, requests and weaknesses (so you dont have skills that are much weaker than others, like you speak well but barely can read and vise versa). It has been a bit more than a year that i am learning french with Eva, i had 0 french knowledge before, right now it is like A2-ish, taking into account that i don't do a single thing for improving my french outside of our lessons - i consider my progress as a really good one.",
     imageUrl: "https://images.unsplash.com/photo-1534751516642-a131fed10495?auto=format&fit=crop&q=80&w=150",
+    youtubeId: "Qz3LWLurHME",
   },
   {
     id: "p-5",
@@ -176,36 +202,70 @@ export const CASE_STUDIES = [
 import { EiffelTower, Croissant } from "./DecorativeAccents";
 
 export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }) => {
+  const [selectedVideo, setSelectedVideo] = useState<{
+    youtubeId: string;
+    title?: string;
+    studentName?: string;
+  } | null>(null);
+
   return (
     <div className="bg-white min-h-screen text-left">
 
       {/* 1. HERO - WHAT MY STUDENTS SAY */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/30 text-center">
+      <section className="pt-20 pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/40 text-center">
         <div className="max-w-4xl mx-auto space-y-4">
-          <span className="inline-block px-3 py-1 rounded-full bg-[#E8B9BA]/15 text-[#2D2D2D] font-serif italic text-sm border border-[#E8B9BA]/35">
-            Real Proof
+          <span className="inline-block px-3.5 py-1 rounded-full bg-[#E8B9BA]/20 text-[#AC595B] font-serif italic text-sm border border-[#E8B9BA]/40">
+            Real Transformations
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[#2D2D2D] tracking-tight">
             What My Students Say
           </h1>
-          <p className="text-base sm:text-lg text-[#2D2D2D]/85 font-sans max-w-xl mx-auto leading-relaxed">
-            Verified written reviews from my clients who built confidence and progression in French.
+          <p className="text-base sm:text-lg text-[#2D2D2D]/85 font-sans max-w-2xl mx-auto leading-relaxed">
+            Real student video conversations and 100% verified written reviews from expatriate women who found their confident French voice with Eva.
           </p>
-          <div className="pt-2">
-            <a
-              href="https://www.google.com/search?hl=fr-FR&gl=fr&q=Speak+French+with+Eva&ludocid=3354417093084286652&lsig=AB86z5VEo1077elxhUo4r-pE3a7t&hl=fr&gl=FR&sa=X&ved=2ahUKEwjA1fOYpr6VAxVSUaQEHcKhIJMQ3PALegQIGxAO#lrd=0x5a0dca4ca2f206d:0x2e8d4892ddc98ebc,1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#659287]/30 bg-white/50 text-[#659287] hover:bg-[#85ada3] hover:text-white font-sans text-xs uppercase font-extrabold tracking-widest transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
-            >
-              <span>View on Google Reviews</span>
-              <span className="text-xs">↗</span>
-            </a>
+        </div>
+      </section>
+
+      {/* 2. FEATURED VIDEO INTERVIEWS */}
+      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-[#FAF0ED]/50 border-y border-[#E8B9BA]/20 relative">
+        <div className="max-w-5xl mx-auto space-y-8">
+          <div className="border-b border-[#bbc4ae]/20 pb-5">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#AC595B] mb-1.5">
+              <Video className="w-4 h-4" />
+              <span>Featured Video Interviews</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3.5xl font-bold text-[#2D2D2D]">
+              Hear Their Journeys In Their Own Words
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {FEATURED_VIDEO_INTERVIEWS.map((interview) => (
+              <VideoTestimonialCard
+                key={interview.id}
+                id={interview.id}
+                name={interview.name}
+                role={interview.role}
+                location={interview.location}
+                program={interview.program}
+                title={interview.title}
+                summary={interview.summary}
+                youtubeId={interview.youtubeId}
+                tag={interview.tag}
+                onPlay={() =>
+                  setSelectedVideo({
+                    youtubeId: interview.youtubeId,
+                    title: interview.title,
+                    studentName: interview.name,
+                  })
+                }
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 2. WRITTEN REVIEWS GRID */}
+      {/* 3. WRITTEN REVIEWS GRID */}
       <section className="py-16 pb-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
         {/* Background French ornaments */}
         <div className="absolute right-8 top-12 opacity-10 text-[#659287] pointer-events-none transform rotate-12 hidden md:block">
@@ -215,7 +275,29 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
           <Croissant className="w-48 h-48" />
         </div>
 
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto relative z-10 space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#bbc4ae]/20 pb-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#659287]">
+                VERIFIED EXPERIENCES
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2D2D2D] mt-1">
+                Written Client Reviews
+              </h2>
+            </div>
+            <div>
+              <a
+                href="https://www.google.com/search?hl=fr-FR&gl=fr&q=Speak+French+with+Eva&ludocid=3354417093084286652&lsig=AB86z5VEo1077elxhUo4r-pE3a7t&hl=fr&gl=FR&sa=X&ved=2ahUKEwjA1fOYpr6VAxVSUaQEHcKhIJMQ3PALegQIGxAO#lrd=0x5a0dca4ca2f206d:0x2e8d4892ddc98ebc,1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#659287]/30 bg-[#FBF8F3] hover:bg-[#659287] hover:text-white text-[#659287] font-sans text-xs uppercase font-extrabold tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 shadow-xs"
+              >
+                <span>View on Google Reviews</span>
+                <span className="text-xs">↗</span>
+              </a>
+            </div>
+          </div>
+
           {/* 11 Cards Written reviews Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {TESTIMONIALS_PROOFS.map((proof) => (
@@ -228,11 +310,30 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
                 quote={proof.quote}
                 quoteEn={proof.quoteEn}
                 showQuoteDecorator={false}
+                onWatchVideo={
+                  proof.youtubeId
+                    ? () =>
+                        setSelectedVideo({
+                          youtubeId: proof.youtubeId!,
+                          title: proof.highlight,
+                          studentName: proof.name,
+                        })
+                    : undefined
+                }
               />
             ))}
           </div>
         </div>
       </section>
+
+      {/* Video Modal Player */}
+      <VideoModal
+        isOpen={!!selectedVideo}
+        onClose={() => setSelectedVideo(null)}
+        youtubeId={selectedVideo?.youtubeId || ""}
+        title={selectedVideo?.title}
+        studentName={selectedVideo?.studentName}
+      />
 
       {/* 3. FINAL BANNER CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#FBF8F3]/30">

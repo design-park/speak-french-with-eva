@@ -189,6 +189,7 @@ interface ReviewCardProps {
   quote: string;
   quoteEn?: string;
   showQuoteDecorator?: boolean;
+  onWatchVideo?: () => void;
 }
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({
@@ -199,6 +200,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
   quote,
   quoteEn,
   showQuoteDecorator = true,
+  onWatchVideo,
 }) => {
   return (
     <div className="bg-white p-8 rounded-3xl border border-[#bbc4ae]/15 hover:border-[#bbc4ae]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full relative">
@@ -209,11 +211,24 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
       )}
 
       <div className={`space-y-4 ${showQuoteDecorator ? "pt-4 relative z-10" : ""}`}>
-        {/* Rating Stars */}
-        <div className="flex gap-1 text-[#bbc4ae]">
-          {[...Array(rating)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-current text-[#bbc4ae]" />
-          ))}
+        {/* Rating Stars & Watch Video Pill */}
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex gap-1 text-[#bbc4ae]">
+            {[...Array(rating)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-current text-[#bbc4ae]" />
+            ))}
+          </div>
+          {onWatchVideo && (
+            <button
+              type="button"
+              onClick={onWatchVideo}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAF0ED] hover:bg-[#F7E5E6] border border-[#E8B9BA]/50 text-[#AC595B] text-xs font-sans font-bold tracking-tight transition-all duration-200 shadow-xs hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+              title="Watch video interview with Eva"
+            >
+              <Play className="w-3 h-3 fill-current text-[#AC595B]" />
+              <span>Watch Video Interview</span>
+            </button>
+          )}
         </div>
 
         {/* Highlight callout text */}
@@ -458,100 +473,108 @@ export const WideProgramCard: React.FC<ProgramCardProps> = ({
 interface VideoTestimonialCardProps {
   id: string;
   name: string;
-  location: string;
+  location?: string;
+  role?: string;
   program: string;
+  title: string;
   summary: string;
-  ctaText: string;
-  imageUrl: string;
-  isPlaying: boolean;
-  onPlayToggle: () => void;
-  onClosePlayer: () => void;
+  youtubeId: string;
+  tag?: string;
+  onPlay: () => void;
 }
 
 export const VideoTestimonialCard: React.FC<VideoTestimonialCardProps> = ({
   id,
   name,
   location,
+  role,
   program,
+  title,
   summary,
-  ctaText,
-  imageUrl,
-  isPlaying,
-  onPlayToggle,
-  onClosePlayer,
+  youtubeId,
+  tag = "Video Interview",
+  onPlay,
 }) => {
+  const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+
   return (
-    <div className="bg-white rounded-3xl overflow-hidden border border-[#bbc4ae]/15 hover:border-[#bbc4ae]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full text-left">
-      {/* Virtual Video Frame */}
-      <div className="aspect-[4/3] bg-stone-900 relative">
+    <div className="bg-white rounded-3xl overflow-hidden border border-[#bbc4ae]/20 hover:border-[#659287]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full text-left group">
+      {/* Video Thumbnail with Interactive Play Overlay */}
+      <div
+        onClick={onPlay}
+        className="aspect-video bg-stone-900 relative cursor-pointer overflow-hidden"
+      >
         <img
-          src={imageUrl}
-          alt={name}
-          className="w-full h-full object-cover opacity-80 filter saturate-[0.85] brightness-95"
+          src={thumbnailUrl}
+          alt={`${name} - ${title}`}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 filter brightness-95"
           referrerPolicy="no-referrer"
         />
 
-        {/* Dark/Warm overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-black/10 flex flex-col justify-between p-4">
-          {/* Top banner tag */}
-          <span className="self-start px-2 py-0.5 rounded bg-white/20 backdrop-blur-md text-white text-[10px] uppercase font-bold tracking-wider font-sans">
-            {location} • {program.split(" Coaching")[0]}
-          </span>
-
-          {/* Central Interactive Play Trigger */}
-          <div className="self-center">
-            <motion.button
-              whileHover={{ scale: 1.15 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={onPlayToggle}
-              className="w-12 h-12 rounded-full bg-white/95 text-[#2D2D2D] flex items-center justify-center shadow-lg hover:text-[#659287] transition-colors focus:outline-none cursor-pointer"
-              aria-label={`Play story video testimonial of student ${name}`}
-            >
-              {isPlaying ? (
-                <span className="text-xs font-bold font-sans">Stop</span>
-              ) : (
-                <Play className="w-5 h-5 fill-current ml-0.5" />
-              )}
-            </motion.button>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/30 flex flex-col justify-between p-4 sm:p-5">
+          {/* Top badge */}
+          <div className="flex items-center justify-between">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-white text-[11px] font-sans font-semibold border border-white/20">
+              <span className="w-2 h-2 rounded-full bg-[#E8B9BA] animate-pulse" />
+              <span>{tag}</span>
+            </span>
+            <span className="text-[11px] text-white/80 font-sans px-2.5 py-0.5 rounded bg-white/15 backdrop-blur-md">
+              YouTube
+            </span>
           </div>
 
-          {/* Display name tag in video */}
-          <span className="text-white font-serif text-sm italic font-bold">
-            {name}, {location}
-          </span>
+          {/* Centered Play Button */}
+          <div className="self-center transform group-hover:scale-110 transition-transform duration-300">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#E8B9BA] text-[#2D2D2D] flex items-center justify-center shadow-lg shadow-black/40 group-hover:bg-white transition-colors">
+              <Play className="w-6 h-6 fill-current ml-1 text-[#2D2D2D]" />
+            </div>
+          </div>
+
+          {/* Student Sub-tag on thumbnail bottom */}
+          <div className="flex items-center justify-between text-white text-xs font-sans">
+            <span className="font-serif italic font-medium text-sm text-white drop-shadow">
+              {name}
+            </span>
+            <span className="text-white/80 text-[11px]">
+              Click to play video ↗
+            </span>
+          </div>
         </div>
-
-        {/* Overlay playing notice */}
-        {isPlaying && (
-          <div className="absolute inset-0 bg-stone-900 flex flex-col items-center justify-center p-6 text-center space-y-4 text-white z-20">
-            <MessageCircle className="w-8 h-8 text-[#E8B9BA] animate-bounce" />
-            <p className="font-serif italic text-sm">
-              "Eva changed my whole outlook! Connecting over tea let me practice natural street-level sentences cleanly."
-            </p>
-            <button
-              onClick={onClosePlayer}
-              className="text-xs font-bold uppercase underline tracking-wider text-[#bbc4ae] hover:text-white transition-colors cursor-pointer"
-            >
-              Close Player
-            </button>
-          </div>
-        )}
       </div>
 
-      {/* Summary copy */}
-      <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-        <p className="text-sm text-[#2D2D2D]/80 font-sans leading-relaxed">
-          "{summary}"
-        </p>
+      {/* Content description */}
+      <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+        <div className="space-y-2.5">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#659287] font-semibold uppercase tracking-wider">
+            <span>{program}</span>
+            {role && (
+              <>
+                <span className="text-[#2D2D2D]/30">•</span>
+                <span className="text-[#2D2D2D]/60">{role}</span>
+              </>
+            )}
+          </div>
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-[#2D2D2D] leading-snug group-hover:text-[#659287] transition-colors">
+            "{title}"
+          </h3>
+          <p className="text-sm text-[#2D2D2D]/75 font-sans leading-relaxed">
+            {summary}
+          </p>
+        </div>
 
-        <div className="pt-4 border-t border-[#F5EFE6]">
+        <div className="pt-4 border-t border-[#F5EFE6] flex items-center justify-between">
           <button
-            onClick={onPlayToggle}
-            className="text-xs font-bold uppercase tracking-wider text-[#659287] hover:text-[#527a70] hover:underline flex items-center gap-1 cursor-pointer focus:outline-none"
+            type="button"
+            onClick={onPlay}
+            className="text-xs font-bold uppercase tracking-wider text-[#AC595B] group-hover:text-[#659287] flex items-center gap-2 cursor-pointer transition-colors focus:outline-none"
           >
-            <span>{ctaText}</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <Play className="w-3.5 h-3.5 fill-current" />
+            <span>Watch Full Interview</span>
           </button>
+          <span className="text-xs text-[#2D2D2D]/50 font-sans italic">
+            With Eva
+          </span>
         </div>
       </div>
     </div>
