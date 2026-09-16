@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Heart, Check, Play, Pause, ChevronRight, Video, Target, Award, User, MessageCircle, Star, Users } from "lucide-react";
+import { Heart, Check, Play, Pause, ChevronRight, Video, Target, Award, User, MessageCircle, Star, Users, BookOpen } from "lucide-react";
 import { SubtleSparkle, FleurDeLisOrnament } from "./DecorativeAccents";
 
 // 1. ExpandableQuote helper component
@@ -246,6 +246,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
 // 8. ProgramCard (ServicesView)
 interface ProgramCardProps {
   id: string;
+  badgeText?: string;
   title: string;
   subtitle: string;
   forWho: string[];
@@ -256,6 +257,7 @@ interface ProgramCardProps {
 
 export const ProgramCard: React.FC<ProgramCardProps> = ({
   id,
+  badgeText,
   title,
   subtitle,
   forWho,
@@ -264,11 +266,21 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
   onCtaClick,
 }) => {
   const isCoaching = id === "coaching";
+  const isCurriculum = id === "curriculum";
+
+  const defaultBadge = isCoaching
+    ? "1-on-1 Intensive Coaching"
+    : isCurriculum
+    ? "1-on-1 Structured (A1→B2)"
+    : "Group Practice (Max 4)";
+
   return (
     <div
       className={`bg-white p-8 sm:p-10 rounded-3xl border shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md relative ${
         isCoaching
-          ? "border-[#E8B9BA]/40 bg-gradient-to-b from-white to-[#E8B9BA]/5"
+          ? "border-[#E8B9BA]/50 bg-gradient-to-b from-white to-[#E8B9BA]/10"
+          : isCurriculum
+          ? "border-[#E8B9BA]/35 bg-gradient-to-b from-white to-[#FBF8F3]/60"
           : "border-[#bbc4ae]/40 bg-gradient-to-b from-white to-[#bbc4ae]/5"
       }`}
     >
@@ -285,13 +297,19 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
               <div className="w-8 h-8 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center text-[#AC595B]">
                 <Heart className="w-4 h-4 fill-[#AC595B]" />
               </div>
+            ) : isCurriculum ? (
+              <div className="w-8 h-8 rounded-full bg-[#E8B9BA]/20 flex items-center justify-center text-[#AC595B]">
+                <BookOpen className="w-4 h-4 text-[#AC595B]" />
+              </div>
             ) : (
               <div className="w-8 h-8 rounded-full bg-[#bbc4ae]/20 flex items-center justify-center text-[#659287]">
                 <Users className="w-4 h-4" />
               </div>
             )}
-            <span className="text-[10px] uppercase font-bold tracking-widest text-[#659287]">
-              {isCoaching ? "1-on-1 Customized" : "Group Practice"}
+            <span className={`text-[10px] uppercase font-bold tracking-widest ${
+              isCoaching || isCurriculum ? "text-[#AC595B]" : "text-[#659287]"
+            }`}>
+              {badgeText || defaultBadge}
             </span>
           </div>
 
@@ -341,13 +359,98 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
         <button
           onClick={onCtaClick}
           className={`w-full py-4 rounded-xl font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all ${
-            isCoaching
-              ? "bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] shadow-md shadow-[#E8B9BA]/20"
-              : "bg-[#659287] hover:bg-[#527a70] text-white shadow-md shadow-[#659287]/20"
+            isCoaching || isCurriculum
+              ? "bg-[#E8B9BA] hover:bg-[#e1a5a7] text-[#2D2D2D] shadow-md shadow-[#E8B9BA]/20 transform hover:-translate-y-0.5 active:translate-y-0"
+              : "bg-[#659287] hover:bg-[#527a70] text-white shadow-md shadow-[#659287]/20 transform hover:-translate-y-0.5 active:translate-y-0"
           }`}
         >
           {ctaText}
         </button>
+      </div>
+    </div>
+  );
+};
+
+// 8b. WideProgramCard (ServicesView - Featured Community Tier)
+export const WideProgramCard: React.FC<ProgramCardProps> = ({
+  badgeText = "Small-Group Practice (Max 4)",
+  title,
+  subtitle,
+  forWho,
+  whatYouGet,
+  ctaText,
+  onCtaClick,
+}) => {
+  return (
+    <div className="bg-white p-8 sm:p-10 lg:p-12 rounded-3xl border border-[#bbc4ae]/40 bg-gradient-to-b from-white to-[#bbc4ae]/5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
+      {/* Chic top stamp badge */}
+      <div className="absolute top-6 right-6 text-[#bbc4ae] opacity-20 pointer-events-none">
+        <FleurDeLisOrnament className="w-16 h-16" />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        {/* Left column: Header & "This is for you if" */}
+        <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-[#bbc4ae]/20 flex items-center justify-center text-[#659287]">
+                <Users className="w-4 h-4" />
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest text-[#659287]">
+                {badgeText}
+              </span>
+            </div>
+
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2D2D2D]">
+              {title}
+            </h2>
+            <p className="text-sm italic font-serif text-[#2D2D2D]/80 font-medium">
+              {subtitle}
+            </p>
+          </div>
+
+          {/* "This is for you if" checklist */}
+          <div className="space-y-4 pt-2">
+            <h3 className="text-xs uppercase tracking-wider font-extrabold text-[#2D2D2D] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#AC595B]" />
+              <span>This is for you if:</span>
+            </h3>
+            <ul className="space-y-3">
+              {forWho.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-sm text-[#2D2D2D]/80 leading-relaxed font-sans">
+                  <Check className="w-4 h-4 text-[#659287] shrink-0 mt-0.5 stroke-[2.5]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Right column: "What you get in the program" frame & CTA */}
+        <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+          <div className="bg-[#FBF8F3] p-6 sm:p-7 rounded-2xl border border-[#bbc4ae]/15 space-y-4 h-full flex flex-col justify-center">
+            <h3 className="text-xs uppercase tracking-wider font-extrabold text-[#2D2D2D] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#659287]" />
+              <span>What you get in the program:</span>
+            </h3>
+            <ul className="space-y-3">
+              {whatYouGet.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed font-sans">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#659287] shrink-0 mt-1.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CTA Button */}
+          <button
+            onClick={onCtaClick}
+            className="w-full py-4 rounded-xl font-sans text-xs uppercase font-extrabold tracking-widest cursor-pointer transition-all bg-[#659287] hover:bg-[#527a70] text-white shadow-md shadow-[#659287]/20 transform hover:-translate-y-0.5 active:translate-y-0"
+          >
+            {ctaText}
+          </button>
+        </div>
       </div>
     </div>
   );
