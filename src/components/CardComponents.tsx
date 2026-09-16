@@ -339,9 +339,8 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
 
         {/* "What you get" list wrapped in stylish bordered frame */}
         <div className="bg-[#FBF8F3] p-6 rounded-2xl border border-[#bbc4ae]/15 space-y-4">
-          <h3 className="text-xs uppercase tracking-wider font-extrabold text-[#2D2D2D] flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#659287]" />
-            <span>What you get in the program:</span>
+          <h3 className="text-xs uppercase tracking-wider font-extrabold text-[#2D2D2D]">
+            What you get in the program:
           </h3>
           <ul className="space-y-2.5">
             {whatYouGet.map((item, idx) => (
@@ -429,9 +428,8 @@ export const WideProgramCard: React.FC<ProgramCardProps> = ({
         {/* Right column: "What you get in the program" frame & CTA */}
         <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
           <div className="bg-[#FBF8F3] p-6 sm:p-7 rounded-2xl border border-[#bbc4ae]/15 space-y-4 h-full flex flex-col justify-center">
-            <h3 className="text-xs uppercase tracking-wider font-extrabold text-[#2D2D2D] flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#659287]" />
-              <span>What you get in the program:</span>
+            <h3 className="text-xs uppercase tracking-wider font-extrabold text-[#2D2D2D]">
+              What you get in the program:
             </h3>
             <ul className="space-y-3">
               {whatYouGet.map((item, idx) => (
