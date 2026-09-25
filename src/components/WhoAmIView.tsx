@@ -77,7 +77,7 @@ export const WhoAmIView: React.FC<WhoAmIViewProps> = ({ onCtaClick }) => {
 
                   <div className="px-2">
                     <span className="font-serif font-bold text-base text-[#2D2D2D] block">Eva</span>
-                    <span className="text-xs text-[#659287] font-sans font-medium">Native French Coach</span>
+                    <span className="text-xs text-[#659287] font-sans font-medium">Native French Teacher & Coach</span>
                   </div>
                 </div>
               </div>

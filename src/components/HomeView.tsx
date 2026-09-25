@@ -44,7 +44,7 @@ const HOME_CAROUSEL_SLIDES: CarouselItem[][] = [
     { type: "review" as const, data: TESTIMONIALS_PROOFS[6] },
     { type: "review" as const, data: TESTIMONIALS_PROOFS[7] },
   ],
-  // 5th Slide: Y BenKadour & Annabelle Guellil
+  // 5th Slide: Y BenKadour & Malayarukil Nihitha
   [
     { type: "review" as const, data: TESTIMONIALS_PROOFS[8] },
     { type: "review" as const, data: TESTIMONIALS_PROOFS[9] },

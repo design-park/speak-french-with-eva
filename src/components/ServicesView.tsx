@@ -71,11 +71,11 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onB1Prog
               onCtaClick={onCtaClick}
             />
 
-            {/* Card 2: Standard Class Curriculum */}
+            {/* Card 2: 1-on-1 Curriculum */}
             <ProgramCard
               id="curriculum"
               badgeText="1-on-1 Structured (A1→B2)"
-              title="Standard Class Curriculum"
+              title="1-on-1 Standard Class"
               subtitle="From A1 to B2, conversation-focused."
               forWho={[
                 "You are looking for classes focused on conversations and spoken French.",

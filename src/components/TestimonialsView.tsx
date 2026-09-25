@@ -22,10 +22,10 @@ export interface VideoInterview {
 export const FEATURED_VIDEO_INTERVIEWS: VideoInterview[] = [
   {
     id: "v-erica",
-    name: "Erica Blotto",
-    role: "Expat Student",
+    name: "Erica",
+    role: "Expat in Amsterdam",
     location: "France",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     title: "From Stuck to Confident in French",
     summary:
       "Erica opens up about finding the right balance of conversation practice and grammar theory, and how working with Eva helped her shed hesitation and feel truly at ease speaking French.",
@@ -34,10 +34,10 @@ export const FEATURED_VIDEO_INTERVIEWS: VideoInterview[] = [
   },
   {
     id: "v-oksana",
-    name: "Oksana Volostnykh",
+    name: "Oksana",
     role: "Programmer in Canada",
     location: "Canada",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     title: "From Zero to Understanding French",
     summary:
       "Working full-time in tech and learning French for immigration without time for homework, Oksana shares how Eva adapted completely to her schedule, taking her from zero to A2.",
@@ -64,7 +64,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-1",
     name: "Sarah",
-    program: "1-on-1 Coaching",
+    program: "Small Group Club",
     rating: 5,
     highlight: "Loved the worksheets and playful touch.",
     quote: "Eva is a very friendly and calm teacher. She asked me, what i wanted to learn and prepared worksheets for those topics. I liked that there was a playful touch to it sometimes because studying for a long time can be tiring and that helped me regain my energy! Her explanations were very good and if i didnt understand she was always patient and tried again. After the course i had better understanding of grammar and lewrnee a lot of new words!! it still sticks to me to this day, she definitely helped me a lot and i actually enjoyed the lessons 🫶",
@@ -73,7 +73,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-2",
     name: "Laura Paz",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "Patient, kind, and adapts the lessons.",
     quote: "Eva is a great teacher. She's patient and kind and adapts the lessons to my objectives. I recommend her 100%.",
@@ -82,7 +82,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-3",
     name: "Erica Blotto",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "Good balance of theory and practice.",
     quote: "Great teacher for learning French and practicing conversation. Always great exercises and a good balance of theory / practice, plus Eva is a very caring person.",
@@ -92,7 +92,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-4",
     name: "Oksana Volostnykh",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "Happy that Eva accommodates my requests.",
     quote: "I learn french for immigration and i hate doing homework, so i am really happy that Eva accomodates my requests including this no-homework situation. She is very patient teatcher, plans lessons according to priorities, requests and weaknesses (so you dont have skills that are much weaker than others, like you speak well but barely can read and vise versa). It has been a bit more than a year that i am learning french with Eva, i had 0 french knowledge before, right now it is like A2-ish, taking into account that i don't do a single thing for improving my french outside of our lessons - i consider my progress as a really good one.",
@@ -102,7 +102,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-5",
     name: "Rachel Bilouson",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "Inspires confidence and excellent support.",
     quote: "Eva est une enseignante très pédagogue, très douce et très pro qui met beaucoup de soin dans ses cours. Elle met en confiance et on bénéficie d'un réel suivi. Je recommande totalement ses services :)",
@@ -112,7 +112,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-6",
     name: "Jh",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "Attentive, calm, and puts you at ease.",
     quote: "J’ai déjà appris le français auparavant, mais j’avais du mal à parler et je manquais de confiance. Avec ses cours, je me sens progressivement plus à l’aise à l’oral, sans pression. Elle est très calme et à l’écoute, ce qui met vraiment en confiance. Les cours sont agréables et motivants, je recommande sans hésiter.",
@@ -122,7 +122,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-7",
     name: "Coumba",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "A very effective and pleasant experience.",
     quote: "C'est une enseignante très efficace. J'ai beaucoup aimé apprendre le français avec elle. Je la recommande vivement ! C'était une expérience très agréable.",
@@ -132,7 +132,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-8",
     name: "Asia Rizzi",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "Trustworthy and genuinely caring.",
     quote: "Very patient teacher. Trustworthy and genuinely caring! She takes time to get to know you so nothing feels impersonal. She's got you ;)",
@@ -141,7 +141,7 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   {
     id: "p-10",
     name: "Y BenKadour",
-    program: "1-on-1 Coaching",
+    program: "1-on-1 Course",
     rating: 5,
     highlight: "Gained confidence!",
     quote: "De très bons cours avec une personne très professionnelle :) J’ai beaucoup appris et j’ai gagné en confiance !!",
@@ -150,12 +150,11 @@ export const TESTIMONIALS_PROOFS: TestimonialProof[] = [
   },
   {
     id: "p-11",
-    name: "Annabelle Guellil",
-    program: "1-on-1 Coaching",
+    name: "Malayarukil Nihitha",
+    program: "1-on-1 Course",
     rating: 5,
-    highlight: "Excellent French teacher!",
-    quote: "Très bonne professeur de français ! Très pédagogue, je recommande à tous !",
-    quoteEn: "Excellent French teacher! Very skilled at teaching, I recommend her to everyone!",
+    highlight: "More confident while talking!",
+    quote: "I had really a great experience in learning french. To be honest, I started these classes at a point where I know words but don't know how to make good sentences. I realised that I have a serious foundation issue (big confusion on tenses and how to frame the sentences). When I took a step to take french classes, things started changing slowly. I was more confident while talking. People understand much better. Also, I got a compliment from a french lady (which is quite difficult). So, I would like to take this opportunity to thank eva for building a curriculum which suits my interest, goals and continued supporting my efforts.",
     imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150",
   },
 ];
@@ -221,7 +220,7 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
             What My Students Say
           </h1>
           <p className="text-base sm:text-lg text-[#2D2D2D]/85 font-sans max-w-2xl mx-auto leading-relaxed">
-            Real student video conversations and 100% verified written reviews from expatriate women who found their confident French voice with Eva.
+            Video conversations and verified written reviews from women who worked on their confidence in French with Eva.
           </p>
         </div>
       </section>
@@ -313,11 +312,11 @@ export const TestimonialsView: React.FC<TestimonialsViewProps> = ({ onCtaClick }
                 onWatchVideo={
                   proof.youtubeId
                     ? () =>
-                        setSelectedVideo({
-                          youtubeId: proof.youtubeId!,
-                          title: proof.highlight,
-                          studentName: proof.name,
-                        })
+                      setSelectedVideo({
+                        youtubeId: proof.youtubeId!,
+                        title: proof.highlight,
+                        studentName: proof.name,
+                      })
                     : undefined
                 }
               />
