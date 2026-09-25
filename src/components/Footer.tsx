@@ -6,9 +6,11 @@ interface FooterProps {
   setCurrentTab: (tab: string) => void;
   onCtaClick: () => void;
   onMessageClick: () => void;
+  onTermsClick?: () => void;
+  onLegalClick?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMessageClick }) => {
+export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMessageClick, onTermsClick, onLegalClick }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -119,19 +121,30 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab, onCtaClick, onMes
         </div>
 
         {/* Divider with Fleur de lis */}
-        <div className="border-t border-[#bbc4ae]/20 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-[#2D2D2D]/75 text-center sm:text-left">
-            © 2026 Speak French with Eva. All rights reserved. Registered French Coach.
-          </p>
-
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-[#2D2D2D]/70 italic font-serif">Made with French amour</span>
-            <Heart className="w-3 h-3 text-[#AC595B] fill-[#AC595B] animate-pulse" />
+        <div className="border-t border-[#bbc4ae]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1.5 text-xs text-[#2D2D2D]/75 text-center sm:text-left">
+            <span>© 2026 Speak French with Eva. All rights reserved.</span>
+            <span className="hidden sm:inline text-[#bbc4ae]/60">•</span>
+            <button
+              type="button"
+              onClick={onTermsClick}
+              className="text-[#2D2D2D]/80 hover:text-[#AC595B] underline underline-offset-4 decoration-[#AC595B]/40 hover:decoration-[#AC595B] transition-colors cursor-pointer font-medium"
+            >
+              Conditions Générales d’Utilisation (CGU)
+            </button>
+            <span className="hidden sm:inline text-[#bbc4ae]/60">•</span>
+            <button
+              type="button"
+              onClick={onLegalClick}
+              className="text-[#2D2D2D]/80 hover:text-[#AC595B] underline underline-offset-4 decoration-[#AC595B]/40 hover:decoration-[#AC595B] transition-colors cursor-pointer font-medium"
+            >
+              Mentions Légales & Politique de confidentialité
+            </button>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#bbc4ae]/20 text-[#2D2D2D]/75 hover:text-[#659287] hover:border-[#659287] transition-colors text-xs font-semibold uppercase tracking-wider cursor-pointer group"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#bbc4ae]/20 text-[#2D2D2D]/75 hover:text-[#659287] hover:border-[#659287] transition-colors text-xs font-semibold uppercase tracking-wider cursor-pointer group shrink-0"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />

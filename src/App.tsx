@@ -7,12 +7,18 @@ import { WhoAmIView } from "./components/WhoAmIView";
 import { ServicesView } from "./components/ServicesView";
 import { TestimonialsView } from "./components/TestimonialsView";
 import { MessageModal } from "./components/MessageModal";
+import { TermsModal } from "./components/TermsModal";
+import { TermsView } from "./components/TermsView";
+import { LegalPrivacyModal } from "./components/LegalPrivacyModal";
+import { LegalPrivacyView } from "./components/LegalPrivacyView";
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<string>("home");
 
   // Modals state
   const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+  const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
 
   const openCtaModal = () => {
     window.open("https://calendly.com/eva-nb/free_discovery_videocall?back=1&month=2026-06", "_blank");
@@ -24,6 +30,22 @@ export default function App() {
 
   const closeMessageModal = () => {
     setIsMessageModalOpen(false);
+  };
+
+  const openTermsModal = () => {
+    setIsTermsModalOpen(true);
+  };
+
+  const closeTermsModal = () => {
+    setIsTermsModalOpen(false);
+  };
+
+  const openLegalModal = () => {
+    setIsLegalModalOpen(true);
+  };
+
+  const closeLegalModal = () => {
+    setIsLegalModalOpen(false);
   };
 
   // Switch tabs cleanly with smooth scrolling
@@ -52,6 +74,20 @@ export default function App() {
         );
       case "testimonials":
         return <TestimonialsView onCtaClick={openCtaModal} />;
+      case "terms":
+        return (
+          <TermsView
+            onBack={() => handleTabChange("home")}
+            onMessageClick={openMessageModal}
+          />
+        );
+      case "legal":
+        return (
+          <LegalPrivacyView
+            onBack={() => handleTabChange("home")}
+            onMessageClick={openMessageModal}
+          />
+        );
       default:
         return (
           <HomeView
@@ -89,12 +125,34 @@ export default function App() {
       </main>
 
       {/* Beautiful High-contrast Footers with full columns and interactions */}
-      <Footer setCurrentTab={handleTabChange} onCtaClick={openCtaModal} onMessageClick={openMessageModal} />
+      <Footer
+        setCurrentTab={handleTabChange}
+        onCtaClick={openCtaModal}
+        onMessageClick={openMessageModal}
+        onTermsClick={openTermsModal}
+        onLegalClick={openLegalModal}
+      />
 
       {/* Personal messages modal */}
       <MessageModal
         isOpen={isMessageModalOpen}
         onClose={closeMessageModal}
+      />
+
+      {/* Terms and Conditions (CGU) modal */}
+      <TermsModal
+        isOpen={isTermsModalOpen}
+        onClose={closeTermsModal}
+        onContactClick={openMessageModal}
+        onViewAsPage={() => handleTabChange("terms")}
+      />
+
+      {/* Legal Notice & Privacy Policy modal */}
+      <LegalPrivacyModal
+        isOpen={isLegalModalOpen}
+        onClose={closeLegalModal}
+        onContactClick={openMessageModal}
+        onViewAsPage={() => handleTabChange("legal")}
       />
 
     </div>
