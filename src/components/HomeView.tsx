@@ -17,13 +17,13 @@ interface HomeViewProps {
 
 type CarouselItem =
   | {
-      type: "video";
-      data: (typeof FEATURED_VIDEO_INTERVIEWS)[number];
-    }
+    type: "video";
+    data: (typeof FEATURED_VIDEO_INTERVIEWS)[number];
+  }
   | {
-      type: "review";
-      data: (typeof TESTIMONIALS_PROOFS)[number];
-    };
+    type: "review";
+    data: (typeof TESTIMONIALS_PROOFS)[number];
+  };
 
 // Slide 0 starts with the two video interviews (Erica & Oksana), followed by written reviews in pairs
 const HOME_CAROUSEL_SLIDES: CarouselItem[][] = [
@@ -370,7 +370,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
             <div className="space-y-2 text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-[#659287] block">KIND WORDS</span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D2D2D]">
-                Don't take my word for it. <span className="block text-[#AC595B] italic font-light">Trust my clients.</span>
+                Don't take my word for it. <span className="block text-[#AC595B] italic font-light">Trust my learners.</span>
               </h2>
             </div>
 
@@ -446,11 +446,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
                   onWatchVideo={
                     proof.youtubeId
                       ? () =>
-                          setActiveVideo({
-                            youtubeId: proof.youtubeId!,
-                            title: proof.highlight,
-                            studentName: proof.name,
-                          })
+                        setActiveVideo({
+                          youtubeId: proof.youtubeId!,
+                          title: proof.highlight,
+                          studentName: proof.name,
+                        })
                       : undefined
                   }
                 />
@@ -464,11 +464,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onCtaClick, o
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentSlide === idx
-                    ? "w-8 bg-[#659287]"
-                    : "w-2 bg-[#659287]/25 hover:bg-[#659287]/50"
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === idx
+                  ? "w-8 bg-[#659287]"
+                  : "w-2 bg-[#659287]/25 hover:bg-[#659287]/50"
+                  }`}
                 aria-label={`Go to testimonial slide ${idx + 1}`}
               />
             ))}

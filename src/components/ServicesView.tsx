@@ -131,7 +131,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onCtaClick, onB1Prog
               "Topic-based lessons that matter to your real life",
               "A built-in community of women who gets you"
             ]}
-            ctaText="Join small-group French classes"
+            ctaText="Learn More About the Program"
             onCtaClick={onB1ProgramClick}
           />
         </div>
